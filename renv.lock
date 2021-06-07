@@ -1,0 +1,37 @@
+{
+  "R": {
+    "Version": "3.6.3",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cran.rstudio.com"
+      }
+    ]
+  },
+  "Packages": {
+    "ProjectTemplate": {
+      "Package": "ProjectTemplate",
+      "Version": "0.10.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ProjectTemplate",
+      "RemoteUsername": "KentonWhite",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "d2934c98dea48f6668684e27a9e1786dfa029f2e",
+      "Hash": "32aca38a05ed566e136a35552af88425"
+    },
+    "renv": {
+      "Package": "renv",
+      "Version": "0.13.2-62",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "renv",
+      "RemoteUsername": "rstudio",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "e5a7319ca5f711a64a8affabca9f2c995919e3ad",
+      "Hash": "3d361fb001d3255e7b32026f5db98b00"
+    }
+  }
+}
