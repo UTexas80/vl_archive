@@ -11,7 +11,7 @@ libraries:  cheatsheet, checkpoint, circlize, compareDF, curl, d3heatmap, daff, 
             fuzzyjoin,  ggplot2, grkstyle, grid, gt, here, highcharter, httr, humaniformat, janitor, keyring, knitr, lintr, logger, lubridate, magrittr,
             Microsoft365R, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, pivottabler, plotluck, plyr, ppsr, processR, ProjectTemplate, quantmod,
             ReDaMoR, raincloudplots, readr, readxl, reprex, reshape2, rio, rmarkdown,rstudioapi, RVerbalExpressions, shiny, shinyAce, shinydashboard,
-            shinyWidgets, simplevis, SIT, SixSigma, stringr, styler, tidyverse, timetk, treemap, tryCatchLog, utils, waldo, xfun, xtable, zipcodeR, zoo
+            shinyWidgets, simplevis, SIT, SixSigma, stringr, styler,sunburstR, tidyverse, timetk, treemap, tryCatchLog, utils, waldo, xfun, xtable, zipcodeR, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE
