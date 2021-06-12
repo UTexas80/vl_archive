@@ -20,6 +20,7 @@ devtools::install_github("braverock/quantstrat")
 remotes::install_github('rstudio/DT')
 devtools::install_github(c("ramnathv/htmlwidgets", "rstudio/dygraphs"))
 remotes::install_github('rstudio/flexdashboard')
+1
 devtools:install_github('Swechhya/excelR')
 devtools:install_github('Swechhya/excelR')
 devtools::install_github("renkun-ken/formattable")
