@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+    <html lang = "en-US" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 static custommodule">
+<![endif]-->
+<!--[if IE 7]>
+    <html lang = "en-US" class="no-js lt-ie10 lt-ie9 lt-ie8 static custommodule custommodule">
+<![endif]-->
+<!--[if IE 8]>
+    <html lang = "en-US" class="no-js lt-ie10 lt-ie9 static custommodule custommodule custommodule">
+<![endif]-->
+<!--[if IE 9]>
+    <html lang = "en-US" class="no-js lt-ie10 static custommodule custommodule custommodule custommodule">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en-US" class="no-js static custommodule custommodule custommodule custommodule custommodule swatch-default theme-CustomTheme" style="">
+
+<!--<![endif]-->
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MT8WB2');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="apple-touch-icon" href="/Themes/CustomTheme/Content/ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/Themes/CustomTheme/Content/ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/Themes/CustomTheme/Content/ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Themes/CustomTheme/Content/ico/apple-icon-144x144.png">
+
+    <link type="text/css" rel="stylesheet" href="/Themes/CustomTheme/Styles/dialog.css" />
+
+    <title>Value Line Inc</title>
+    <link href="/Modules/Cider.ShoppingCart/Styles/cart.min.css" rel="stylesheet" type="text/css" />
+<link href="/Modules/Cider.CatalogListWidgets/Styles/product.min.css" rel="stylesheet" type="text/css" />
+<link href="/Themes/Braeburn/Styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/Modules/Cider.Customer/Styles/Customer.min.css" rel="stylesheet" type="text/css" />
+<link href="/Modules/Cider.Catalog/Styles/core.min.css" rel="stylesheet" type="text/css" />
+<link href="/Themes/Braeburn/Styles/braeburn.min.css" rel="stylesheet" type="text/css" />
+<link href="/Themes/CustomTheme/Styles/custom_20180509.min.css" rel="stylesheet" type="text/css" />
+<script src="/Modules/Orchard.Resources/scripts/jquery.min.js" type="text/javascript"></script>
+<script src="/Modules/Orchard.Resources/scripts/jquery.cookie.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="/Themes/PJS.Bootstrap/html5shiv.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="/Themes/PJS.Bootstrap/respond.min.js" type="text/javascript"></script>
+<![endif]-->
+<script src="/Themes/CustomTheme/scripts/bootbox.min.js" type="text/javascript"></script>
+<meta content="Orchard" name="generator" />
+<meta content="utf-8" name="charset" />
+<meta content="IE=edge,chrome=1" name="X-UA-Compatible" />
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<link href="/Themes/CustomTheme/Content/ico/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script>
+        (function (d) {
+            d.className = "dyn " + d.className.substring(6, d.className.length);
+        })(document.documentElement);
+
+        window.vlCustomerType = 'retail';
+
+        //AJAX Indicator
+         $(document)
+            .ajaxStart(function () {
+                $('.vl-spinner').show();
+            }).ajaxStop(function () {
+                $('.vl-spinner').hide();
+            });
+    </script>
+
+
+</head>
+
+<body class=" fixed-nav">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MT8WB2"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="vl-spinner">
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+<div class="split-1234" id="layout-wrapper">
+
+    <div id="header-navbar" class="navbar navbar-fixed-top navbar-default">       
+
+        <div class="container">
+            <div class="row" style="margin: 5px 0px 0px;">
+                <!-- left column -->
+                <div class="col-lg-6 col-md-3 col-sm-2 col-xs-0 "></div>
+                <div class="col-lg-6 col-md-9 col-sm-10 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:right;margin-top:5px">
+                            <lable>Quote Search</lable>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="typeahead form-control" placeholder="Company name or symbol..." style="border-radius: 4px 0px 0px 4px;">
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row resultRow" style="display: none;position: absolute;width: 100%;">
+                        <!-- left column -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div class="input-group input-group-sm" style="width: 100%;z-index: 9999">
+                                <ul class="search-suggesion-list result" style="background: #fff;">
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-header">
+<div class="zone zone-header">
+
+    <a class="navbar-brand" href="https://www.valueline.com"><img src="/Themes/CustomTheme/Content/logo.png" alt="Value Line Inc." class="img-responsive"></a>
+</div>                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#main-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="main-menu">
+<div class="zone zone-navigation">
+
+
+<article class="widget-ProductSearch widget-navigation widget-search-form widget">
+
+<form action="/Search" class="search-form" method="get">    <fieldset>
+        <div class="input-group input-group-sm">
+            <input class="form-control" id="q" name="q" placeholder="Search our Services" type="text" value="" />
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        </div>
+    </fieldset>
+</form>
+</article>
+
+
+<article class="widget-MainMenu widget-navigation widget-menu-widget widget">
+
+
+<ul class="nav navbar-nav menu menu-main-menu">
+
+
+<li class="dropdown last first"><div class="dropdown-bar">
+    <div class="expand-arrow dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="open-on-hover expand-arrow-companion">
+        <a href="/service-category/services">Services</a>
+    </div>
+</div>
+                <ul class="dropdown-menu">
+                    
+<li class="dropdown"><div class="dropdown-bar">
+    <div class="secondary expand-arrow dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="open-on-hover expand-arrow-companion">
+        <a href="/equities">Equities Services</a>
+    </div>
+</div>
+                <ul class="dropdown-menu">
+                    
+<li><a href="/equities/classic-print-services">Classic Print Services</a>
+</li>
+<li><a href="/equities/combination-print-digital">Combination Print & Digital</a>
+</li>
+<li><a href="/equities/digital-equities-services">Digital Equities Services</a>
+</li>
+                </ul>
+</li>
+<li><a href="/Funds-and-Options">Funds, Options and  ETFs</a>
+</li>
+<li class="dropdown"><div class="dropdown-bar">
+    <div class="secondary expand-arrow dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="open-on-hover expand-arrow-companion">
+        <a href="/research">Research Center</a>
+    </div>
+</div>
+                <ul class="dropdown-menu">
+                    
+<li><a href="/research/digital-equities-research-services">Digital Equities Services</a>
+</li>
+                </ul>
+</li>
+<li class="dropdown"><div class="dropdown-bar">
+    <div class="secondary expand-arrow dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="open-on-hover expand-arrow-companion">
+        <a href="/selection-services">Selection Services</a>
+    </div>
+</div>
+                <ul class="dropdown-menu">
+                    
+<li><a href="/Classic-Print-Products/classic-print-services-with-digital-access">Classic Print Services with Digital Access</a>
+</li>
+<li><a href="/Classic-Print-Products/digital-equities-services">Digital Selection Services</a>
+</li>
+                </ul>
+</li>
+                </ul>
+</li>
+</ul>
+</article>
+
+
+<article class="widget-HomePage widget-navigation widget-menu-widget widget">
+
+
+<ul class="nav navbar-nav menu menu-value-line-home-page">
+
+
+<li class="last first"><a href="https://research.valueline.com/secure/dashboard">Value Line Dashboard</a>
+</li>
+</ul>
+</article>
+
+
+<article class="widget-Cart widget-navigation widget-cart-widget widget">
+
+
+
+<ul class="nav navbar-nav menu menu-main-menu">
+    <li class="shopping-cart-button dropdown hover-enabled" data-get-cart-url="/Shop/Cart/GetCartSummary"></li>
+</ul>
+
+
+</article>
+
+
+<article class="pull-right widget-LoginBox widget-navigation widget-login-widget widget">
+
+
+
+<div class="login-widget" 
+     data-get-username-url="/Customer/Account/GetLoginWidgetText"
+     data-log-on-url="/Users/Account/LogOn?returnUrl=%2FUsers%2FAccount%2Freferer%3Fa%3DDFHiFGI1i14OjeYg8RRdTRwhKjLi97%252fCH9EXb9k0LhnetTdKDaMpFNZ%252f3uyTnSxq%26o%3Dwww3%26rid%3D%26rurl%3D%26lp%3D%2Fsecure%2Foptions%2Fallnew.csv"
+     data-log-off-url="/Users/Account/LogOff"
+     data-log-on-text="Log In">
+</div>
+</article>
+
+
+<article class="widget-MyAccountLinks widget-navigation widget-menu-widget widget">
+
+
+<ul class="nav navbar-nav menu menu-my-account-links">
+
+
+</ul>
+</article></div>            </div>
+        </div>
+    </div>
+<div class="container" style="margin-top: 40px;">
+    <div class="content-row prime">
+    <div class="col-md-12">
+
+              
+
+        <div class="zone zone-content">
+
+
+
+
+
+
+
+
+<div class="row display-flex">
+    <div class="col-lg-6 col-md-6 col-sm-12" style="border-right:2px solid #eee;">
+        <div class="well well-sm logreg log-on-form">
+
+
+                <h3 class="logon-title">Sign In to Value Line Inc</h3>
+            <h3 class="logon-alternate-title" style="display:none;">Sign in with your Value Line Inc Username</h3>
+
+<form action="/Users/Account/LogOn" class="form-horizontal" method="post">                <div class="form-group">
+                    <label for="userid" class="log-on-label control-label">Username</label>
+                    <div class="log-on-textbox">
+                        <input autofocus="autofocus" class="form-control" id="user-id" name="userid" type="text" value="" />
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="log-on-label control-label">Password</label>
+                    <div class="log-on-textbox">
+                        <input class="form-control" id="password" name="password" type="password" value="" />
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="remember-me">
+                        <div class="checkbox">
+                            <label>
+                                <input id="remember-me" name="rememberMe" type="checkbox" value="true" /><input name="rememberMe" type="hidden" value="false" />
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="log-on-buttons">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+
+                </div>
+<input name="__RequestVerificationToken" type="hidden" value="PJl5D7gefTNl1qbhcTA417OEZleukU86Y6i24xbkw8qkm1260QNbJIaY9sEjpjUPU7_3mHxBt8wRCzLPQkxX1f3mJJs1" /></form>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12" style="align-self: center;">
+        <div style="text-align: center">
+
+            Don't have an account? <a class="btn-vl-link cookie-hot" href="/Users/Account/Register">Register</a><br />
+
+            
+            <br />
+            
+
+Forgot<a class="btn-vl-link" href="/Users/Account/Lost">User name</a>or<a class="btn-vl-link" href="/Users/Account/Lost">Password</a>
+        </div>
+    </div>
+</div>
+
+</div>            </div>
+    </div>
+</div>
+</div>
+<div id="footer">
+                <div class="row-quad">
+            
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="zone zone-footer-quad-first">
+
+
+<article class="widget-ValueLine widget-footer-quad-first widget-html-widget widget">
+    <header>
+            <h3>Value Line</h3>
+        
+    </header>
+<ul>
+<li><a href="http://www.valueline.com/about/aboutvalueline.aspx">About Value Line</a></li>
+<li><a href="http://www.valueline.com/About/InvestorRelation.aspx">Investor Relations</a></li>
+<li><a href="http://www.valueline.com/enewsletters">eNewsletters</a></li>
+<li><a href="http://www.valueline.com/about/help.aspx">Help</a></li>
+<li><a href="https://research.valueline.com/mobile">Mobile</a></li>
+<li></li>
+<li><a href="http://www.valueline.com/Terms.aspx">Terms &amp; Conditions</a></li>
+<li><a href="http://www.valueline.com/Privacy.aspx">Privacy Policy</a></li>
+<li><a href="http://www.valueline.com/copyright.aspx">Copyright &amp; Trademark</a></li>
+</ul>
+</article></div>
+                </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="zone zone-footer-quad-second">
+
+
+<article class="widget-InstitutionalServices widget-footer-quad-second widget-html-widget widget">
+    <header>
+            <h3>Institutional Services</h3>
+        
+    </header>
+<ul>
+<li><a href="http://www.valuelinepro.com">Home</a></li>
+<li><a href="http://www.valuelinepro.com/professional-services/">Professional Solutions</a></li>
+<li><a href="http://www.valuelinepro.com/library-services/">Library Services</a></li>
+<li><a href="http://www.valuelinepro.com/free-trial/">Free Trial Sign Up</a></li>
+<li><a href="http://www.valuelinepro.com/contact-us/">Contact Institutional Services</a></li>
+</ul>
+</article></div>
+                </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="zone zone-footer-quad-third">
+
+
+<article class="widget-MyAccount_NotLoggedIn widget-footer-quad-third widget-html-widget widget">
+    <header>
+            <h3>My Account</h3>
+        
+    </header>
+<ul>
+<li><a href="/Users/Account/LogOn">Login/Register</a></li>
+<li><a href="/Users/Account/Lost">Forgot Username/Password</a></li>
+</ul>
+</article></div>
+                </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="zone zone-footer-quad-fourth">
+
+
+<article class="widget-ContactConnect widget-footer-quad-fourth widget-html-widget widget">
+    <header>
+            <h3>Contact</h3>
+        
+    </header>
+<p><span class="ptext">Your opinion matters to us.</span></p>
+<p><a href="http://www.valueline.com/About/feedback.aspx">Share</a> <span class="ptext">your feedback</span>.</p>
+<ul>
+<li><a href="http://www.valueline.com/About/contactus.aspx">Contact</a></li>
+<li><span class="fa fa-linkedin-square" style="color: #f2f2f2;">&nbsp;</span><a href="https://www.linkedin.com/company/18982?trk=tyah">LinkedIn</a></li>
+<li><span class="fa fa-facebook-square" style="color: #f2f2f2;">&nbsp;</span><a href="http://www.facebook.com/pages/Value-Line/192473184125328">Facebook</a></li>
+<li><span class="fa fa-twitter-square" style="color: #f2f2f2;">&nbsp;</span><a href="http://www.twitter.com/valueline/">Twitter</a></li>
+<li><span class="fa fa-google-plus-square" style="color: #f2f2f2;">&nbsp;</span><a href="https://plus.google.com/110432670078864779543/posts">Google+</a></li>
+<li><span class="fa fa-rss" style="color: #f2f2f2;">&nbsp;</span><a href="http://www.valueline.com/Tools/rss/rss_detail.aspx">RSS</a></li>
+</ul>
+</article></div>
+                </div>
+        </div>
+
+        <div class="footer-row">
+            <div class="zone zone-footer">
+<div class="badge-of-honor">
+    Copyright &#169;2021 <a href="/">Value Line Inc</a>
+</div></div>
+        </div>
+
+</div>
+<div id="toTop">
+    <h1><i class="glyphicon glyphicon-chevron-up"></i></h1>
+</div>
+
+    <script src="/Modules/Cider.Catalog/scripts/ga.min.js" type="text/javascript"></script>
+<script src="/Modules/Cider.ShoppingCart/scripts/cart.min.js" type="text/javascript"></script>
+<script src="/Modules/Cider.CatalogListWidgets/scripts/product.min.js" type="text/javascript"></script>
+<script src="/Modules/Cider.Customer/scripts/login-widget.min.js" type="text/javascript"></script>
+<script src="/Modules/Cider.Framework/scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/Modules/Cider.Framework/scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="/Modules/Cider.Framework/scripts/form-validation.min.js" type="text/javascript"></script>
+<script src="/Modules/Orchard.Resources/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Themes/Braeburn/scripts/braeburn.min.js" type="text/javascript"></script>
+<script src="/Themes/Braeburn/scripts/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="/Themes/CustomTheme/scripts/disclaimer.js" type="text/javascript"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-16963581-4', 'auto');
+ga('set', '&cu', 'USD');
+ga('require', 'ec');
+ga(function (tracker) { var clientId = tracker.get('clientId'); $.cookie('AdvCatalog.GoogleAnalytics', clientId, { path: '/'}); });</script>
+
+    <script>
+        $(document).ready(function () {
+            $('.mini-cart-carousel').carousel({ interval: 0 });
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            if (window.vlCustomerType !== 'retail') {
+                $('.vl-retail-link').each(function () {
+                    $(this).removeAttr('href');
+                    $(this).addClass('vl-disabled-link');
+                });
+            }
+        });
+
+        jQuery.fn.verticalAlign = function () {
+            return this
+                    .css("padding-top", (($(this).parent().height() - $(this).height()) / 2) + 'px')
+        };
+
+        var researchDomain = "https://research.valueline.com";
+        var researchSecure = "";
+        $(function () {
+            var ajaxRequest = null;
+
+            $('.typeahead').on('keyup', function (e, n) {
+                var searchKey = $(this).val();
+                $(this).addClass("loading");
+                $('.resultRow').hide();
+                $('.result').empty();
+
+                if (ajaxRequest != null) { // if any previous ajaxRequest is running, abort
+                    ajaxRequest.abort();
+                }
+                ajaxRequest = $.ajax({
+                    url: researchDomain + "/api/symbolsearch",
+                    dataType: "jsonp",
+                    type: "GET",
+                    cache: true,
+                    data: {
+                        query: searchKey
+                    },
+                    complete: function () {
+
+                    },
+
+                    success: function (s) {
+                        if (s !== 'undefined' && s.length > 0) {
+                            var o = $.map(s, function (t) {
+                                if (t.Ticker != null) {
+                                    var s = $("<li />");
+                                    s.addClass("morelink");
+                                    var h = '<a href="' + researchDomain + researchSecure + '/research?hash=%23sec%3Dcompany%26sym%3D' + t.Ticker + '">' + t.Name + '(' + t.Ticker + ')</a>';
+                                    $('.result').append(s.append(h));
+                                }
+
+                            });
+                             $('.result').show()
+                        }
+                        else {
+                            var s = $("<li />");
+                            s.addClass("morelink");
+                            var h = '<p>No result found !!</p>';
+                            $('.result').append(s.append(h));
+                            $('.resultRow').hide();
+                            $('.result').hide();
+                        }
+                        $('.typeahead').removeClass("loading");
+                        $('.resultRow').show();
+
+			$('.morelink a').on('click', function () {
+                            var url = $(this).attr("href");
+                            console.log(url);
+                            $(this).parent().addClass('loading');
+                        })
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    },
+                });
+            });
+
+            $('.typeahead-top-search').on('keyup', function (e, n) {
+                var searchKey = $(this).val();
+                $(this).addClass("loading");
+                $('.resultRow-top-search').hide();
+                $('.result-top-search').empty();
+
+                if (ajaxRequest != null) { // if any previous ajaxRequest is running, abort
+                    ajaxRequest.abort();
+                }
+                ajaxRequest = $.ajax({
+                     url: researchDomain + "/api/symbolsearch",
+                    dataType: "jsonp",
+                    type: "GET",
+                    cache: true,
+                    data: {
+                        query: searchKey
+                    },
+                    complete: function () {
+
+                    },
+                    success: function (s) {
+                        if (s !== 'undefined' && s.length > 0) {
+                            var o = $.map(s, function (t) {
+                                if (t.Ticker != null) {
+                                    var s = $("<li />");
+                                    s.addClass("morelink");
+                                   var h = '<a href="' + researchDomain + researchSecure + '/research?hash=%23sec%3Dcompany%26sym%3D' + t.Ticker + '">' + t.Name + '(' + t.Ticker + ')</a>';
+                                    $('.result-top-search').append(s.append(h));
+                                }
+
+                            });
+                            $('.result').show()
+                        }
+                        else {
+                            var s = $("<li />");
+                            s.addClass("morelink");
+                            var h = '<p>No result found !!</p>';
+                            $('.result-top-search').append(s.append(h));
+                            $('.resultRow').hide();
+                            $('.result').hide();
+                        }
+                        $('.typeahead-top-search').removeClass("loading");
+                        $('.resultRow-top-search').show();
+
+			$('.morelink a').on('click', function () {
+            			e.preventDefault();
+         			var url = $(this).attr("href");
+            			console.log(url);
+            			$(this).parent().addClass('loading');
+        		})
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    },
+                });
+            });
+            $('#align-center').verticalAlign();
+            $(window).resize(function () {
+                $('#align-center').verticalAlign();
+            });
+        });
+ //   $(window).load(function() {
+	//	$(".pageloader").fadeOut("slow");
+	//})
+    </script>
+
+
+
+   
+    
+</body>
+</html>
