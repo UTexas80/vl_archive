@@ -6,7 +6,7 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  cheatsheet, checkpoint, circlize, compareDF, curl, d3heatmap, daff, data.table, data.tree, DataEditR, DataExplorer, dataMeta, datamodelr, darklyplot,
+libraries:  cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree, DataEditR, DataExplorer, dataMeta, datamodelr, darklyplot,
             devtools, DiagrammeR, diffobj, dplyr, dtplyr, DT, dygraphs, ezknitr, fable, flexdashboard, flextable, formatR,  formattable, futile.logger,
             fuzzyjoin,  ggplot2, grkstyle, grid, gt, here, highcharter, httr, humaniformat, janitor, keyring, knitr, lintr, logger, lubridate, magrittr,
             Microsoft365R, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, pivottabler, plotluck, plyr, ppsr, processR, ProjectTemplate, quantmod,

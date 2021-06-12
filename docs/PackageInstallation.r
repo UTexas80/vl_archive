@@ -50,5 +50,8 @@ devtools::install_github('yihui/formatR')
 devtools::install_github("bergant/datamodelr")
 devtools::install_github("lenkiefer/darklyplot")
 devtools::install_github("gadenbuie/grkstyle")
+install.packages('installr'); install.Rtools()
+devtools::install_github("ropensci/plotly") # you will probably benefit from the latest version of plotly
+devtools::install_github('talgalili/heatmaply')
 renv::status()
 renv::snapshot()
