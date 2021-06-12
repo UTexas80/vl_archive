@@ -4,6 +4,7 @@ remotes::install_github("rstudio/renv")
 install.packages("remotes") #install remotes
 remotes::install_github("ashenoy-cmbi/grafify@*release", dependencies = T)
 if (!require("devtools")) install.packages("devtools")
+devtools::install_github("KentonWhite/ProjectTemplate")
 devtools::install_github("talgalili/d3heatmap")
 install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
 install.packages('curl', repos = 'http://cran.r-project.org')
