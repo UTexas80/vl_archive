@@ -5,7 +5,7 @@ install.packages("remotes") #install remotes
 remotes::install_github("ashenoy-cmbi/grafify@*release", dependencies = T)
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("KentonWhite/ProjectTemplate")
-devtools::install_github("talgalili/d3heatmap")
+
 install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
 install.packages('curl', repos = 'http://cran.r-project.org')
 install.packages('curl', repos = 'http://cran.r-project.org')
@@ -53,5 +53,6 @@ devtools::install_github("gadenbuie/grkstyle")
 install.packages('installr'); install.Rtools()
 devtools::install_github("ropensci/plotly") # you will probably benefit from the latest version of plotly
 devtools::install_github('talgalili/heatmaply')
+devtools::install_github("dreamRs/shinyWidgets")
 renv::status()
 renv::snapshot()

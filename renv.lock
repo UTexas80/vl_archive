@@ -491,14 +491,15 @@
       "Package": "flexdashboard",
       "Version": "0.5.2.9000",
       "Source": "GitHub",
-      "Remotes": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
       "RemoteType": "github",
+      "Remotes": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "flexdashboard",
       "RemoteUsername": "rstudio",
       "RemoteRef": "HEAD",
       "RemoteSha": "bb2450bf056f8b343107f252b9551981209d7e59",
-      "Hash": "e267239eb2b2ce794266e02e648fad5f"
+      "Remotes.1": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
+      "Hash": "52f32fc033f3dec3667c3f06b588a86b"
     },
     "forcats": {
       "Package": "forcats",
@@ -1154,14 +1155,15 @@
       "Package": "quantstrat",
       "Version": "0.16.9",
       "Source": "GitHub",
-      "Remotes": "github::braverock/blotter",
       "RemoteType": "github",
+      "Remotes": "github::braverock/blotter",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "quantstrat",
       "RemoteUsername": "braverock",
       "RemoteRef": "HEAD",
       "RemoteSha": "6c536dbe97d0efb622c853d8d9445f9b2933b040",
-      "Hash": "872e8dd98f450682c839ecbb100678f8"
+      "Remotes.1": "github::braverock/blotter",
+      "Hash": "7fc855c3379a3f870703fb5140f5e9c5"
     },
     "rappdirs": {
       "Package": "rappdirs",
@@ -1221,15 +1223,15 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.13.2-62",
+      "Version": "0.13.2-76",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "renv",
       "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "e5a7319ca5f711a64a8affabca9f2c995919e3ad",
-      "Hash": "3d361fb001d3255e7b32026f5db98b00"
+      "RemoteRepo": "renv",
+      "RemoteRef": "0.13.2-76",
+      "RemoteSha": "28e7947289b72cda03bc64c767fc0f085ef20a03",
+      "Hash": "a1d48b6ee93c85db41ee09e4bfa46525"
     },
     "reprex": {
       "Package": "reprex",
@@ -1312,6 +1314,19 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "9e4f4f3b91998715bcc740f88ea328a3"
+    },
+    "rsthemes": {
+      "Package": "rsthemes",
+      "Version": "0.2.1.9000",
+      "Source": "GitHub",
+      "Remotes": "hrbrmstr/ipapi, rstudio/sass",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "rsthemes",
+      "RemoteUsername": "gadenbuie",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "19299e5e318b4aa89be8539ccea867098790880c",
+      "Hash": "f9b2450f3e75596d1903163921afdb4d"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
