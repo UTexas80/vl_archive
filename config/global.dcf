@@ -9,10 +9,10 @@ load_libraries: TRUE
 libraries:  cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree, DataEditR, DataExplorer,
             dataMeta, devtools, DiagrammeR, diffobj, dplyr, dtplyr, DT, fuzzyjoin, ggplot2, grid, gt, heatmaply,
             here, highcharter, httr, humaniformat, janitor, keyring, knitr, lintr, logger, lubridate, magrittr,
-            Microsoft365R, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, pivottabler, plotluck, plyr,
-            ppsr, ProjectTemplate, quantmod, ReDaMoR, readr, readxl, reprex, reshape2, rio, rmarkdown,rstudioapi,
-            RVerbalExpressions, shiny, shinyAce, shinydashboard, simplevis, SIT, SixSigma, stringr, styler, sunburstR,
-            tidyverse, timetk, treemap, tryCatchLog, utils, waldo, xfun, xtable, zipcodeR, zoo
+            Microsoft365R, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, plotluck, plyr,
+            ProjectTemplate, quantmod, ReDaMoR, readr, readxl, reprex, reshape2, rio, rmarkdown,rstudioapi,
+            RVerbalExpressions, shiny, shinyAce, shinydashboard, SIT, SixSigma, stringr, styler, sunburstR,
+            tidyverse, timetk, treemap, tryCatchLog, utils, waldo, xfun, xtable, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE
