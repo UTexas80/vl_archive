@@ -464,7 +464,7 @@
       "RemoteUsername": "Swechhya",
       "RemoteRef": "HEAD",
       "RemoteSha": "1085412cba58b678368433078437e1fa71c75ac1",
-      "Hash": "e3cd4dc2da3b4863ee68a9687248cd0f"
+      "Hash": "29cbba88af4145eb183e863871da5497"
     },
     "fansi": {
       "Package": "fansi",
@@ -499,7 +499,8 @@
       "RemoteRef": "HEAD",
       "RemoteSha": "bb2450bf056f8b343107f252b9551981209d7e59",
       "Remotes.1": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
-      "Hash": "52f32fc033f3dec3667c3f06b588a86b"
+      "Remotes.2": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
+      "Hash": "21b411b4c1a71b28bd600d4f05b1ca0e"
     },
     "forcats": {
       "Package": "forcats",
@@ -857,7 +858,7 @@
       "RemoteUsername": "haozhu233",
       "RemoteRef": "HEAD",
       "RemoteSha": "4c93f1afc26efcd04fa729cb4a522d5f262bb6bd",
-      "Hash": "f5b0d0e572ced90c0c4e0b27b9c0ff92"
+      "Hash": "1e901ab3258b75559e7ad290cab833f7"
     },
     "knitr": {
       "Package": "knitr",
@@ -1065,7 +1066,7 @@
       "RemoteUsername": "ropensci",
       "RemoteRef": "HEAD",
       "RemoteSha": "8bb3d47cc071a1190385c13e831e2f7e2773a0c4",
-      "Hash": "ef18edc2d817421cc6ce240c6f5fd290"
+      "Hash": "62124d7be33b3782abd0136ccf2cc26d"
     },
     "plyr": {
       "Package": "plyr",
@@ -1163,7 +1164,8 @@
       "RemoteRef": "HEAD",
       "RemoteSha": "6c536dbe97d0efb622c853d8d9445f9b2933b040",
       "Remotes.1": "github::braverock/blotter",
-      "Hash": "7fc855c3379a3f870703fb5140f5e9c5"
+      "Remotes.2": "github::braverock/blotter",
+      "Hash": "d15c1dd168ddae10efc6ad617a691628"
     },
     "rappdirs": {
       "Package": "rappdirs",
@@ -1319,14 +1321,15 @@
       "Package": "rsthemes",
       "Version": "0.2.1.9000",
       "Source": "GitHub",
-      "Remotes": "hrbrmstr/ipapi, rstudio/sass",
       "RemoteType": "github",
+      "Remotes": "hrbrmstr/ipapi, rstudio/sass",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "rsthemes",
       "RemoteUsername": "gadenbuie",
       "RemoteRef": "HEAD",
       "RemoteSha": "19299e5e318b4aa89be8539ccea867098790880c",
-      "Hash": "f9b2450f3e75596d1903163921afdb4d"
+      "Remotes.1": "hrbrmstr/ipapi, rstudio/sass",
+      "Hash": "a926c517e6e325f2b7c9b2494092c4a2"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
