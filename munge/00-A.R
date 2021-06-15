@@ -28,7 +28,7 @@ dirCheck(mainDir, subDir)
 ## command within fread, using the syntax mydt <- fread(cmd = 'unzip -cq myfile.zip').
 ################################################################################
 dt_allnew <- ALLNEW[-c(1:11),]
-names(dt_allnew) <- colnames(ALLNEW.ALLNEW)
+names(dt_allnew) <- colnames(allnew.ALLNEW)
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
