@@ -1,7 +1,7 @@
 ################################################################################
 ## Step 00.00 Processing Start Time - start the timer                        ###
 ################################################################################
-start.time = Sys.time()
+start.time <- Sys.time()
 started.at <- proc.time()
 ################################################################################
 ## Step 00.01 create object table               https://tinyurl.com/y3adrqwa ###
@@ -11,17 +11,15 @@ dirCheck(mainDir, subDir)
 ################################################################################
 ## How to do login on website using R and to check login success?            ### https://tinyurl.com/4deeeey
 ################################################################################
-library(httr) 
-library(rvest)
 # url <- "https://lgloz050.lss.emc.com:58443/APG/"
 # dn_url <- "https://lgloz050.lss.emc.com:58443/APG/lookup/Report%20Library/Amazon%20S3/Inventory/Accounts/report.csv"
-url <- "https://investors.valueline.com/Users/Account/LogOn?"
-dn_url <- "https://www3.valueline.com/secure/options/ALLNEW.CSV"
-session <-  html_session(url)
-form <- html_form(session)[[1]]
-fl_fm <- html_form_set()(form,
-                        J_username = "GlenCFalk",
-                        j_password = key_get("ValueLIne", "GlenCFalk"))
+# url <- "https://investors.valueline.com/Users/Account/LogOn?"
+# dn_url <- "https://www3.valueline.com/secure/options/ALLNEW.CSV"
+# session <-  html_session(url)
+# form <- html_form(session)[[1]]
+# fl_fm <- html_form_set()(form,
+#                         J_username = "GlenCFalk",
+#                         j_password = key_get("ValueLIne", "GlenCFalk"))
 ## Step 00.02: clean dataframes with Janitor                                 ###
 ## Use fread on zipped files                        https://tinyurl.com/2nphb6cd
 ## You can import a zipped file without unzipping it first.
@@ -29,8 +27,8 @@ fl_fm <- html_form_set()(form,
 ## If you need to import a zip file, you can unzip it with the unzip system
 ## command within fread, using the syntax mydt <- fread(cmd = 'unzip -cq myfile.zip').
 ################################################################################
-
-DT <- data.table::fread(url, fill = TRUE, skip=11, verbose = T)
+dt_allnew <- ALLNEW[-c(1:11),]
+names(dt_allnew) <- colnames(ALLNEW.ALLNEW)
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

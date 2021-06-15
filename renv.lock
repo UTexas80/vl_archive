@@ -1448,10 +1448,15 @@
     },
     "stringi": {
       "Package": "stringi",
-      "Version": "1.6.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "9df5e6f9a7fa11b84adf0429961de66a"
+      "Version": "1.6.2.9007",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "stringi",
+      "RemoteUsername": "gagolews",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "9bda30703545b7e5dcf72ea01980246488bf9f62",
+      "Hash": "eabb5fe22c7bdfe49eb68975517bd51a"
     },
     "stringr": {
       "Package": "stringr",
