@@ -7,7 +7,7 @@ data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
 libraries:  cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree, DataEditR, DataExplorer,
-            dataMeta, devtools, DiagrammeR, diffobj, dplyr, dtplyr, DT, fuzzyjoin, ggplot2, grid, gt, heatmaply,
+            dataMeta, devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT, fuzzyjoin, ggplot2, grid, gt, heatmaply,
             here, highcharter, httr, humaniformat, janitor, keyring, knitr, lintr, logger, lubridate, magrittr,
             Microsoft365R, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, plotluck, plyr,
             ProjectTemplate, quantmod, ReDaMoR, readr, readxl, reprex, reshape2, rvest, rio, rmarkdown,rstudioapi,
