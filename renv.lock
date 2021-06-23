@@ -1535,15 +1535,10 @@
     },
     "tidyverse": {
       "Package": "tidyverse",
-      "Version": "1.3.1.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "tidyverse",
-      "RemoteUsername": "tidyverse",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "195d8a45d7ac425bb29043ca418538753b79a1b8",
-      "Hash": "465b13a3fa7b0eca5a93b7ef5234ff69"
+      "Version": "1.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "fc4c72b6ae9bb283416bd59a3303bbab"
     },
     "timeDate": {
       "Package": "timeDate",
