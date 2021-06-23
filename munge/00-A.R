@@ -27,8 +27,9 @@ dirCheck(mainDir, subDir)
 ## If you need to import a zip file, you can unzip it with the unzip system
 ## command within fread, using the syntax mydt <- fread(cmd = 'unzip -cq myfile.zip').
 ################################################################################
-dt_allnew <- ALLNEW[-c(1:11),]
-names(dt_allnew) <- colnames(allnew.ALLNEW)
+# use first row data as column names in r         https://tinyurl.com/2eyyyb7b
+################################################################################
+dt_allnew <- ALLNEW %>%  row_to_names(row_number = 11)
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

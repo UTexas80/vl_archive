@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "..\\ProjectTemplate"
 		}
 	],
 	"settings": {
@@ -15,8 +18,6 @@
 			"activityBar.inactiveForeground": "#e7e7e799",
 			"activityBarBadge.background": "#715f0f",
 			"activityBarBadge.foreground": "#e7e7e7",
-			"statusBar.background": "#280630",
-			"statusBar.foreground": "#e7e7e7",
 			"statusBarItem.hoverBackground": "#4e0c5d",
 			"titleBar.inactiveBackground": "#28063099",
 			"titleBar.inactiveForeground": "#e7e7e799"
