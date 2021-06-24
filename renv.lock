@@ -464,7 +464,7 @@
       "RemoteUsername": "Swechhya",
       "RemoteRef": "HEAD",
       "RemoteSha": "1085412cba58b678368433078437e1fa71c75ac1",
-      "Hash": "29cbba88af4145eb183e863871da5497"
+      "Hash": "e3cd4dc2da3b4863ee68a9687248cd0f"
     },
     "fansi": {
       "Package": "fansi",
@@ -491,16 +491,14 @@
       "Package": "flexdashboard",
       "Version": "0.5.2.9000",
       "Source": "GitHub",
-      "RemoteType": "github",
       "Remotes": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
+      "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "flexdashboard",
       "RemoteUsername": "rstudio",
       "RemoteRef": "HEAD",
       "RemoteSha": "bb2450bf056f8b343107f252b9551981209d7e59",
-      "Remotes.1": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
-      "Remotes.2": "rstudio/sass, rstudio/bslib, rstudio/rmarkdown",
-      "Hash": "21b411b4c1a71b28bd600d4f05b1ca0e"
+      "Hash": "e267239eb2b2ce794266e02e648fad5f"
     },
     "forcats": {
       "Package": "forcats",
@@ -858,7 +856,7 @@
       "RemoteUsername": "haozhu233",
       "RemoteRef": "HEAD",
       "RemoteSha": "4c93f1afc26efcd04fa729cb4a522d5f262bb6bd",
-      "Hash": "1e901ab3258b75559e7ad290cab833f7"
+      "Hash": "f5b0d0e572ced90c0c4e0b27b9c0ff92"
     },
     "knitr": {
       "Package": "knitr",
@@ -1066,7 +1064,7 @@
       "RemoteUsername": "ropensci",
       "RemoteRef": "HEAD",
       "RemoteSha": "8bb3d47cc071a1190385c13e831e2f7e2773a0c4",
-      "Hash": "62124d7be33b3782abd0136ccf2cc26d"
+      "Hash": "ef18edc2d817421cc6ce240c6f5fd290"
     },
     "plyr": {
       "Package": "plyr",
@@ -1156,16 +1154,14 @@
       "Package": "quantstrat",
       "Version": "0.16.9",
       "Source": "GitHub",
-      "RemoteType": "github",
       "Remotes": "github::braverock/blotter",
+      "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "quantstrat",
       "RemoteUsername": "braverock",
       "RemoteRef": "HEAD",
       "RemoteSha": "6c536dbe97d0efb622c853d8d9445f9b2933b040",
-      "Remotes.1": "github::braverock/blotter",
-      "Remotes.2": "github::braverock/blotter",
-      "Hash": "d15c1dd168ddae10efc6ad617a691628"
+      "Hash": "872e8dd98f450682c839ecbb100678f8"
     },
     "rappdirs": {
       "Package": "rappdirs",
@@ -1286,8 +1282,8 @@
       "RemoteRepo": "rmarkdown",
       "RemoteUsername": "rstudio",
       "RemoteRef": "HEAD",
-      "RemoteSha": "48cc87b9e87518da18e340c019ca6b8efcbfb320",
-      "Hash": "b1bd8578c1b379019611b74ce66f280d"
+      "RemoteSha": "53e45de0a2d948d9eb5a29fdb937ac56ce53f914",
+      "Hash": "a16b28078d2da58c209ad2716ebdcdf7"
     },
     "roxygen2": {
       "Package": "roxygen2",
@@ -1321,15 +1317,14 @@
       "Package": "rsthemes",
       "Version": "0.2.1.9000",
       "Source": "GitHub",
-      "RemoteType": "github",
       "Remotes": "hrbrmstr/ipapi, rstudio/sass",
+      "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "rsthemes",
       "RemoteUsername": "gadenbuie",
       "RemoteRef": "HEAD",
       "RemoteSha": "19299e5e318b4aa89be8539ccea867098790880c",
-      "Remotes.1": "hrbrmstr/ipapi, rstudio/sass",
-      "Hash": "a926c517e6e325f2b7c9b2494092c4a2"
+      "Hash": "f9b2450f3e75596d1903163921afdb4d"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
@@ -1448,15 +1443,10 @@
     },
     "stringi": {
       "Package": "stringi",
-      "Version": "1.6.2.9007",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "stringi",
-      "RemoteUsername": "gagolews",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "9bda30703545b7e5dcf72ea01980246488bf9f62",
-      "Hash": "eabb5fe22c7bdfe49eb68975517bd51a"
+      "Version": "1.6.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9df5e6f9a7fa11b84adf0429961de66a"
     },
     "stringr": {
       "Package": "stringr",
@@ -1535,10 +1525,15 @@
     },
     "tidyverse": {
       "Package": "tidyverse",
-      "Version": "1.3.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "fc4c72b6ae9bb283416bd59a3303bbab"
+      "Version": "1.3.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "tidyverse",
+      "RemoteUsername": "tidyverse",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "195d8a45d7ac425bb29043ca418538753b79a1b8",
+      "Hash": "465b13a3fa7b0eca5a93b7ef5234ff69"
     },
     "timeDate": {
       "Package": "timeDate",
