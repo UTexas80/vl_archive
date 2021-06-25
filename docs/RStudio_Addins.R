@@ -1,3 +1,4 @@
+devtools::install_github("daattali/addinslist")
 devtools::install_github("BAAQMD/copydat")
 devtools::install_github("ChrisDienes/SeaClass")
 1

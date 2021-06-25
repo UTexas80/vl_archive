@@ -22,6 +22,7 @@
 			"titleBar.inactiveBackground": "#28063099",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},
-		"peacock.color": "#280630"
+		"peacock.color": "#280630",
+		"markdown-todo.sortByCount": false
 	}
 }

@@ -13,6 +13,21 @@ lapply(x01, function(nm) {
   setorder(df, id)
   }
 )
+# ------------------------------------------------------------------------------
+# How to do login on website using R and to check login success?
+# https://tinyurl.com/z48hzdyr
+# ------------------------------------------------------------------------------
+url     <- "https://investors.valueline.com/Users/Account/LogOn?"
+dn_url  <- "http://www3.valueline.com/secure/options/ALLNEW.ZIP"
+session <- session(url)
+form    <- html_form(session)[[1]]
+fl_fm   <- html_form_set(form,
+                        j_username = "GlenCFalk",
+                        j_password = key_get("valueline", "GlenCFalk")
+                        ) # "test password"
+main_page <- submit_form(session, fl_fm)
+downlaod <- jump_to(main_page,dn_url)
+writeBin(downlaod$response$content, basename(dn_url))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
