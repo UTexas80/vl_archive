@@ -29,7 +29,19 @@ dirCheck(mainDir, subDir)
 ################################################################################
 # use first row data as column names in r         https://tinyurl.com/2eyyyb7b
 ################################################################################
-dt_allnew <- ALLNEW %>%  row_to_names(row_number = 11)
+dt_allnew       <- ALLNEW %>%  row_to_names(row_number = 11)
+# ------------------------------------------------------------------------------
+Top200CallsBuy  <- setorder(Top200CallsBuy, CMRK, TechRank)
+dt_CallsBuy     <- Top200CallsBuy[CMRK == 1 & TechRank == 1,]
+# ------------------------------------------------------------------------------
+Top200PutsWrite <- setorder(Top200PutsWrite, CMRK, TechRank)
+dt_PutsWrite    <- Top200PutsWrite[CMRK == 1 & TechRank == 1,]
+# ------------------------------------------------------------------------------
+Top200PutsBuy <- setorder(Top200PutsBuy, -CMRK, -TechRank)
+dt_PutsBuy    <- Top200PutsBuy[CMRK == 5 & TechRank == 5,]
+# ------------------------------------------------------------------------------
+Top200CallsWrite <- setorder(Top200CallsWrite, -CMRK, -TechRank)
+dt_CallsWrite    <- Top200CallsWrite[CMRK == 5 & TechRank == 5,]
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
