@@ -29,24 +29,30 @@ dirCheck(mainDir, subDir)
 ################################################################################
 # use first row data as column names in r         https://tinyurl.com/2eyyyb7b
 ################################################################################
-dt_allnew       <- ALLNEW %>%  row_to_names(row_number = 11)
+dt_allnew               <- ALLNEW %>%  row_to_names(row_number = 11)
+# Date Conversion mm/dd/yyy hh:mm:ss to yyyy-mm-dd in R [closed]                https://tinyurl.com/3byrbxzp
+dt_allnew$EXPDAY        <- as.Date(dt_allnew$EXPDAY, format('%m/%d/%Y'))
 # ------------------------------------------------------------------------------
-Top200CallsBuy  <- setorder(Top200CallsBuy, CMRK, TechRank)
-dt_CallsBuy     <- Top200CallsBuy[CMRK == 1 & TechRank == 1,]
+Top200CallsBuy          <- setorder(Top200CallsBuy, CMRK, TechRank, -X.vCM)
+Top200CallsBuy$EXPDAY   <- as.Date(Top200CallsBuy$EXPDAY, format('%m/%d/%Y'))
+dt_CallsBuy             <- Top200CallsBuy[CMRK == 1 & TechRank == 1,]
 # ------------------------------------------------------------------------------
-Top200PutsWrite <- setorder(Top200PutsWrite, CMRK, TechRank)
-dt_PutsWrite    <- Top200PutsWrite[CMRK == 1 & TechRank == 1,]
+Top200CallsWrite        <- setorder(Top200CallsWrite, -CMRK, -TechRank)
+Top200CallsWrite$EXPDAY <- as.Date(Top200CallsWrite$EXPDAY, format('%m/%d/%Y'))
+dt_CallsWrite           <- Top200CallsWrite[CMRK == 5 & TechRank == 5,]
 # ------------------------------------------------------------------------------
-Top200PutsBuy <- setorder(Top200PutsBuy, -CMRK, -TechRank)
-dt_PutsBuy    <- Top200PutsBuy[CMRK == 5 & TechRank == 5,]
+Top200PutsBuy           <- setorder(Top200PutsBuy, -CMRK, -TechRank)
+Top200PutsBuy$EXPDAY    <- as.Date(Top200PutsBuy$EXPDAY, format('%m/%d/%Y'))
+dt_PutsBuy              <- Top200PutsBuy[CMRK == 5 & TechRank == 5,]
 # ------------------------------------------------------------------------------
-Top200CallsWrite <- setorder(Top200CallsWrite, -CMRK, -TechRank)
-dt_CallsWrite    <- Top200CallsWrite[CMRK == 5 & TechRank == 5,]
+Top200PutsWrite         <- setorder(Top200PutsWrite, CMRK, TechRank)
+Top200PutsWrite$EXPDAY  <- as.Date(Top200PutsWrite$EXPDAY, format('%m/%d/%Y'))
+dt_PutsWrite            <- Top200PutsWrite[CMRK == 1 & TechRank == 1,]
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
-a00.version = "1.0.0"
-a00.ModDate = as.Date("2020-07-10")
+a00.version             <- "1.0.0"
+a00.ModDate             <- as.Date("2020-07-10")
 # ------------------------------------------------------------------------------
 # 2020.07.10 - v.1.0.0
 #  1st release

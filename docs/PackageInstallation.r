@@ -54,5 +54,7 @@ install.packages('installr'); install.Rtools()
 devtools::install_github("ropensci/plotly") # you will probably benefit from the latest version of plotly
 devtools::install_github('talgalili/heatmaply')
 devtools::install_github("dreamRs/shinyWidgets")
+devtools::install_github("emilopezcano/SixSigma")
+devtools::install_github("r-lib/cli")
 renv::status()
 renv::snapshot()
