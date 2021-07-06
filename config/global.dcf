@@ -6,13 +6,13 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree, DataEditR, DataExplorer,
+libraries:  zoo, cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree, DataEditR, DataExplorer,
             dataMeta, devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT, fuzzyjoin, ggplot2, grid, gt, heatmaply,
             here, highcharter, httr, humaniformat, janitor, job, keyring, knitr, lintr, logger, lubridate, magrittr,
             Microsoft365R, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, plotluck, plyr,
             ProjectTemplate, quantmod, ReDaMoR, readr, readxl, reprex, reshape2, rvest, rio, rmarkdown,rstudioapi,
             RVerbalExpressions, shiny, shinyAce, shinydashboard, SIT, SixSigma, stringr, styler, sunburstR,
-            tidyverse, timetk, treemap, tryCatchLog, utils, waldo, xfun, xtable, zoo
+            tidyverse, timetk, treemap, tryCatchLog, utils, waldo, xfun, xtable
 logging: TRUE
 logging_level: INFO
 munging: TRUE
