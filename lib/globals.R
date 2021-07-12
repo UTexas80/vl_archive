@@ -15,6 +15,10 @@ add.config(
 date_curr_mo   <- as.numeric(format(Sys.Date(), format = "%m"))
 date_curr_yr   <- as.numeric(format(Sys.Date(), format = "%y"))
 date_curr_yr4  <- as.numeric(format(Sys.Date(), format = "%Y"))
+# ------------------------------------------------------------------------------
+# create global environment to dynamically name data frames                     ### https://tinyurl.com/y3adrqwa ###
+# ------------------------------------------------------------------------------
+g <- globalenv()                             # https://tinyurl.com/r3yrspv   ###
 ################################################################################
 ## Repo Package: data management to build centralized metadata repository       ### https://github.com/franapoli/repo
 ## Check existence of directory and create if doesn't exist                     ### https://tinyurl.com/y3adrqwa
