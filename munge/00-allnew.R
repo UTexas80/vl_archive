@@ -12,12 +12,15 @@ dirCheck(mainDir, subDir)
 ## Step 00.02 dynamically create dataframe      https://tinyurl.com/y3adrqwa ###
 ## grep with multiple patterns                  https://tinyurl.com/8kpnktnm ###
 ################################################################################
-x00 <- grep("^ALLNEW" | "CALLS*" | "PUTS*" | "Top200*", ls(), value = TRUE)
+x00 <- grep(pattern = 'AL*|UT', ls(), value = TRUE)
 # ------------------------------------------------------------------------------
 lapply(x00, function(nm) {
-    df  <- get(nm)
-    g[[paste0("dx", "_", nm)]] <- df
-    data.table::setDT(paste0("dx", "_", nm)])
+    df <- get(nm)
+    g[[paste0("dx", "_", nm)]] <- tail(df,-11)
+    data.table::setDT(g[[paste0("dx", "_", nm)]], keep.rownames = TRUE)
+    g[[paste0("dx", "_", nm)]]$date_run <- df[3,2] 
+    g[[paste0("dx", "_", nm)]]$date_run <- as.Date(g[[paste0("dx", "_", nm)]]$date_run, format('%m/%d/%Y'))
+#    data.table::setkey(g[[paste0("dx", "_", nm)]], "id")
     }
 )
 ################################################################################
@@ -25,9 +28,9 @@ lapply(x00, function(nm) {
 ################################################################################
 dt_allnew               <- ALLNEW %>%  row_to_names(row_number = 11)
 # Date Conversion mm/dd/yyy hh:mm:ss to yyyy-mm-dd in R [closed]                https://tinyurl.com/3byrbxzp
-dt_allnew$EXPDAY        <- as.Date(dt_allnew$EXPDAY, format('%m/%d/%Y'))
+dt_allnew$EXPDAY        <- as.Date(dt_allnew$EXPDAY,   format('%m/%d/%Y'))
 dt_allnew$date_run      <- ALLNEW[3,2]
-dt_allnew$date_run      <- as.Date(dt_allnew$date_run,  format('%m/%d/%Y'))
+dt_allnew$date_run      <- as.Date(dt_allnew$date_run, format('%m/%d/%Y'))
 # ------------------------------------------------------------------------------
 # format following character percent columns as numeric double
 # ------------------------------------------------------------------------------
