@@ -12,15 +12,44 @@ dirCheck(mainDir, subDir)
 ## Step 00.02 dynamically create dataframe      https://tinyurl.com/y3adrqwa ###
 ## grep with multiple patterns                  https://tinyurl.com/8kpnktnm ###
 ################################################################################
+## create a template to rbind the dataframes
+# ------------------------------------------------------------------------------
+dx_blob <- ALLNEW[11,] %>%   row_to_names(row_number = 1)
+data.table::setnames(dx_blob, 1:49,  names(Top200CallsBuy)[1:49])
+data.table::setnames(dx_blob,50:54,  as.character(ALLNEW[11,50:54]))
+dx_blob$date_run <- ALLNEW[3,2] 
+dx_blob$date_run <- as.Date(dx_blob$date_run, format('%m/%d/%Y'))
+dx_blob[,c(2,6,9,24:25,27:28,32:35,37:46)] <-
+        lapply(dx_blob[,c(2,6,9,24:25,27:28,32:35,37:46)],
+        function(x) parse_number(x))
+dx_blob[,c(3:4,8,12,14,16:23,26,29:31,36,47:54)] <-
+        lapply(dx_blob[,c(3:4,8,12,14,16:23,26,29:31,36,47:54)],
+        function(x) parse_number(x))
+# ------------------------------------------------------------------------------
 x00 <- grep(pattern = 'AL*|UT', ls(), value = TRUE)
 # ------------------------------------------------------------------------------
 lapply(x00, function(nm) {
     df <- get(nm)
     g[[paste0("dx", "_", nm)]] <- tail(df,-11)
-    data.table::setDT(g[[paste0("dx", "_", nm)]], keep.rownames = TRUE)
+#    data.table::setDT(g[[paste0("dx", "_", nm)]], keep.rownames = TRUE)
+    data.table::setDT(g[[paste0("dx", "_", nm)]])    
+#    g[[paste0("dx", "_", nm)]] %>% row_to_names(row_number = 1) 
+    data.table::setnames(g[[paste0("dx", "_", nm)]], 1:49,  names(Top200CallsBuy)[1:49])
+    data.table::setnames(g[[paste0("dx", "_", nm)]], 50:54, as.character(ALLNEW[11,50:54]))
     g[[paste0("dx", "_", nm)]]$date_run <- df[3,2] 
     g[[paste0("dx", "_", nm)]]$date_run <- as.Date(g[[paste0("dx", "_", nm)]]$date_run, format('%m/%d/%Y'))
-#    data.table::setkey(g[[paste0("dx", "_", nm)]], "id")
+    data.table::setkey(g[[paste0("dx", "_", nm)]], "OPTKR", "C.P")
+# ------------------------------------------------------------------------------pct to dbl
+    g[[paste0("dx", "_", nm)]][,c(2,6,9,24:25,27:28,32:35,37:46)] <-
+        lapply(g[[paste0("dx", "_", nm)]][,c(2,6,9,24:25,27:28,32:35,37:46)],
+        function(x) parse_number(x))
+# ------------------------------------------------------------------------------chr to dbl
+    g[[paste0("dx", "_", nm)]][,c(3:4,8,12,14,16:23,26,29:31,36,47:54)] <-
+        lapply(g[[paste0("dx", "_", nm)]][,c(3:4,8,12,14,16:23,26,29:31,36,47:54)],
+        function(x) parse_number(x))
+# ------------------------------------------------------------------------------
+    dx_blob <<-      rbind(dx_blob, g[[paste0("dx", "_", nm)]] )
+# ------------------------------------------------------------------------------
     }
 )
 ################################################################################
