@@ -1,8 +1,8 @@
 ################################################################################
 ## Step 00.00 Processing Start Time - start the timer                        ###
 ################################################################################
-start.time <- Sys.time()
-started.at <- proc.time()
+start.time              <- Sys.time()
+started.at              <- proc.time()
 ################################################################################
 ## Step 00.01 create object table               https://tinyurl.com/y3adrqwa ###
 ## Check existence of directory and create if doesn't exist                  ###
@@ -14,11 +14,11 @@ dirCheck(mainDir, subDir)
 ################################################################################
 ## create a template to rbind the dataframes
 # ------------------------------------------------------------------------------
-dx_blob <- ALLNEW[11,] %>%   row_to_names(row_number = 1)
+dx_blob                 <- ALLNEW[11,] %>%  row_to_names(row_number = 1)
 data.table::setnames(dx_blob, 1:49,  names(Top200CallsBuy)[1:49])
 data.table::setnames(dx_blob,50:54,  as.character(ALLNEW[11,50:54]))
-dx_blob$date_run <- ALLNEW[3,2] 
-dx_blob$date_run <- as.Date(dx_blob$date_run, format('%m/%d/%Y'))
+dx_blob$date_run        <- ALLNEW[3,2] 
+dx_blob$date_run        <- as.Date(dx_blob$date_run, format('%m/%d/%Y'))
 dx_blob[,c(2,6,9,24:25,27:28,32:35,37:46)] <-
         lapply(dx_blob[,c(2,6,9,24:25,27:28,32:35,37:46)],
         function(x) parse_number(x))
@@ -26,7 +26,7 @@ dx_blob[,c(3:4,8,12,14,16:23,26,29:31,36,47:54)] <-
         lapply(dx_blob[,c(3:4,8,12,14,16:23,26,29:31,36,47:54)],
         function(x) parse_number(x))
 # ------------------------------------------------------------------------------
-x00 <- grep(pattern = 'AL*|UT', ls(), value = TRUE)
+x00                     <- grep(pattern = 'AL*|UT', ls(), value = TRUE)
 # ------------------------------------------------------------------------------
 lapply(x00, function(nm) {
     df <- get(nm)
@@ -48,10 +48,16 @@ lapply(x00, function(nm) {
         lapply(g[[paste0("dx", "_", nm)]][,c(3:4,8,12,14,16:23,26,29:31,36,47:54)],
         function(x) parse_number(x))
 # ------------------------------------------------------------------------------
-    dx_blob <<-      rbind(dx_blob, g[[paste0("dx", "_", nm)]] )
+    dx_blob             <<-      rbind(dx_blob, g[[paste0("dx", "_", nm)]] )
 # ------------------------------------------------------------------------------
     }
 )
+################################################################################
+# table creation                                                             ###
+################################################################################
+dx_company              <- as.data.table(distinct(dx_blob[,1]))
+dx_date_exp             <- as.data.table(distinct(dx_blob[,15]))
+dx_industry             <- as.data.table(distinct(dx_blob[,7]))
 ################################################################################
 # use first row data as column names in r         https://tinyurl.com/2eyyyb7b
 ################################################################################
