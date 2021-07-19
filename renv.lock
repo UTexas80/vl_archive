@@ -594,10 +594,10 @@
     },
     "gargle": {
       "Package": "gargle",
-      "Version": "1.1.0",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "bc3bc77ea458de0a6efe94e8e7e9c641"
+      "Hash": "9d234e6a87a6f8181792de6dc4a00e39"
     },
     "generics": {
       "Package": "generics",
@@ -650,10 +650,10 @@
     },
     "googledrive": {
       "Package": "googledrive",
-      "Version": "1.0.1",
+      "Version": "2.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "79ba5d18133290a69b7c135dc3dfef1a"
+      "Hash": "c3a25adbbfbb03f12e6f88c5fb1f3024"
     },
     "googlesheets4": {
       "Package": "googlesheets4",
