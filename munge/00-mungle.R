@@ -59,6 +59,7 @@ dx_company              <- as.data.table(distinct(dx_blob[,1]))
 # ------------------------------------------------------------------------------
 dx_date_exp             <- data.table::setorder(as.data.table(distinct(dx_blob[,15])),EXPDAY)
 dx_date_exp$EXPDAY      <- as.Date(dx_date_exp$EXPDAY, format('%m/%d/%Y'))
+setkey(dx_date_exp,EXPDAY)
 ################################################################################
 # Week number of the month                      https://tinyurl.com/2zejur23 ###
 ################################################################################
@@ -68,6 +69,10 @@ week(x) - week(floor_date(x, unit = "months")) + 1
 DT <- data.table(days = seq(as.Date("0-01-01"), Sys.Date(), "days"))
 # compute the week of the month and account for the '5th week' case
 DT[, week := ifelse( ceiling(mday(days)/7)==5, 4, ceiling(mday(days)/7) )]
+dx_future <- as.data.table(seq(as.Date(Sys.Date()),by="day",length.out=3650))
+names(dx_future)[1] <- "date"
+setkey(dx_future,date)
+dx_exp <- as.data.table(inner_join(dx_date_exp, dx_future, by= c("EXPDAY"= "date")))
 # ------------------------------------------------------------------------------
 dx_industry             <- data.table::setorder(as.data.table(distinct(dx_blob[,7])),INDUST)
 dx_tech_rank            <- data.table::setorder(as.data.table(distinct(dx_blob[,4])),TechRank)
