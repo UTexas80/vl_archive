@@ -1442,15 +1442,15 @@
     },
     "stringi": {
       "Package": "stringi",
-      "Version": "1.7.0.9008",
+      "Version": "1.7.3",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "stringi",
       "RemoteUsername": "gagolews",
       "RemoteRef": "HEAD",
-      "RemoteSha": "7c75139ac931e592da78fcce5eb7929838b471cb",
-      "Hash": "f02cbeb9db43223e8a00664a3b6f58de"
+      "RemoteSha": "43402ff05aea9f310b69780767f823970df583eb",
+      "Hash": "2679ad5f1abc1c5b9409ce6f03bf1b31"
     },
     "stringr": {
       "Package": "stringr",
@@ -1496,10 +1496,10 @@
     },
     "tibble": {
       "Package": "tibble",
-      "Version": "3.1.2",
+      "Version": "3.1.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "349b40a9f144516d537c875e786ec8b8"
+      "Hash": "038455513fde65e79c25e724e0c84ca2"
     },
     "tidyquant": {
       "Package": "tidyquant",
