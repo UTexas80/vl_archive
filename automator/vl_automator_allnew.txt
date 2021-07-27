@@ -1,0 +1,1 @@
+%['C:\\Users\\gfalk\\OneDrive\\Documents\\GitHub\\ValueLine\\data\\ALLNEW.CSV', 'C:\\Users\\gfalk\\OneDrive\\Documents\\GitHub\\ValueLine\\zip\\ALLNEW.CSV', 'C:\\Users\\gfalk\\OneDrive\\Documents\\GitHub\\ValueLine\\zip\\ALLNEW.ZIP']%
