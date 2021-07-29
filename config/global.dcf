@@ -11,8 +11,8 @@ libraries:  zoo, cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.t
             heatmaply, here, highcharter, httr, humaniformat, inspectdf, janitor, job, keyring, knitr, lintr, logger, lubridate,
             magrittr, Microsoft365R, modelsummary, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, plotluck, plyr,
             ProjectTemplate, quantmod, ReDaMoR, readr, readxl, reprex, reshape2, rvest, rio, rmarkdown,rstudioapi,
-            RVerbalExpressions, shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler, summarytools,
-            sunburstR, tidyverse, timetk, treemap, tryCatchLog, utils, visdat, waldo, xfun, xtable
+            RVerbalExpressions, scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
+            summarytools, sunburstR, tidyverse, timetk, treemap, tryCatchLog, utils, visdat, waldo, xfun, xtable
 logging: TRUE
 logging_level: INFO
 munging: TRUE

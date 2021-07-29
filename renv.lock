@@ -1402,15 +1402,15 @@
     },
     "shinyWidgets": {
       "Package": "shinyWidgets",
-      "Version": "0.6.0.9100",
+      "Version": "0.6.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "shinyWidgets",
       "RemoteUsername": "dreamRs",
       "RemoteRef": "HEAD",
-      "RemoteSha": "1f9c720577725f9195c8fd324f8be136bef61c98",
-      "Hash": "d931ddb5c3ca7f531bb78d1ac1bcaca4"
+      "RemoteSha": "4367b816572dbd0b8a6600de66ce5ffccadd84cc",
+      "Hash": "85c06c50dfd23364662226ba351ff6b1"
     },
     "shinydashboard": {
       "Package": "shinydashboard",
