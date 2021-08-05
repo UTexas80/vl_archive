@@ -1046,10 +1046,10 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.6.1",
+      "Version": "1.6.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "8672ae02bd20f6479bce2d06c7ff1401"
+      "Hash": "43f228eb4b49093d1c8a5c93cae9efe9"
     },
     "pkgbuild": {
       "Package": "pkgbuild",
@@ -1355,10 +1355,10 @@
     },
     "rvest": {
       "Package": "rvest",
-      "Version": "1.0.0",
+      "Version": "1.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "74b905b0076e1de6e27f540c95ba68d5"
+      "Hash": "1db38d6f40e3e09527797ca4226a1b5b"
     },
     "sass": {
       "Package": "sass",
@@ -1463,8 +1463,8 @@
       "RemoteRepo": "stringi",
       "RemoteUsername": "gagolews",
       "RemoteRef": "HEAD",
-      "RemoteSha": "43402ff05aea9f310b69780767f823970df583eb",
-      "Hash": "2679ad5f1abc1c5b9409ce6f03bf1b31"
+      "RemoteSha": "21e743df6d3324f21267fd6a2a55e809f4b6f151",
+      "Hash": "156fda9c1597154cc22c5f1e7a819edf"
     },
     "stringr": {
       "Package": "stringr",

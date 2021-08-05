@@ -58,7 +58,9 @@ lapply(x00, function(nm) {
 dx_company              <- as.data.table(distinct(dx_blob[,1]))
 # ------------------------------------------------------------------------------
 dx_date_exp             <- data.table::setorder(as.data.table(distinct(dx_blob[,15])),EXPDAY)
+# dx_date_exp$day         <- weekdays(dx_date_exp$EXPDAY)
 dx_date_exp$EXPDAY      <- as.Date(dx_date_exp$EXPDAY, format('%m/%d/%Y'))
+# ------------------------------------------------------------------------------
 setkey(dx_date_exp,EXPDAY)
 ################################################################################
 # Week number of the month                      https://tinyurl.com/2zejur23 ###
