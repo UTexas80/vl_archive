@@ -9,6 +9,43 @@ dirCheck <- function(mainDir, subDir) {
     }
 }
 ################################################################################
+# Mean Reversion                                    https://tinyurl.com/64dpjxh9
+################################################################################
+mean_reversion <- function(data, ticker){
+
+  # Read the data
+  df = data[[ticker]]
+
+  # Compute indicators
+  HLC = HLC(df)
+  sma150 = SMA(Cl(df), n=150)
+  atr10 = ATR(HLC, n=10, maType='EMA')
+  rsi3 = RSI(Cl(df), n=3)
+
+  # join them to the main data
+  df = merge(df, sma150)
+  df = merge(df, atr10$atr)
+  df = merge(df, rsi3)
+  df$atr = df$atr / Cl(df)
+  df$close = Cl(df)
+
+  # Select relevant columns
+  keep_cols = c("SMA", "atr", "rsi", "close")
+  df = df[, keep_cols]
+  names(df)[1:3] = c("sma150", "atr10", "rsi3")
+
+  # Get the most recent observation
+  df = tail(df, 1)
+
+  # Convert the output as a data table
+  dt = as.data.table(df)
+  dt[, ticker:=ticker]
+  setnames(dt, "index", "date")
+
+  dt
+}
+
+################################################################################
 # DataFrameMaker                                    https://tinyurl.com/yyctoayr
 ################################################################################
 DataFrameMaker  <- function(col,row){
