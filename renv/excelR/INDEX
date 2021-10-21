@@ -1,0 +1,10 @@
+excelOutput             Helper function for using jexcel table in Shiny
+excelTable              Create excel table using jexcel library
+excel_to_R              Convert excel object to data.frame
+getComments             This function is used to get comment from
+                        specified cell
+get_selected_data       Get selected cells from excel table
+get_selected_data_boundary
+                        Get selected cells boundary from excel table
+renderExcel             Helper function for using jexcel table in Shiny
+setComments             Add comment to a specified cell

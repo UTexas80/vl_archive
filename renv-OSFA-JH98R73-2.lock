@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.1",
+    "Version": "4.1.0",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -1300,10 +1300,10 @@
     },
     "roxygen2": {
       "Package": "roxygen2",
-      "Version": "7.1.1",
+      "Version": "7.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fcd94e00cc409b25d07ca50f7bf339f5"
+      "Hash": "eb9849556c4250305106e82edae35b72"
     },
     "rpart": {
       "Package": "rpart",
@@ -1503,10 +1503,10 @@
     },
     "testthat": {
       "Package": "testthat",
-      "Version": "3.0.3",
+      "Version": "3.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3624827fc69a7ef793a67b36edb4db90"
+      "Hash": "89e55ebe4f5ddd7f43f0f2bc6d96c950"
     },
     "tibble": {
       "Package": "tibble",

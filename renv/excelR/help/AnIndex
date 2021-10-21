@@ -1,0 +1,8 @@
+excelOutput	excelOutput
+excelTable	excelTable
+excel_to_R	excel_to_R
+getComments	getComments
+get_selected_data	get_selected_data
+get_selected_data_boundary	get_selected_data_boundary
+renderExcel	renderExcel
+setComments	setComments

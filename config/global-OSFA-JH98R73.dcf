@@ -1,0 +1,24 @@
+as_factors: FALSE
+attach_internal_libraries: FALSE
+cache_loading: FALSE
+cache_loaded_data: FALSE
+data_loading: TRUE
+data_loading_header: TRUE
+data_ignore:
+load_libraries: TRUE
+libraries:  zoo, ARTofR, bookdownplus, cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree,  DataExplorer,
+            dataMeta, devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT, explore, fuzzyjoin, ggdogs, ggplot2, ggpp, ggstatsplot,
+            grid, gt, heatmaply, here, highcharter, httr, humaniformat, inspectdf, janitor, job, keyring, knitr, lintr, logger,
+            lubridate, magrittr, Microsoft365R, mltools, modelsummary, openxlsx, orca, pacman, packagefinder, patchwork, pdftools, plotluck,
+            plyr, ProjectTemplate, quantmod, rdocsyntax, ReDaMoR, readr, readxl, reprex, reshape2, rvest, rio, rmarkdown,rstudioapi,
+            RVerbalExpressions, scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
+            summarytools, sunburstR, tidyverse, timetk, treemap, tryCatchLog, utils, validate, visdat, waldo, xfun, xtable
+logging: TRUE
+logging_level: INFO
+munging: TRUE
+recursive_loading: TRUE
+sticky_variables: NONE
+version: 0.10.1
+tables_type: data_table
+underscore_variables: TRUE
+cache_file_format: RData
