@@ -8,7 +8,7 @@ data_ignore:
 load_libraries: TRUE
 libraries: zoo, ARTofR, binance, bookdownplus, cheatsheet, checkpoint, circlize, compareDF, curl, daff, data.table, data.tree, DataEditR,
               DataExplorer, dataMeta, datawizard, devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT, explore, fuzzyjoin,
-              ggdogs, ggplot2, ggpp, ggstatsplot, grid, gt, heatmaply, here, highcharter, httr, humaniformat, inspectdf, janitor,
+              ggdogs, ggfortify, ggplot2, ggpp, ggstatsplot, grid, gt, heatmaply, here, highcharter, httr, humaniformat, inspectdf, janitor,
               job, keyring, knitr, lintr, logger, lubridate, magrittr, Microsoft365R, mltools, modelsummary, openxlsx, orca, pacman,
               packagefinder, patchwork, pdftools, plotluck, plyr, ProjectTemplate, quantmod, rCharts, rdocsyntax, ReDaMoR, readr,
               readxl, reprex, reshape2,  rio, rmarkdown, rstudioapi, RVerbalExpressions, rvest, scribblr, shiny, shinyAce,

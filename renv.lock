@@ -84,15 +84,10 @@
     },
     "ProjectTemplate": {
       "Package": "ProjectTemplate",
-      "Version": "0.10.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "ProjectTemplate",
-      "RemoteUsername": "KentonWhite",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "d2934c98dea48f6668684e27a9e1786dfa029f2e",
-      "Hash": "32aca38a05ed566e136a35552af88425"
+      "Version": "0.10.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a0c153dbdd80413f240a570b96eb0801"
     },
     "Quandl": {
       "Package": "Quandl",
@@ -1293,10 +1288,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.9",
+      "Version": "2.11",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "912c09266d5470516df4df7a303cde92"
+      "Hash": "320017b52d05a943981272b295750388"
     },
     "roxygen2": {
       "Package": "roxygen2",
