@@ -1,5 +1,5 @@
 # https://www.linkedin.com/pulse/exactly-20-years-after-discovery-i-reveal-my-most-brian-k-/
-library(Rcharts)
+# library(Rcharts)
 
 # Original data source - https://www.nasdaq.com/market-activity/funds-and-etfs/wmt/historical
 
@@ -8,7 +8,8 @@ library(Rcharts)
 # https://github.com/123blee/Stealth_Curves.io/blob/main/WMT_nasdaq_com_data_reformatted.xlsx
 
 
-wmt <- read_excel("/Users/gfalk/Dropbox/__Blogs-and-Posts/__r_bloggers/WMT_nasdaq_com_data_reformatted.xlsx")
+# wmt <- read_excel("/Users/gfalk/Dropbox/__Blogs-and-Posts/__r_bloggers/WMT_nasdaq_com_data_reformatted.xlsx")
+wmt <- WMT_nasdaq_com_data_reformatted.Sheet1
 wmt
 
 # Convert 'Date and Time' to 'Date' column
