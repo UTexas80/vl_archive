@@ -4,6 +4,7 @@
 # Spot Trading: Limit Orders                        https://tinyurl.com/y6pbmk6k
 # Spot Trading: Market Orders                       https://tinyurl.com/hj34mbk
 # Swarm Portfolio Optimization                      https://tinyurl.com/39dmerkw
+# P2P trades                                        https://tinyurl.com/3ns6u6wf
 ################################################################################
 # https://www.linkedin.com/pulse/exactly-20-years-after-discovery-i-reveal-my-most-brian-k-/
 # library(Rcharts)
@@ -29,7 +30,10 @@ stealth_curve <- function(data, ticker){
 
 }
 
-wmt <- WMT_nasdaq_com_data_reformatted.Sheet1
+# wmt <- WMT_nasdaq_com_data_reformatted.Sheet1
+wmt <- fread(here::here("data", "WMT_nasdaq_com_data_reformatted.xlsx"))
+
+
 wmt
 
 # Convert 'Date and Time' to 'Date' column
