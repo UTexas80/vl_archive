@@ -20,15 +20,11 @@
 # ------------------------------------------------------------------------------
 # Step One:
 # pass top200 unique tickers
-
-
 ################################################################################
 # stealth curve                                     https://tinyurl.com/227cfz6c
 ################################################################################
 stealth_curve <- function(data, ticker){
 
-
-}
 
 # wmt <- WMT_nasdaq_com_data_reformatted.Sheet1
 wmt <- fread(here::here("data", "WMT_nasdaq_com_data_reformatted.xlsx"))
@@ -98,7 +94,7 @@ chart_title_low <- c("Walmart (WMT) \nDaily Low Prices ($)")
 
 u <- par("usr")
 
-rect(u[1], u[3], u[2], u[4], col = background) 
+rect(u[1], u[3], u[2], u[4], col = background)
 
 par(ann=TRUE)
 
@@ -107,7 +103,7 @@ par(new=TRUE)
 t <- wmt[["t"]]
 Price <- wmt[["Low"]]
 
-plot(x=t, y=Price, main = chart_title_low, type="l", col = "blue", 
+plot(x=t, y=Price, main = chart_title_low, type="l", col = "blue",
 
      ylim = c(ymin, ymax_low) ,
 
@@ -133,9 +129,9 @@ wmt[["Stealth_Curve_Low"]][1:3900] <- NA
 
 plot.new()
 
-u <- par("usr") 
+u <- par("usr")
 
-rect(u[1], u[3], u[2], u[4], col = background) 
+rect(u[1], u[3], u[2], u[4], col = background)
 
 par(ann=TRUE)
 
@@ -146,14 +142,14 @@ chart_title_low <- c("Walmart (WMT) \nDaily Low Prices ($)")
 t <- wmt[["t"]]
 Price <- wmt[["Low"]]
 
-# Focus only on the last 7 years 
+# Focus only on the last 7 years
 xmin = 3700
 
-plot(x=t, y=Price, main = chart_title_low, type="l", col = "blue", 
-     
+plot(x=t, y=Price, main = chart_title_low, type="l", col = "blue",
+
      ylim = c(ymin, ymax_low + 100) ,
-     
-     xlim = c(xmin, (bars+future )) )  
+
+     xlim = c(xmin, (bars+future )) )
 
 
 # Add Stealth Support Curve to chart
@@ -163,9 +159,9 @@ lines(t, wmt[["Stealth_Curve_Low"]])
 # Step Eight: add the Stealth Resistance Curve to the tibble. The Stealth Resistance Curve
 # Stealth Resistance Curve parameters
 
-a <-  -102950.40  
-b <-       47.63  
-c <-    -6252.63  
+a <-  -102950.40
+b <-       47.63
+c <-    -6252.63
 
 # Add Stealth Curve to tibble
 
@@ -183,3 +179,5 @@ wmt
 # Add Stealth Resistance Curve to chart
 
 lines(t, wmt[["Stealth_Curve_High"]])
+
+}
