@@ -292,10 +292,10 @@
     },
     "broom": {
       "Package": "broom",
-      "Version": "0.7.9",
+      "Version": "0.7.10",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "9b1e2c1f75b349e3ffa7e9c69eec0c52"
+      "Hash": "ddf8bc55ea050f984835dd2d23cd6828"
     },
     "bslib": {
       "Package": "bslib",
@@ -1267,10 +1267,15 @@
     },
     "riingo": {
       "Package": "riingo",
-      "Version": "0.3.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "a6b991ccde367ee08f18d0fe66751cfb"
+      "Version": "0.3.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "riingo",
+      "RemoteUsername": "DavisVaughan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "a2e343baf32f946600f972dd1b3dd2746e1c709c",
+      "Hash": "e23bdfcf208184ad46f9109e6b38f302"
     },
     "rjson": {
       "Package": "rjson",
@@ -1453,10 +1458,10 @@
     },
     "stringi": {
       "Package": "stringi",
-      "Version": "1.7.5",
+      "Version": "1.7.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "cd50dc9b449de3d3b47cdc9976886999"
+      "Hash": "bba431031d30789535745a9627ac9271"
     },
     "stringr": {
       "Package": "stringr",
