@@ -4,9 +4,6 @@
 			"path": "."
 		},
 		{
-			"path": "..\\..\\..\\..\\Documents\\GitHub\\ProjectTemplate"
-		},
-		{
 			"path": "..\\..\\..\\..\\Documents\\GitHub\\AnnualReportsPDF"
 		},
 		{
@@ -17,6 +14,9 @@
 		},
 		{
 			"path": "..\\..\\..\\..\\Documents\\GitHub\\scorecard"
+		},
+		{
+			"path": "..\\ProjectTemplate"
 		}
 	],
 	"settings": {
@@ -34,7 +34,10 @@
 			"titleBar.inactiveBackground": "#28063099",
 			"titleBar.inactiveForeground": "#e7e7e799",
 			"statusBar.background": "#280630",
-			"statusBar.foreground": "#e7e7e7"
+			"statusBar.foreground": "#e7e7e7",
+			"sash.hoverBorder": "#4e0c5d",
+			"statusBarItem.remoteBackground": "#280630",
+			"statusBarItem.remoteForeground": "#e7e7e7"
 		},
 		"peacock.color": "#280630",
 		"markdown-todo.sortByCount": false

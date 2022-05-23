@@ -1,4 +1,4 @@
-# https://www.linkedin.com/pulse/exactly-20-years-after-discovery-i-reveal-my-most-brian-k-/
+# https://tinyurl.com/jw5bcphc
 # library(Rcharts)
 
 # Original data source - https://www.nasdaq.com/market-activity/funds-and-etfs/wmt/historical
@@ -32,17 +32,17 @@ xmin <- 1
 ymin <- 0   
 ymax_low <- ceiling(max(wmt[["Low"]]))
 
-interactive_low <- hPlot(x = "t", y = "Low", data = wmt, type = "line",
+interactive_low <- rCharts::hPlot(x = "t", y = "Low", data = wmt, type = "line",
                      
                      ylim = c(ymin, ymax_low),
                      
                      xlim = c(xmin, bars),
                      
-                     xaxt="n",   # suppress x-axis labels
+                     xaxt = "n",   # suppress x-axis labels
                      
-                     yaxt="n",   # suppress y-axis labels,
+                     yaxt = "n",   # suppress y-axis labels,
                      
-                     ann=FALSE)  # x and y axis titles
+                     ann = FALSE)  # x and y axis titles
 
 interactive_low$set(height = 600)
 
@@ -76,9 +76,9 @@ u <- par("usr")
 
 rect(u[1], u[3], u[2], u[4], col = background) 
 
-par(ann=TRUE)
+par(ann = TRUE)
 
-par(new=TRUE)
+par(new = TRUE)
 
 t <- wmt[["t"]]
 Price <- wmt[["Low"]]
