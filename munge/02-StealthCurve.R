@@ -159,3 +159,5 @@ wmt
 # Add Stealth Resistance Curve to chart
 
 lines(t, wmt[["Stealth_Curve_High"]])
+
+# Top200PutsBuy[X.vCM == 'v',]
