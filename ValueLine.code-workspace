@@ -1,22 +1,32 @@
 {
 	"folders": [
 		{
+			"name": "ValueLine",
 			"path": "."
 		},
 		{
-			"path": "..\\..\\..\\..\\Documents\\GitHub\\AnnualReportsPDF"
+			"name": "AnnualReportsPDF",
+			"path": "../../../../Documents/GitHub/AnnualReportsPDF"
 		},
 		{
-			"path": "..\\..\\..\\..\\Documents\\GitHub\\osfaFunds"
+			"name": "osfaFunds",
+			"path": "../../../../Documents/GitHub/osfaFunds"
 		},
 		{
-			"path": "..\\..\\..\\..\\Documents\\GitHub\\splGoldenDeathX"
+			"name": "splGoldenDeathX",
+			"path": "../../../../Documents/GitHub/splGoldenDeathX"
 		},
 		{
-			"path": "..\\..\\..\\..\\Documents\\GitHub\\scorecard"
+			"name": "s-curve",
+			"path": "../s-curve"
 		},
 		{
-			"path": "..\\ProjectTemplate"
+			"name": "scorecard",
+			"path": "../../../../Documents/GitHub/scorecard"
+		},
+		{
+			"name": "ProjectTemplate",
+			"path": "../ProjectTemplate"
 		}
 	],
 	"settings": {
