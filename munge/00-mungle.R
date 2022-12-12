@@ -26,7 +26,8 @@ dx_blob[,c(3:4,8,12,14,16:23,26,29:31,36,47:54)] <-
         lapply(dx_blob[,c(3:4,8,12,14,16:23,26,29:31,36,47:54)],
         function(x) parse_number(x))
 # ------------------------------------------------------------------------------
-x00                     <- grep(pattern = 'AL*|UT', ls(), value = TRUE)
+x00                     <- grep(pattern = 'CALL|PUT', ls(), value = TRUE)
+# x00                     <- grep(pattern = 'AL*|UT', ls(), value = TRUE)
 # ------------------------------------------------------------------------------
 lapply(x00, function(nm) {
     df <- get(nm)
@@ -78,6 +79,7 @@ dx_exp <- as.data.table(inner_join(dx_date_exp, dx_future, by= c("EXPDAY"= "date
 # ------------------------------------------------------------------------------
 dx_industry             <- data.table::setorder(as.data.table(distinct(dx_blob[,7])),INDUST)
 dx_tech_rank            <- data.table::setorder(as.data.table(distinct(dx_blob[,4])),TechRank)
+dx_strike               <- data.table::setorder(as.data.table(distinct(dx_blob[,12])),STRIKE)
 dx_ticker               <- as.data.table(distinct(dx_blob[,10]))
 ################################################################################
 # use first row data as column names in r         https://tinyurl.com/2eyyyb7b
