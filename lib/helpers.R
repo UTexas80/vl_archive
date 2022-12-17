@@ -45,6 +45,35 @@ mean_reversion <- function(data, ticker){
   dt
 }
 
+# fread_zips = function(fp, unzip_dir = file.path(dirname(fp), sprintf("csvtemp_%s", sub(".zip", "", basename(fp)))), silent = FALSE, do_cleanup = TRUE){
+fread_zips = function(fp, unzip_dir = file.path(dirname(fp), sprintf("csvtemp_%s", sub(".zip", "", basename(fp)))), silent = FALSE, do_cleanup = TRUE){
+  # only tested on windows
+  # fp should be the path to mycsvs.zip
+  # unzip_dir should be used only for CSVs from inside the zip
+  
+#...............................................................................
+browser()
+#...............................................................................
+
+  dir.create(unzip_dir, showWarnings = FALSE)
+  
+  # unzip
+  
+  unzip(fp, overwrite = TRUE, exdir = unzip_dir)
+  
+  # list files, read separately
+  # not looking recursively, since csvs should be only one level deep
+  
+  fns = list.files(unzip_dir)
+  
+  if (!all(tools::file_ext(fns) == "csv")) stop("fp should contain only CSVs")
+  
+  res = lapply(fns %>% setNames(file.path(unzip_dir, .), .), fread)
+  
+  if (do_cleanup) unlink(unzip_dir, recursive = TRUE)
+  
+  res
+}
 ################################################################################
 # DataFrameMaker                                    https://tinyurl.com/yyctoayr
 ################################################################################

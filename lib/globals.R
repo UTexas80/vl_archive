@@ -20,6 +20,7 @@ date_prefix       <- as.character(today(), format = '%Y%m%d')
 # Directory Configuration
 # ------------------------------------------------------------------------------
 dir_downloads     <- "C:/Users/glen.falk/Downloads/"
+dir_git_data      <- "Documents/GitHub/ValueLine/data"
 dir_ms365_top_200 <- "Options/ValueLine/Top200"
 dir_ms365_zip     <- "Options/ValueLine/Zip"
 # ------------------------------------------------------------------------------
