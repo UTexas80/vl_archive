@@ -1,15 +1,15 @@
 # Add any project specific configuration here.
 # Date Formats in R    https://tinyurl.com/r-date-format
 add.config(
-  apply.override = FALSE,
-  currentYr = as.numeric(format(Sys.Date(),  format = "%y")),
-  currentYr4 = as.numeric(format(Sys.Date(), format = "%Y")),
-  lastYr = as.numeric(format(Sys.Date(),     format = "%y")) - 1,
-  LastYr4 = as.numeric(format(Sys.Date(),    format = "%Y")) - 1,
-  currentAY = as.numeric(paste(as.numeric(format(Sys.Date(), format = "%y")) - 1, as.numeric(format(Sys.Date(), format = "%y")), sep = "")),
-  header = "ValueLine" # header in reports
+  apply.override  = FALSE,
+  currentYr       = as.numeric(format(Sys.Date(), format = "%y")),
+  currentYr4      = as.numeric(format(Sys.Date(), format = "%Y")),
+  lastYr          = as.numeric(format(Sys.Date(), format = "%y")) - 1,
+  LastYr4         = as.numeric(format(Sys.Date(), format = "%Y")) - 1,
+  currentAY       = as.numeric(paste(as.numeric(format(Sys.Date(), format = "%y")) - 1, as.numeric(format(Sys.Date(), format = "%y")), sep = "")),
+  header          = "ValueLine" # header in reports
 )
-# ------------------------------------------------------------------------------
+# ----------------------------------dat--------------------------------------------
 # Date Configuration
 # ------------------------------------------------------------------------------
 date_curr_mo      <- as.numeric(format(Sys.Date(), format = "%m"))
@@ -27,15 +27,21 @@ dir_ms365_zip     <- "Options/ValueLine/Zip"
 # create global environment to dynamically name data frames                     ### https://tinyurl.com/y3adrqwa ###
 # ------------------------------------------------------------------------------
 g                 <- globalenv()             # https://tinyurl.com/r3yrspv   ###
+z                 <- TRUE                  # template switch create dx_blob
+################################################################################
+# Hmisc package
+################################################################################
+getRs('reptools.r')
+getRs('movStats.r')
 ################################################################################
 ## Repo Package: data management to build centralized metadata repository       ### https://github.com/franapoli/repo
 ## Check existence of directory and create if doesn't exist                     ### https://tinyurl.com/y3adrqwa
 ################################################################################
-mainDir <- (".")
-subDir  <- ("repo")
-rp_path <- file.path(mainDir, subDir)
+mainDir           <- (".")
+subDir            <- ("repo")
+rp_path           <- file.path(mainDir, subDir)
 # ------------------------------------------------------------------------------
 # Add project specific configuration that can be overridden from load.project()
 add.config(
-  apply.override = TRUE
+  apply.override  = TRUE
 )

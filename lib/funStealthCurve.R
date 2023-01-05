@@ -27,8 +27,10 @@ stealth_curve <- function(data, ticker){
 
 
 # wmt <- WMT_nasdaq_com_data_reformatted.Sheet1
-wmt <- fread(here::here("data", "WMT_nasdaq_com_data_reformatted.xlsx"))
-
+# wmt <- fread(here::here("data", "WMT_nasdaq_com_data_reformatted.xlsx"))
+wmt <- read_fst(
+  here::here("data", "WMT_nasdaq_com_data_reformatted.xlsx"),
+  as.data.table=TRUE)
 
 wmt
 

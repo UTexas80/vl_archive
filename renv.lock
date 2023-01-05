@@ -13,6 +13,36 @@
     ]
   },
   "Packages": {
+    "AzureAuth": {
+      "Package": "AzureAuth",
+      "Version": "1.3.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3ce531ce76e84cf7f86c4deb01f225ce",
+      "Requirements": [
+        "R6",
+        "httr",
+        "jose",
+        "jsonlite",
+        "openssl",
+        "rappdirs"
+      ]
+    },
+    "AzureGraph": {
+      "Package": "AzureGraph",
+      "Version": "1.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9748555f71c1db66423e5565c0842364",
+      "Requirements": [
+        "AzureAuth",
+        "R6",
+        "curl",
+        "httr",
+        "jsonlite",
+        "openssl"
+      ]
+    },
     "BH": {
       "Package": "BH",
       "Version": "1.78.0-0",
@@ -90,6 +120,23 @@
       "Hash": "4ed05e9c9726267e4a5872e09c04587c",
       "Requirements": [
         "lattice"
+      ]
+    },
+    "Microsoft365R": {
+      "Package": "Microsoft365R",
+      "Version": "2.3.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b6c86da89dccb983ec2102352f979c4d",
+      "Requirements": [
+        "AzureAuth",
+        "AzureGraph",
+        "R6",
+        "curl",
+        "httr",
+        "jsonlite",
+        "mime",
+        "vctrs"
       ]
     },
     "PerformanceAnalytics": {
@@ -1459,6 +1506,17 @@
         "stringr",
         "tidyr",
         "tidyselect"
+      ]
+    },
+    "jose": {
+      "Package": "jose",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "acf397c005e2d96a4b7616bf7dfc3112",
+      "Requirements": [
+        "jsonlite",
+        "openssl"
       ]
     },
     "jquerylib": {

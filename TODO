@@ -1,0 +1,74 @@
+– [ ] add fields to the dx_bfly
+    – [ ] I.OTM
+    – [ ] Bid.UN.OV
+    – [ ] Ask.UN.OV
+    – [ ] THETA
+    – [ ] PrtbStrk.VOLF
+    – [ ] Bid.UN.OV
+    – [ ] Ask.UN.OV
+    – [ ] X10.
+    – [ ] X.10.
+    – [ ] PrtbStrk.VOLF
+    – [ ] PctDble
+    – [ ] ROBUY
+    – [ ] ROWRT
+    – [ ] GAMMA
+    – [ ] VEGA
+    – [ ] RHO
+    – [x] I.OTM
+    – [ ] Bid.UN.OV
+    – [ ] Ask.UN.OV
+    – [ ] THETA
+    – [ ] PrtbStrk.VOLF
+    – [ ] Bid.UN.OV
+    – [ ] Ask.UN.OV
+    – [ ] X10.
+    – [ ] X.10.
+    – [ ] PrtbStrk.VOLF
+    – [ ] PctDble
+    – [ ] ROBUY
+    – [ ] ROWRT
+    – [ ] GAMMA
+    – [ ] VEGA
+    – [ ] RHO
+
+- dx_butterfly:
+  - [ ] volatility difference
+- Ms365 folder download
+  - [ ] documents/github/valueline/data
+- Exp Date
+  - [ ] Day of Week
+  - [ ] Day Diff
+- Strike Price by group
+  - [ ] Unique Symbol strike data.table
+  - [ ] Rolling join: current stock/strike price
+  - [ ] +/- rolling join price by ID
+- Tables:
+  - [ ] Date:
+    - [ ] id
+    - [ ] date_run
+    - [ ] date_exp
+  - [ ] Key:
+    - [ ] id
+    - [ ] date_run
+    - [ ] date_exp
+    - [ ] key_s0_plus
+    - [ ] key_s0_minus
+    - [ ] key_s1_plus
+    - [ ] key_s1_minus
+  - [ ] Metrics:
+    - [ ] id
+    - [ ] cost
+    - [ ] return 
+- [ ] Greeks
+   - [ ] id
+   - [ ] delta
+   - [ ] gamma
+   - [ ] vega
+- [ ] Rank
+  - [ ] Id
+  - [ ] common
+  - [ ] technical
+  - [ ] timeliness
+    - [ ] covered_call
+    - [ ] married_put
