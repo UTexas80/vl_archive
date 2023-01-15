@@ -1,36 +1,28 @@
-– [ ] add fields to the dx_bfly
-    – [ ] I.OTM
-    – [ ] Bid.UN.OV
-    – [ ] Ask.UN.OV
-    – [ ] THETA
-    – [ ] PrtbStrk.VOLF
-    – [ ] Bid.UN.OV
-    – [ ] Ask.UN.OV
-    – [ ] X10.
-    – [ ] X.10.
-    – [ ] PrtbStrk.VOLF
-    – [ ] PctDble
-    – [ ] ROBUY
-    – [ ] ROWRT
-    – [ ] GAMMA
-    – [ ] VEGA
-    – [ ] RHO
-    – [x] I.OTM
-    – [ ] Bid.UN.OV
-    – [ ] Ask.UN.OV
-    – [ ] THETA
-    – [ ] PrtbStrk.VOLF
-    – [ ] Bid.UN.OV
-    – [ ] Ask.UN.OV
-    – [ ] X10.
-    – [ ] X.10.
-    – [ ] PrtbStrk.VOLF
-    – [ ] PctDble
-    – [ ] ROBUY
-    – [ ] ROWRT
-    – [ ] GAMMA
-    – [ ] VEGA
-    – [ ] RHO
+- dt_bfly:
+    - comment fields:
+        - [x] s_minus_1
+        - [x] s_minus_0
+        - [x} s_plus_0
+        - [x] s_plus_1
+        - [x] id_minus_0_stk_diff
+        - [x] id_plus_0_stk_diff 
+
+- [ ] add fields to the dx_bfly
+    - [x] I.OTM
+    - [x] OI    
+    - [x] Bid.UN.OV
+    - [ ] Ask.UN.OV
+    - [x] PrtbStrk.VOLF
+    - [ ] X10.
+    - [ ] X.10.
+    - [x] PctDble
+    - [ ] ROBUY
+    - [x] ROWRT
+    - [x] DLTA
+    - [x] GAMMA
+    - [ ] RHO
+    - [x] THETA    
+    - [x] VEGA
 
 - dx_butterfly:
   - [ ] volatility difference
@@ -64,6 +56,7 @@
    - [ ] id
    - [ ] delta
    - [ ] gamma
+   - [ ] theta   
    - [ ] vega
 - [ ] Rank
   - [ ] Id

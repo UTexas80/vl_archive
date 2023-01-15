@@ -72,6 +72,30 @@ dx_date_exp$EXPDAY      <- as.Date(dx_date_exp$EXPDAY, format('%m/%d/%Y'))
 dx_date_exp$day         <- data.table::wday(dx_date_exp$EXPDAY)
 dx_date_exp$week        <- data.table::week(dx_date_exp$EXPDAY)
 dx_date_exp$diff        <- dx_date_exp$EXPDAY - Sys.Date()
+dx_date_exp             <<- setorder(dx_date_exp, EXPDAY)
+# ------------------------------------------------------------------------------
+dx_date_exp_mth         <- data.table::setorder(
+                            as.data.table(dx_date_exp[day == 6 & week == 3, ][
+                        , day_diff := diff - shift(diff)], EXPDAY)
+)
+# ------------------------------------------------------------------------------
+dt_time                 <- timeSequence(from = "2020-01-01",
+                                        to = "2030-12-31",
+                                        by = "month")
+dt_date_exp_mth         <- as.data.table(
+                            timeNthNdayInMonth(dt_time,
+                                               nday = 5,
+                                               nth = 3,
+                                               format = "%Y-%m-%d")
+                            )
+# ------------------------------------------------------------------------------
+names(dt_date_exp_mth)[1] <- "EXPDAY"
+dt_date_exp_mth$EXPDAY      <- as.Date(dt_date_exp_mth$EXPDAY)
+dt_date_exp_mth$day         <- data.table::wday(dt_date_exp_mth$EXPDAY)
+dt_date_exp_mth$week        <- data.table::week(dt_date_exp_mth$EXPDAY)
+dt_date_exp_mth$diff        <- dt_date_exp_mth$EXPDAY - Sys.Date()
+dt_date_exp_mth             <<- setorder(dt_date_exp_mth, EXPDAY)
+# ------------------------------------------------------------------------------
 
 #...............................................................................
 # browser()

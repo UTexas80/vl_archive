@@ -10,17 +10,18 @@ libraries:  zoo, archivist, ARTofR, bookdownplus, cheatsheet, checkpoint,
             circlize, collapse, compareDF, curl, DALEX, daff, data.table,
             data.tree, DataEditR, DataExplorer, dataMeta, datawizard,
             devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT,
-            explore, fst, fuzzyjoin, ggdogs, ggfortify, ggplot2,
+            ExcelFunctionsR,explore, fst, fuzzyjoin, ggdogs, ggfortify, ggplot2,
             ggpp, grid, gt, headliner, healthyR, heatmaply, here, highcharter,
             Hmisc, httr, humaniformat, inspectdf, janitor, job, keyring, knitr,
             lintr, logger, lubridate, magrittr, Microsoft365R, mltools,
             modelsummary, openxlsx, orca, pacman, packagefinder, pak, patchwork,
-            pdftools, plotluck, plyr, ProjectTemplate, qs, quantmod, rstudio.prefs,
-            ReDaMoR, readr, readxl, reprex, reshape2,  rio, rmarkdown,
-            rstudioapi, rtables, RVerbalExpressions, rvest,scales, scribblr,
-            shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr, SmartEDA,
-            smooth, stringr, styler, summarytools, sunburstR, tidyverse, timetk,
-            treemap, tryCatchLog, utils, validate, visdat, waldo, xfun, xtable
+            pdftools, plotluck, plyr, ProjectTemplate, qs, quantmod,
+            rstudio.prefs, ReDaMoR, readr, readxl, reprex, reshape2, rio,
+            rmarkdown, rstudioapi, rtables, RVerbalExpressions, rvest,scales,
+            scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr,
+            SmartEDA, smooth, stringr, styler, summarytools, sunburstR,
+            tidyverse, timeDate, timetk, treemap, tryCatchLog, utils, validate,
+            visdat, waldo, writexl, xfun, xtable
 logging: TRUE
 logging_level: INFO
 munging: TRUE
