@@ -6,7 +6,7 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  zoo, archivist, ARTofR, bookdownplus, cheatsheet, checkpoint,
+libraries:  archivist, ARTofR, bookdownplus, cheatsheet, checkpoint,
             circlize, collapse, compareDF, curl, DALEX, daff, data.table,
             data.tree, DataEditR, DataExplorer, dataMeta, datawizard,
             devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT,
@@ -21,7 +21,7 @@ libraries:  zoo, archivist, ARTofR, bookdownplus, cheatsheet, checkpoint,
             scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr,
             SmartEDA, smooth, stringr, styler, summarytools, sunburstR,
             tidyverse, timeDate, timetk, treemap, tryCatchLog, utils, validate,
-            visdat, waldo, writexl, xfun, xtable
+            visdat, waldo, writexl, xfun, xtable, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE
