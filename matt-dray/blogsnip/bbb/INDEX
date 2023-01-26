@@ -1,0 +1,9 @@
+box                     Build a bounding box
+code_bbox               Get the code to reproduce your bounding box
+manual_bbox             Manually build a bounding box using the Shiny
+                        rectangle
+morph                   Morph the format of a bounding box
+to_word_str             Morph any bounding box to a word string
+                        bounding box
+word_str_to_xy_matrix   Morph an xy string bbox to a xy matrix bbox
+word_str_to_xy_str      Morph a word string bbox to a xy string bbox

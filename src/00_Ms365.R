@@ -74,7 +74,7 @@ cbind(as.data.table(cd$list_items(dir_github_data))[name %like% ".csv|.CSV",][,1
 od          <- Microsoft365R::get_personal_onedrive()
 dt_git_data <- as.data.table(
   cbind(
-    cd$list_items(dir_github_data)[name %like% ".csv|.CSV",][,1]
+    cd$list_items(dir_github_data)[name %like% ".csv|.CSV",][,1],
     cd$list_items(dir_github_data, full_names=TRUE))[name %like% ".csv|.CSV",][,1]
   )
 dt_top_200  <- as.data.table(cd$list_files(dir_ms365_top_200))
