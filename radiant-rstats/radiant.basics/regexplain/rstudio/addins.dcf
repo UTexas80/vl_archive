@@ -1,0 +1,14 @@
+Name: RegExplain
+Description: Open RegExplain app optionally using text current selection
+Binding: regexplain_addin
+Interactive: true
+
+Name: RegExplain File
+Description: Open RegExplain app using text from a file
+Binding: regexplain_file
+Interactive: true
+
+Name: RegExplain Cheatsheet
+Description: Regex Cheatsheet Quick Reference
+Binding: regexplain_cheatsheet
+Interactive: false
