@@ -47,8 +47,4 @@ dt_file_table <-
   )
 dt_file_table <- data.table::setorder(dt_file_table,name)
 # ------------------------------------------------------------------------------
-dt_archive <- 
-  dt_file_table  %>%
-    split(., by = c("name_num", "name")) %>%
-    map(., fun_archive)
-# ------------------------------------------------------------------------------
+

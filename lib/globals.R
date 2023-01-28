@@ -48,8 +48,8 @@ z                 <- TRUE                  # template switch create dx_blob
 ################################################################################
 # Hmisc package
 ################################################################################
-getRs('reptools.r')
-getRs('movStats.r')
+# getRs('reptools.r')
+# getRs('movStats.r')
 ################################################################################
 ## Repo Package: data management to build centralized metadata repository       ### https://github.com/franapoli/repo
 ## Check existence of directory and create if doesn't exist                     ### https://tinyurl.com/y3adrqwa

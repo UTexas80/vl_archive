@@ -248,6 +248,22 @@
       "Hash": "0c7658433758cea5bcae50edd02b55b7",
       "Requirements": []
     },
+    "RSQLite": {
+      "Package": "RSQLite",
+      "Version": "2.2.20",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b5df65015a2d74c144a1419dab6ffd3b",
+      "Requirements": [
+        "DBI",
+        "Rcpp",
+        "bit64",
+        "blob",
+        "memoise",
+        "pkgconfig",
+        "plogr"
+      ]
+    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.10",
@@ -675,6 +691,14 @@
       "Hash": "77bd60a6157420d4ffa93b27cf6a58b8",
       "Requirements": []
     },
+    "filelock": {
+      "Package": "filelock",
+      "Version": "1.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "38ec653c2613bed60052ba3787bd8a2c",
+      "Requirements": []
+    },
     "fontawesome": {
       "Package": "fontawesome",
       "Version": "0.5.0",
@@ -848,6 +872,16 @@
         "rprojroot"
       ]
     },
+    "hexbin": {
+      "Package": "hexbin",
+      "Version": "1.28.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "76314b69dc54f8c14204063a2fd6d74a",
+      "Requirements": [
+        "lattice"
+      ]
+    },
     "highr": {
       "Package": "highr",
       "Version": "0.10",
@@ -982,10 +1016,10 @@
     },
     "isoband": {
       "Package": "isoband",
-      "Version": "0.2.6",
+      "Version": "0.2.7",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "cfdea9dea85c1a973991c8cbe299f4da",
+      "Hash": "0080607b4a1a7b28979aecef976d8bc2",
       "Requirements": []
     },
     "jose": {
@@ -1342,6 +1376,24 @@
         "vctrs"
       ]
     },
+    "pkgcache": {
+      "Package": "pkgcache",
+      "Version": "2.0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "76048105024e43dc9e896be84fe6bdc2",
+      "Requirements": [
+        "R6",
+        "callr",
+        "cli",
+        "curl",
+        "filelock",
+        "jsonlite",
+        "prettyunits",
+        "processx",
+        "rappdirs"
+      ]
+    },
     "pkgconfig": {
       "Package": "pkgconfig",
       "Version": "2.0.3",
@@ -1385,6 +1437,14 @@
         "parsedate",
         "prettyunits"
       ]
+    },
+    "plogr": {
+      "Package": "plogr",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "09eb987710984fc2905c7129c7d85e65",
+      "Requirements": []
     },
     "plotly": {
       "Package": "plotly",
@@ -1436,12 +1496,6 @@
       "Version": "0.1-8",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "png",
-      "RemoteRef": "png",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.1-8",
       "Hash": "bd54ba8a0a5faded999a7aab6e46b374",
       "Requirements": []
     },
@@ -1980,10 +2034,17 @@
     },
     "tibble": {
       "Package": "tibble",
-      "Version": "3.1.8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "56b6934ef0f8c68225949a8672fe1a8f",
+      "Version": "3.1.8.9005",
+      "Source": "GitHub",
+      "Remotes": "r-lib/vctrs",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "tibble",
+      "RemoteUsername": "tidyverse",
+      "RemotePkgRef": "tidyverse/tibble",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "69cdffbabfc3869cfb6410c0107179bd59b987f8",
+      "Hash": "409dc67192d09af5720faf91f093908c",
       "Requirements": [
         "fansi",
         "lifecycle",
@@ -2086,10 +2147,16 @@
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.5.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "e4ffa94ceed5f124d429a5a5f0f5b378",
+      "Version": "0.5.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "vctrs",
+      "RemoteUsername": "r-lib",
+      "RemotePkgRef": "r-lib/vctrs",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "af3fcc486664e30b588df1296a212e583ef00d18",
+      "Hash": "bd2fed01dcb9351dc2fc455e8e71e0cc",
       "Requirements": [
         "cli",
         "glue",
