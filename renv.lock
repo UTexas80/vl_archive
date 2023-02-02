@@ -119,10 +119,10 @@
     },
     "MASS": {
       "Package": "MASS",
-      "Version": "7.3-55",
+      "Version": "7.3-58.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c5232ffb549f6d7a04a152c34ca1353d",
+      "Hash": "e02d1a0f6122fd3e634b25b433704344",
       "Requirements": []
     },
     "Matrix": {
@@ -442,10 +442,10 @@
     },
     "class": {
       "Package": "class",
-      "Version": "7.3-20",
+      "Version": "7.3-21",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "da09d82223e669d270e47ed24ac8686e",
+      "Hash": "8ae0d4328e2eb3a582dfd5391a3663b7",
       "Requirements": [
         "MASS"
       ]
@@ -1263,10 +1263,10 @@
     },
     "mgcv": {
       "Package": "mgcv",
-      "Version": "1.8-38",
+      "Version": "1.8-41",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "be3c61ffbb1e3d3b3df214d192ac5444",
+      "Hash": "6b3904f13346742caa3e82dd0303d4ad",
       "Requirements": [
         "Matrix",
         "nlme"
@@ -1328,10 +1328,10 @@
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-155",
+      "Version": "3.1-161",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "74ad940dccc9e977189a5afe5fcdb7ba",
+      "Hash": "b49e163093c0ef46fbbfc40bcb87916c",
       "Requirements": [
         "lattice"
       ]
@@ -1973,10 +1973,10 @@
     },
     "survival": {
       "Package": "survival",
-      "Version": "3.2-13",
+      "Version": "3.5-0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "6f0a0fadc63bc6570fe172770f15bbc4",
+      "Hash": "db758f6f1e367f04222c745ca0260b8a",
       "Requirements": [
         "Matrix"
       ]
@@ -2151,12 +2151,11 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "vctrs",
       "RemoteUsername": "r-lib",
-      "RemotePkgRef": "r-lib/vctrs",
-      "RemoteRef": "HEAD",
+      "RemoteRepo": "vctrs",
+      "RemoteRef": "main",
       "RemoteSha": "af3fcc486664e30b588df1296a212e583ef00d18",
-      "Hash": "bd2fed01dcb9351dc2fc455e8e71e0cc",
+      "Hash": "98b26bbe7427131f3f1c4c5f84b75358",
       "Requirements": [
         "cli",
         "glue",

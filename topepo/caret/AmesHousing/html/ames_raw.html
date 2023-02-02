@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Raw Ames Housing Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ames_raw {AmesHousing}"><tr><td>ames_raw {AmesHousing}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Raw Ames Housing Data</h2>
+
+<h3>Description</h3>
+
+<p>Summon the data described by De Cock (2011) where 82 fields were recored for 2,930 properties in Ames IA.
+</p>
+
+
+<h3>Details</h3>
+
+<p>From the data documentation reference, the columns include:
+</p>
+
+<ul>
+<li> <p><code>Order</code>: Observation number
+</p>
+</li>
+<li> <p><code>PID</code>: Parcel identification number  - can be used with city web site for parcel review.
+</p>
+</li>
+<li> <p><code style="white-space: pre;">MS SubClass</code>: Identifies the type of dwelling involved in the sale.
+</p>
+</li>
+<li> <p><code style="white-space: pre;">MS Zoning</code>: Identifies the general zoning classification of the sale.
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Lot Frontage</code>: Linear feet of street connected to property
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Lot Area</code>: Lot size in square feet
+</p>
+</li>
+<li> <p><code>Street</code>: Type of road access to property
+</p>
+</li>
+<li> <p><code>Alley</code>: Type of alley access to property
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Lot Shape</code>: General shape of property
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Land Contour</code>: Flatness of the property
+</p>
+</li>
+<li> <p><code>Utilities</code>: Type of utilities available
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Lot Config</code>: Lot configuration
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Land Slope</code>: Slope of property
+</p>
+</li>
+<li> <p><code>Neighborhood</code>: Physical locations within Ames city limits (map available)
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Condition 1</code>: Proximity to various conditions
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Condition 2</code>: Proximity to various conditions (if more than one is present)
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bldg Type</code>: Type of dwelling
+</p>
+</li>
+<li> <p><code style="white-space: pre;">House Style</code>: Style of dwelling
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Overall Qual</code>: Rates the overall material and finish of the house
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Overall Cond</code>: Rates the overall condition of the house
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Year Built</code>: Original construction date
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Year Remod/Add</code>: Remodel date (same as construction date if no remodeling or additions)
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Roof Style</code>: Type of roof
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Roof Matl</code>: Roof material
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Exterior 1</code>: Exterior covering on house
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Exterior 2</code>: Exterior covering on house (if more than one material)
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Mas Vnr Type</code>: Masonry veneer type
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Mas Vnr Area</code>: Masonry veneer area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Exter Qual</code>: Evaluates the quality of the material on the exterior
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Exter Cond</code>: Evaluates the present condition of the material on the exterior
+</p>
+</li>
+<li> <p><code>Foundation</code>: Type of foundation
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bsmt Qual</code>: Evaluates the height of the basement
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bsmt Cond</code>: Evaluates the general condition of the basement
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bsmt Exposure</code>: Refers to walkout or garden level walls
+</p>
+</li>
+<li> <p><code style="white-space: pre;">BsmtFin Type 1</code>: Rating of basement finished area
+</p>
+</li>
+<li> <p><code style="white-space: pre;">BsmtFin SF 1</code>: Type 1 finished square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">BsmtFinType 2</code>: Rating of basement finished area (if multiple types)
+</p>
+</li>
+<li> <p><code style="white-space: pre;">BsmtFin SF 2</code>: Type 2 finished square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bsmt Unf SF</code>: Unfinished square feet of basement area
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Total Bsmt SF</code>: Total square feet of basement area
+</p>
+</li>
+<li> <p><code>Heating</code>: Type of heating
+</p>
+</li>
+<li> <p><code>HeatingQC</code>: Heating quality and condition
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Central Air</code>: Central air conditioning
+</p>
+</li>
+<li> <p><code>Electrical</code>: Electrical system
+</p>
+</li>
+<li> <p><code style="white-space: pre;">1st Flr SF</code>: First Floor square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">2nd Flr SF</code>: Second floor square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Low Qual Fin SF</code>: Low quality finished square feet (all floors)
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Gr Liv Area</code>: Above grade (ground) living area square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bsmt Full Bath</code>: Basement full bathrooms
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Bsmt Half Bath</code>: Basement half bathrooms
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Full Bath</code>: Full bathrooms above grade
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Half Bath</code>: Half baths above grade
+</p>
+</li>
+<li> <p><code>Bedroom</code>: Bedrooms above grade (does NOT include basement bedrooms)
+</p>
+</li>
+<li> <p><code>Kitchen</code>: Kitchens above grade
+</p>
+</li>
+<li> <p><code>KitchenQual</code>: Kitchen quality
+</p>
+</li>
+<li> <p><code>TotRmsAbvGrd</code>: Total rooms above grade (does not include bathrooms)
+</p>
+</li>
+<li> <p><code>Functional</code>: Home functionality (Assume typical unless deductions are warranted)
+</p>
+</li>
+<li> <p><code>Fireplaces</code>: Number of fireplaces
+</p>
+</li>
+<li> <p><code>FireplaceQu</code>: Fireplace quality
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Type</code>: Garage location
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Yr Blt</code>: Year garage was built
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Finish</code>: Interior finish of the garage
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Cars</code>: Size of garage in car capacity
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Area</code>: Size of garage in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Qual</code>: Garage quality
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Garage Cond</code>: Garage condition
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Paved Drive</code>: Paved driveway
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Wood Deck SF</code>: Wood deck area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Open Porch SF</code>: Open porch area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Enclosed Porch</code>: Enclosed porch area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">3-Ssn Porch</code>: Three season porch area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Screen Porch</code>: Screen porch area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Pool Area</code>: Pool area in square feet
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Pool QC</code>: Pool quality
+</p>
+</li>
+<li> <p><code>Fence</code>: Fence quality
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Misc Feature</code>: Miscellaneous feature not covered in other categories
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Misc Val</code>: $Value of miscellaneous feature
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Mo Sold</code>: Month Sold
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Yr Sold</code>: Year Sold
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Sale Type</code>: Type of sale
+</p>
+</li>
+<li> <p><code style="white-space: pre;">Sale Condition</code>: Condition of sale
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<table summary="R valueblock">
+<tr valign="top"><td><code>ames_raw</code></td>
+<td>
+<p>a tibble</p>
+</td></tr>
+</table>
+
+
+<h3>Source</h3>
+
+<p>De Cock, D. (2011). &quot;Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project,&quot; <em>Journal of Statistics Education</em>,  Volume 19, Number 3.
+</p>
+<p><a href="https://ww2.amstat.org/publications/jse/v19n3/decock/DataDocumentation.txt">https://ww2.amstat.org/publications/jse/v19n3/decock/DataDocumentation.txt</a>
+</p>
+<p><a href="http://ww2.amstat.org/publications/jse/v19n3/decock.pdf">http://ww2.amstat.org/publications/jse/v19n3/decock.pdf</a>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>AmesHousing</em> version 0.0.4.9000 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

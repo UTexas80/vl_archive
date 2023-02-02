@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a Processed Version of the Ames Housing Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for make_ames {AmesHousing}"><tr><td>make_ames {AmesHousing}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a Processed Version of the Ames Housing Data</h2>
+
+<h3>Description</h3>
+
+<p>Create a Processed Version of the Ames Housing Data
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+make_ames()
+
+make_ames_new()
+
+make_ordinal_ames()
+</pre>
+
+
+<h3>Details</h3>
+
+<p>For the processed version, the exact details can be found in
+the code of <code>make_ames</code> but a summary of the differences between
+these data sets and <code>ames_raw</code> is:
+</p>
+
+<ul>
+<li><p> All factors are <em>unordered</em>.
+</p>
+</li>
+<li> <p><code>PID</code> and <code>Order</code> are removed.
+</p>
+</li>
+<li><p> Spaces and special characters in column names where changed
+to snake case. To be consistent, <code>SalePrice</code> was changed to
+<code>Sale_Price</code>.
+</p>
+</li>
+<li><p> Many factor levels were changed to be more understandable
+(e.g. <code>Split_or_Multilevel</code> instead of <code>080</code>)
+</p>
+</li>
+<li><p> Many missing values were reset. For example, if the variable
+<code>Bsmt_Qual</code> was missing, this implies that there is no basement
+on the property. Instead of a missing value, the value of
+<code>Bsmt_Qual</code> was changed to <code>No_Basement</code>. Similarly, numeric
+data pertaining to basements were set to zero where appropriate
+such as variables <code>Bsmt_Full_Bath</code> and <code>Total_Bsmt_SF</code>.
+</p>
+</li>
+<li> <p><code>Garage_Yr_Blt</code> contained many missing data and was removed.
+</p>
+</li>
+<li><p> Approximate longitude and latitude are included for the
+properties. Also, note that there are 6 properties with
+identical geotags. These are units within the same building.
+For some properties, updated versions of the PID identifiers
+were found and are replaced with new values.
+</p>
+</li></ul>
+
+<p><code>make_ordinal_ames</code> is the same as <code>make_ames</code> but many factor
+variables were changed to class <code>ordered</code> (see below).
+</p>
+<p>The documentation for <code><a href="../../AmesHousing/help/ames_raw.html">ames_raw()</a></code> contains descriptions of
+the columns although, as noted above, the column names in
+<code><a href="../../AmesHousing/help/ames_raw.html">ames_raw()</a></code> are slightly different from the processed
+versions.
+</p>
+<p><code>make_ames_new()</code> creates a data set of new properties. These were populated
+using less data sources than the original and lack a number of the condition
+and quality. Both properties were unsold at the time of this writing.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A tibble with the data.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+ames &lt;- make_ames()
+nrow(ames)
+summary(ames$Sale_Price)
+
+ames_ord &lt;- make_ordinal_ames()
+ord_vars &lt;- vapply(ames_ord, is.ordered, logical(1))
+names(ord_vars)[ord_vars]
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>AmesHousing</em> version 0.0.4.9000 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

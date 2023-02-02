@@ -6,20 +6,20 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  archivist, ARTofR, bookdownplus, cheatsheet, checkpoint,
-            circlize, collapse, compareDF, curl, DALEX, daff, data.table,
-            data.tree, DataEditR, DataExplorer, dataMeta, datawizard,
+libraries:  AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet,
+            checkpoint, circlize, collapse, compareDF, curl, DALEX, daff,
+            data.table, data.tree, DataEditR, DataExplorer, dataMeta, datawizard,
             devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT,
             ExcelFunctionsR,explore, fst, fuzzyjoin, ggdogs, ggfortify, ggplot2,
-            ggpp, grid, gt, headliner, healthyR, heatmaply, here, highcharter,
-            httr, humaniformat, janitor, job, keyring, knitr,
+            ggpp, grid, gt, h2o, headliner, healthyR, heatmaply, here,
+            highcharter, httr, humaniformat, janitor, job, keyring, knitr,
             lintr, logger, lubridate, magrittr, Microsoft365R, mltools,
-            modelsummary, openxlsx, orca, pacman, packagefinder, pak, patchwork,
-            pdftools, plotluck, plyr, ProjectTemplate, qs, quantmod,
+            modelsummary, openxlsx, orca, pacman, packagefinder, pak, parsnip,
+            patchwork, pdftools, plotluck, plyr, ProjectTemplate, qs, quantmod,
             rstudio.prefs, readr, readxl, reprex, reshape2, rio,
-            rmarkdown, rstudioapi, rtables, RVerbalExpressions, rvest,scales,
-            scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma, skimr,
-            SmartEDA, stringr, styler, summarytools, sunburstR,
+            rmarkdown, rsample, rstudioapi, rtables, RVerbalExpressions,
+            rvest,scales, scribblr, shiny, shinyAce, shinydashboard, SIT,
+            SixSigma, skimr, SmartEDA, stringr, styler, summarytools, sunburstR,
             tidyverse, timeDate, timetk, treemap, tryCatchLog, utils, validate,
             visdat, waldo, writexl, xfun, xtable, zoo
 logging: TRUE

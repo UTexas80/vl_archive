@@ -176,13 +176,14 @@ names(dt_date_exp_mth)[1]   <- "EXPDAY"
 dt_date_exp_mth$EXPDAY      <- as.Date(dt_date_exp_mth$EXPDAY)
 dt_date_exp_mth$day         <- data.table::wday(dt_date_exp_mth$EXPDAY)
 dt_date_exp_mth$week        <- data.table::week(dt_date_exp_mth$EXPDAY)
-dt_date_exp_mth$diff        <- dt_date_exp_mth$EXPDAY - as.Date(date_run$V2, format('%m/%d/%Y'))
-dt_date_exp_mth[, next_exp := shift(EXPDAY, type = "lead")]
+dt_date_exp_mth$diff_today  <- dt_date_exp_mth$EXPDAY - as.Date(date_run$V2, format('%m/%d/%Y'))
+dt_date_exp_mth[, next_exp  := shift(EXPDAY, type = "lead")]
+dt_date_exp_mth[, diff_exp  := as.numeric(next_exp - shift(next_exp))]
 dt_date_exp_mth             <<- setorder(dt_date_exp_mth, EXPDAY)
 # ------------------------------------------------------------------------------
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -217,15 +218,10 @@ dx_ticker               <<- data.table::setorder(dx_ticker, "TKR", "CMPRICE")
 ################################################################################
 weekdays(dx_date_exp$EXPDAY)
 w <- dx_date_exp[, wk := isoweek(EXPDAY)]
-a <- dx_date_exp[, week := ifelse( ceiling(mday(EXPDAY)/7) == 5, 4, ceiling(mday(EXPDAY)/7) )]
-################################################################################
-## Step 00.99: VERSION HISTORY                                               ###
-################################################################################
-a00.version             <- "1.0.0"
-a00.ModDate             <- as.Date("2023-01-20")
-# ------------------------------------------------------------------------------
-# 2020.07.10 - v.1.0.0
-#  1st release
+a <- dx_date_exp[, week := ifelse(ceiling(mday(EXPDAY) / 7) == 5,
+  4,
+  ceiling(mday(EXPDAY) / 7)
+)]
 # ------------------------------------------------------------------------------
 }
 #...............................................................................
@@ -235,11 +231,11 @@ fun_3000_strike_processing  <- function(dx_blob){
 #...............................................................................
   
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
   
 # ------------------------------------------------------------------------------
-  dx_tkr_stk             <- dx_blob[dt_date_exp_mth[between(diff, 30,59),][1,1]]
+  dx_tkr_stk             <- dx_blob[dt_date_exp_mth[between(diff_today, 0,63),][1,1]]
 # ------------------------------------------------------------------------------
   setkey(dx_tkr_stk,    TKR)
   setkey(dx_ticker,     TKR)
@@ -273,7 +269,7 @@ fun_3000_strike_processing  <- function(dx_blob){
 # dx_s_plus_1            <- unique(dx_ticker[dx_tkr_stk, allow.cartesian=TRUE])[CMPRICE <= STRIKE, .SD[2],         by = .(TKR)][,c(1,3)]  
 # dx_s_plus_2            <- unique(dx_ticker[dx_tkr_stk, allow.cartesian=TRUE])[CMPRICE <= STRIKE, .SD[3],         by = .(TKR)][,c(1,3)]  
 # ------------------------------------------------------------------------------
-
+  na.omit(dx_s_minus_1[dx_s_minus_0][dx_s_plus_0][dx_s_plus_1])
 #...............................................................................
 # browser()
 #...............................................................................  
@@ -331,12 +327,13 @@ fun_4000_bfly_main    <- function(dx_blob) {
 
   butterfly <- dx_blob[
     #  dx_date_exp[day == 6 & week == 3, ][1, 1]
-    dt_date_exp_mth[between(diff, 30, 60)][1,1]  
+#    dt_date_exp_mth[between(diff_today, 0, 63)][1,1]
+    dt_date_exp_mth[between(diff_today, 0, 63)]
     #  dx_date_exp_mth[2,1]
   ][
     order(OPTKR, -date_run),
   ] %>%
-    split(., by = c("TKR")) %>%
+    split(., by = c("TKR", "EXPDAY")) %>%
     map(., fun_4100_bfly_processing)
   
 #...............................................................................
@@ -354,7 +351,7 @@ fun_4100_bfly_processing    <- function(blob) {
 # ------------------------------------------------------------------------------
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -467,11 +464,16 @@ if (z == TRUE) {
   z <<- FALSE
 # ------------------------------------------------------------------------------
 } else {
+
 #...............................................................................  
 # browser()
 #...............................................................................  
-  g[[paste0("dt_bfly")]] <<- rbind(g[[paste0("dt_bfly")]],
-  data.table(
+
+g[[paste0("dt_bfly")]] <<- rbind(
+    setDT(g[[paste0("dt_bfly")]]),
+# g[[paste0("dt_bfly")]] <<- rbind(list(g[[paste0("dt_bfly")]],
+# g[[paste0("dt_bfly")]] <<- purrr::map2_df(g[[paste0("dt_bfly")]],  
+    data.table(
 # ------------------------------------------------------------------------------
   unique(blob[, "TKR"]),
   unique(blob[, "CMRK"]),
@@ -500,7 +502,7 @@ sum(
 # ------------------------------------------------------------------------------
 # Individual components of cost
 # ------------------------------------------------------------------------------
-  # unique(blob[C.P == "P", ][dx_s_minus_1,  on = c(TKR = "TKR", STRIKE = "STRIKE"), nomatch = 0][, 19]),
+ # unique(blob[C.P == "P", ][dx_s_minus_1,  on = c(TKR = "TKR", STRIKE = "STRIKE"), nomatch = 0][, 19]),
   # unique(blob[C.P == "C", ][dx_s_minus_0,  on = c(TKR = "TKR", STRIKE = "STRIKE"), nomatch = 0][, 18]),
   # unique(blob[C.P == "P", ][dx_s_plus_0,   on = c(TKR = "TKR", STRIKE = "STRIKE"), nomatch = 0][, 18]),
   # unique(blob[C.P == "C", ][dx_s_plus_1,   on = c(TKR = "TKR", STRIKE = "STRIKE"), nomatch = 0][, 19]),
@@ -551,8 +553,9 @@ sum(
 #  dt_bfly[, .I]
   ),
 # ------------------------------------------------------------------------------
-    use.names = FALSE,
-    fill = TRUE
+    use.names = FALSE
+#    fill = TRUE
+#      )
     )
   }
  #...............................................................................      
