@@ -190,18 +190,22 @@ dx_blob                 <- dx_blob[dt_top_3_exp, on = .(EXPDAY)]
 ################################################################################
 
 # ------------------------------------------------------------------------------
-dx_company              <<- data.table::setorder(as.data.table(distinct(
+dx_company              <<- data.table::setorder(as.data.table(unique(
                               dx_blob[,1])),Company)
-dx_industry             <<- data.table::setorder(as.data.table(distinct(
+dx_industry             <<- data.table::setorder(as.data.table(unique(
                               dx_blob[,7])),INDUST)
-dx_tech_rank            <<- data.table::setorder(as.data.table(distinct(
+dx_tech_rank            <<- data.table::setorder(as.data.table(unique(
                               dx_blob[,4])),TechRank)
-dx_strike               <<- data.table::setorder(as.data.table(distinct(
+dx_strike               <<- data.table::setorder(as.data.table(unique(
                               dx_blob[,12])),STRIKE)
 dx_ticker               <<- as.data.table(distinct(
                               dx_blob[,c(10,8)]))
 dx_ticker               <<- data.table::setorder(
                               dx_ticker, "TKR", "CMPRICE")
+dx_tkr_stk              <<- data.table::setorder(
+                              unique(
+                                dx_blob[,c(10:13,15)]),
+                              OPTKR)
 # ------------------------------------------------------------------------------
 
 ################################################################################
@@ -212,7 +216,46 @@ dx_ticker               <<- data.table::setorder(
 browser()
 #...............................................................................
 
+dt <- data.table::setorder(
+  rbind(
+    rbind(dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][
+      , by = .(TKR, dx_tkr_stk[[2]], EXPDAY), .SD[.N]][
+        , c("STRIKE", "OPTKR") := .(CMPRICE, "")][
+          ,c(1,5:7,3)]),
+    dx_tkr_stk),
+  TKR, EXPDAY, 'C/P', STRIKE
+)
+# ------------------------------------------------------------------------------
+dt1 <- dt[, stk_incrmt := ifelse(shift(OPTKR, type = "lag", n = 1L) == "", 1, 0),  .I]
+dt2 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lag", n = 2L) == "", 2, 0),  .I]
+dt3 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lag", n = 3L) == "", 3, 0),  .I]
+# ------------------------------------------------------------------------------
+dt_1 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lead", n = 1L) == "", -1, 0),  .I]
+dt_2 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lead", n = 2L) == "", -2, 0),  .I]
+dt_3 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lead", n = 3L) == "", -3, 0),  .I]
+# ------------------------------------------------------------------------------
+df <- rbind(
+  dt1[ stk_incrmt ==  1,],
+  dt2[ stk_incrmt ==  2,],
+  dt3[ stk_incrmt ==  3,],
+  dt_1[stk_incrmt == -1,],
+  dt_2[stk_incrmt == -2,],
+  dt_3[stk_incrmt == -3,]
+)
+df <- data.table::setorder(df, TKR, EXPDAY, 'C/P', STRIKE)
+# ------------------------------------------------------------------------------
 
+
+
+t<-setorder(rbind(dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'P', by = .(TKR,EXPDAY), .SD[.N-1]],
+                  dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'P', by = .(TKR,EXPDAY), .SD[.N]],
+                  dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'C', by = .(TKR,EXPDAY), .SD[-.N]],
+                  dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'C', by = .(TKR,EXPDAY), .SD[.N-1]]), TKR, EXPDAY)
+
+
+dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'P', by = .(TKR,EXPDAY), .SD[.N]][TKR=='AA',]
+# ------------------------------------------------------------------------------
+t[, .N, by = .(TKR, EXPDAY)][N == 4,]
 
 #...............................................................................
 }
