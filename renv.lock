@@ -248,6 +248,23 @@
       "Hash": "0c7658433758cea5bcae50edd02b55b7",
       "Requirements": []
     },
+    "RMariaDB": {
+      "Package": "RMariaDB",
+      "Version": "1.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "eeb4bc5cedc0251deb0b866bd8f40cb5",
+      "Requirements": [
+        "DBI",
+        "Rcpp",
+        "bit64",
+        "blob",
+        "hms",
+        "lubridate",
+        "plogr",
+        "rlang"
+      ]
+    },
     "RSQLite": {
       "Package": "RSQLite",
       "Version": "2.2.20",
@@ -1206,6 +1223,14 @@
       "Hash": "7ce2733a9826b3aeb1775d56fd305472",
       "Requirements": []
     },
+    "maps": {
+      "Package": "maps",
+      "Version": "3.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b3d98a967ec17c80f795719529812fa0",
+      "Requirements": []
+    },
     "maptools": {
       "Package": "maptools",
       "Version": "1.1-4",
@@ -1334,6 +1359,16 @@
       "Hash": "b49e163093c0ef46fbbfc40bcb87916c",
       "Requirements": [
         "lattice"
+      ]
+    },
+    "nycflights13": {
+      "Package": "nycflights13",
+      "Version": "1.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "61eb941328b49a62d7f9816dfed7d959",
+      "Requirements": [
+        "tibble"
       ]
     },
     "openssl": {
@@ -1614,6 +1649,14 @@
         "yaml"
       ]
     },
+    "randomForest": {
+      "Package": "randomForest",
+      "Version": "4.6-14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6367ba8128568cc5ebf8082e440948e4",
+      "Requirements": []
+    },
     "rappdirs": {
       "Package": "rappdirs",
       "Version": "0.3.3",
@@ -1713,6 +1756,31 @@
       "Repository": "CRAN",
       "Hash": "c9e8442ab69bc21c9697ecf856c1e6c7",
       "Requirements": []
+    },
+    "rgdal": {
+      "Package": "rgdal",
+      "Version": "1.5-28",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0f625c5c628af2955aef2c561413ee30",
+      "Requirements": [
+        "sp"
+      ]
+    },
+    "rgl": {
+      "Package": "rgl",
+      "Version": "0.108.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f64f09322c08801bb67928325188c38c",
+      "Requirements": [
+        "R6",
+        "htmltools",
+        "htmlwidgets",
+        "jsonlite",
+        "knitr",
+        "magrittr"
+      ]
     },
     "rlang": {
       "Package": "rlang",
@@ -2317,6 +2385,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0d0056cc5383fbc240ccd0cb584bf436",
+      "Requirements": []
+    },
+    "zeallot": {
+      "Package": "zeallot",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ee9b643aa8331c45d8d82eb3a137c9bc",
       "Requirements": []
     },
     "zoo": {
