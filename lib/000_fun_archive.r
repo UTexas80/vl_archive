@@ -18,7 +18,7 @@ fun_0000_archive_processing      <- function(nm){
 #...............................................................................
   fun_1000_download_zip(nm)
   fun_2000_archive_mungle(ALLNEW)
-  fun_3000_strike_processing(dx_blob)
+  fun_3000_strike_main()
   fun_4000_bfly_main(dx_blob)
 #...............................................................................
 }
@@ -216,21 +216,20 @@ dx_tkr_stk              <<- data.table::setorder(
 
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 #...............................................................................
 }
 #...............................................................................
 
+################################################################################
+# Step 3000.06 strike specific variables                                    ###
+################################################################################
+#...............................................................................
+fun_3000_strike_main  <- function(){
+#...............................................................................
 
-################################################################################
-# Step 2000.06 strike specific variables                                    ###
-################################################################################
-#...............................................................................
-fun_3000_strike_main  <- function(dx_blob){
-#...............................................................................
-  
 #...............................................................................
 browser()
 #...............................................................................
@@ -243,7 +242,7 @@ browser()
 # EXPDAY <date> 
 # ------------------------------------------------------------------------------
 
-dt <- data.table::setorder(
+dx_stk <- data.table::setorder(
   rbind(
     rbind(dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][
       , by = .(TKR, dx_tkr_stk[[2]], EXPDAY), .SD[.N]][
@@ -252,38 +251,6 @@ dt <- data.table::setorder(
     dx_tkr_stk),
   TKR, EXPDAY, 'C/P', STRIKE
 )
-
-# ------------------------------------------------------------------------------
-dt1 <- dt[, stk_incrmt := ifelse(shift(OPTKR, type = "lag", n = 1L) == "", 1, 0),  .I]
-dt2 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lag", n = 2L) == "", 2, 0),  .I]
-dt3 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lag", n = 3L) == "", 3, 0),  .I]
-# ------------------------------------------------------------------------------
-dt_1 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lead", n = 1L) == "", -1, 0),  .I]
-dt_2 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lead", n = 2L) == "", -2, 0),  .I]
-dt_3 <- dt[stk_incrmt == 0, stk_incrmt := ifelse(shift(OPTKR, type = "lead", n = 3L) == "", -3, 0),  .I]
-# ------------------------------------------------------------------------------
-df <- rbind(
-  dt1[ stk_incrmt ==  1,],
-  dt2[ stk_incrmt ==  2,],
-  dt3[ stk_incrmt ==  3,],
-  dt_1[stk_incrmt == -1,],
-  dt_2[stk_incrmt == -2,],
-  dt_3[stk_incrmt == -3,]
-)
-df <- data.table::setorder(df, TKR, EXPDAY, 'C/P', STRIKE)
-# ------------------------------------------------------------------------------
-
-
-
-t<-setorder(rbind(dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'P', by = .(TKR,EXPDAY), .SD[.N-1]],
-                  dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'P', by = .(TKR,EXPDAY), .SD[.N]],
-                  dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'C', by = .(TKR,EXPDAY), .SD[-.N]],
-                  dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'C', by = .(TKR,EXPDAY), .SD[.N-1]]), TKR, EXPDAY)
-
-
-dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][dx_tkr_stk[[2]] == 'P', by = .(TKR,EXPDAY), .SD[.N]][TKR=='AA',]
-# ------------------------------------------------------------------------------
-t[, .N, by = .(TKR, EXPDAY)][N == 4,]
 
 #...............................................................................
 browser()

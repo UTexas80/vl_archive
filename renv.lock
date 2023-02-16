@@ -370,6 +370,20 @@
       "Hash": "4c49d391204186904eca7a5c30b9e33d",
       "Requirements": []
     },
+    "bigD": {
+      "Package": "bigD",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "bigD",
+      "RemoteRef": "bigD",
+      "RemoteRepos": "https://cloud.r-project.org",
+      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
+      "RemoteSha": "0.2.0",
+      "Hash": "93637e906f3fe962413912c956eb44db",
+      "Requirements": []
+    },
     "bit": {
       "Package": "bit",
       "Version": "4.0.4",
@@ -870,30 +884,32 @@
     },
     "gt": {
       "Package": "gt",
-      "Version": "0.5.0.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "gt",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "e6a762f1a9250c0e0368198c81918783b1eff0a6",
-      "Hash": "613ab87716f4e52b827fd2dcfe65dfd4",
+      "Version": "0.8.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "gt",
+      "RemoteRef": "gt",
+      "RemoteRepos": "https://cloud.r-project.org",
+      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
+      "RemoteSha": "0.8.0",
+      "Hash": "d100be8d1f54dc589cc8d63366839287",
       "Requirements": [
         "base64enc",
+        "bigD",
         "bitops",
-        "checkmate",
+        "cli",
         "commonmark",
         "dplyr",
         "fs",
         "ggplot2",
         "glue",
         "htmltools",
+        "juicyjuice",
         "magrittr",
         "rlang",
         "sass",
         "scales",
-        "stringr",
         "tibble",
         "tidyselect"
       ]
@@ -1108,6 +1124,22 @@
       "Repository": "CRAN",
       "Hash": "a4269a09a9b865579b2635c77e572374",
       "Requirements": []
+    },
+    "juicyjuice": {
+      "Package": "juicyjuice",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "juicyjuice",
+      "RemoteRef": "juicyjuice",
+      "RemoteRepos": "https://cloud.r-project.org",
+      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
+      "RemoteSha": "0.1.0",
+      "Hash": "3bcd11943da509341838da9399e18bce",
+      "Requirements": [
+        "V8"
+      ]
     },
     "knitr": {
       "Package": "knitr",
@@ -2390,6 +2422,20 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0d0056cc5383fbc240ccd0cb584bf436",
+      "Requirements": []
+    },
+    "zeallot": {
+      "Package": "zeallot",
+      "Version": "0.1.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "zeallot",
+      "RemoteUsername": "nteetor",
+      "RemotePkgRef": "nteetor/zeallot",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "55167bf3c8ad02ad92aee072af41466a3df6f6b7",
+      "Hash": "9fba12c79cf38e29cc09065b5cc5242d",
       "Requirements": []
     },
     "zoo": {
