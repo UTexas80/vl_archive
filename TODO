@@ -26,6 +26,7 @@
 
 - dx_butterfly:
   - [ ] volatility difference
+  - [ ] append to the bfly data.table
 - Ms365 folder download
   - [ ] documents/github/valueline/data
 - Exp Date
