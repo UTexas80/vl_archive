@@ -1,0 +1,55 @@
+Company             <chr>
+`DIV'D`             <dbl>
+CMRK                <dbl>
+TechRank            <dbl>
+`^vCM`              <chr>
+HISTVO              <dbl>
+INDUST              <chr>
+CMPRICE             <dbl>
+VOLF                <dbl>
+TKR                 <chr>
+`C/P`               <chr>
+STRIKE              <dbl>
+OPTKR               <chr>
+`Record Number`     <dbl>
+EXPDAY              <date>
+OI                  <dbl>
+VOL                 <dbl>
+BID                 <dbl>
+ASK                 <dbl>
+EST                 <dbl>
+DLTA                <dbl>
+`BID OPRK`          <dbl>
+`ASK OPRK`          <dbl>
+`BID UN/OV`         <dbl>
+`ASK UN/OV`         <dbl>
+RVOPT               <dbl>
+`10%`               <dbl>
+`-10%`              <dbl>
+CCMPRK              <dbl>
+CCMPBE              <dbl>
+CCMPRV              <dbl>
+CCPWPA              <dbl>
+CCPWBE              <dbl>
+CCPWMAX             <dbl>
+`I/OTM`             <dbl>
+THETA               <dbl>
+`BID IMPLIE`        <dbl>
+`ASK IMPLIE`        <dbl>
+VOLFADJ             <dbl>
+`Forecast PrtbStrk` <dbl>
+`Bid Prbstrk`       <dbl>
+`Ask Prbstrk`       <dbl>
+PctDble             <dbl>
+Margin              <dbl>
+YLDMGN              <dbl>
+MXMGN               <dbl>
+ROBUY               <dbl>
+ROWRITE             <dbl>
+ROCCMP              <dbl>
+GAMMA               <dbl>
+VEGA                <dbl>
+RHO                 <dbl>
+TimPrPct            <dbl>
+`BID/ASKPcnt`       <dbl>
+date_run            <date>
