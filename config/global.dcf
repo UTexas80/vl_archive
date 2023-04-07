@@ -22,7 +22,7 @@ libraries:  AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet,
             shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
             summarytools, sunburstR, tidyverse, timeDate, timetk, treemap,
             tryCatchLog, utils, validate, visdat, waldo, writexl, xfun, xtable,
-            zoo
+            xts, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE

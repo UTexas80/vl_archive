@@ -61,36 +61,14 @@
     },
     "DBI": {
       "Package": "DBI",
-      "Version": "1.1.2",
+      "Version": "1.1.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "dcd1743af4336156873e3ce3c950b8b9"
-    },
-    "DT": {
-      "Package": "DT",
-      "Version": "0.27.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "DT",
-      "RemoteUsername": "rstudio",
-      "RemotePkgRef": "rstudio/DT",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "c1cdbef524ec3c978cd140a5294d1330c30d06d6",
-      "Requirements": [
-        "crosstalk",
-        "htmltools",
-        "htmlwidgets",
-        "jquerylib",
-        "jsonlite",
-        "magrittr",
-        "promises"
-      ],
-      "Hash": "458ee0f9aff5de80cd0808c7807af93d"
+      "Hash": "b2866e62bab9378c3cc9476a1954226b"
     },
     "DiagrammeR": {
       "Package": "DiagrammeR",
@@ -121,30 +99,27 @@
       ],
       "Hash": "cc43d8972a07f65e651c2861626003da"
     },
-    "FNN": {
-      "Package": "FNN",
-      "Version": "1.1.3",
-      "Source": "Repository",
+    "Lahman": {
+      "Package": "Lahman",
+      "Version": "10.0-1",
+      "Source": "GitHub",
       "Repository": "CRAN",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "b56998fff55e4a4b4860ad6e8c67e0f9"
-    },
-    "KernSmooth": {
-      "Package": "KernSmooth",
-      "Version": "2.23-20",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "Lahman",
+      "RemoteUsername": "cdalzell",
+      "RemotePkgRef": "cdalzell/Lahman",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "b0ac51e86c1acf36a4ffe69dc9bf779839e53742",
       "Requirements": [
         "R",
-        "stats"
+        "dplyr"
       ],
-      "Hash": "8dcfa99b14c296bc9f1fd64d52fd3ce7"
+      "Hash": "677950780aad963645d1bdf69a449175"
     },
     "MASS": {
       "Package": "MASS",
-      "Version": "7.3-58.2",
+      "Version": "7.3-58.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -155,19 +130,13 @@
         "stats",
         "utils"
       ],
-      "Hash": "e02d1a0f6122fd3e634b25b433704344"
+      "Hash": "9586b552d57f5516fe4d25398c1bacd6"
     },
     "Matrix": {
       "Package": "Matrix",
-      "Version": "1.5-3",
+      "Version": "1.5-4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "Matrix",
-      "RemoteRef": "Matrix",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.5-3",
       "Requirements": [
         "R",
         "graphics",
@@ -177,7 +146,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "4006dffe49958d2dd591c17e61e60591"
+      "Hash": "e779c7d9f35cc364438578f334cffee2"
     },
     "Microsoft365R": {
       "Package": "Microsoft365R",
@@ -206,20 +175,16 @@
     },
     "ProjectTemplate": {
       "Package": "ProjectTemplate",
-      "Version": "0.10.2",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "ProjectTemplate",
-      "RemoteUsername": "KentonWhite",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "3f6f5a9427f68f70d0d7f60dc020fea9d4b1d72b",
+      "Version": "0.10.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "digest",
+        "methods",
         "tibble"
       ],
-      "Hash": "e02f33bce1f1052d46826bd81c57b1d1"
+      "Hash": "f9473f3b6196919109938e0d42d9c7da"
     },
     "R.methodsS3": {
       "Package": "R.methodsS3",
@@ -299,7 +264,7 @@
     },
     "RCurl": {
       "Package": "RCurl",
-      "Version": "1.98-1.6",
+      "Version": "1.98-1.12",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -307,35 +272,35 @@
         "bitops",
         "methods"
       ],
-      "Hash": "53a4a5e55370f1a1a4afd92356252946"
+      "Hash": "1d6ed2d006d483f31c6d5531f3a39923"
     },
     "RJSONIO": {
       "Package": "RJSONIO",
-      "Version": "1.3-1.6",
+      "Version": "1.3-1.8",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "methods"
       ],
-      "Hash": "0c7658433758cea5bcae50edd02b55b7"
+      "Hash": "cd79d1874fb20217463451f8c310c526"
     },
     "RSQLite": {
       "Package": "RSQLite",
-      "Version": "2.2.20",
+      "Version": "2.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "DBI",
         "R",
-        "Rcpp",
         "bit64",
         "blob",
+        "cpp11",
         "memoise",
         "methods",
         "pkgconfig",
         "plogr"
       ],
-      "Hash": "b5df65015a2d74c144a1419dab6ffd3b"
+      "Hash": "207c90cd5438a1f596da2cd54c606fee"
     },
     "Rcpp": {
       "Package": "Rcpp",
@@ -354,85 +319,6 @@
       ],
       "Hash": "e749cae40fa9ef469b6050959517453c"
     },
-    "RcppArmadillo": {
-      "Package": "RcppArmadillo",
-      "Version": "0.12.0.1.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "RcppArmadillo",
-      "RemoteUsername": "RcppCore",
-      "RemotePkgRef": "RcppCore/RcppArmadillo",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "b480c2f153107130335b61fcd120ef2d67b56a78",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "methods",
-        "stats",
-        "utils"
-      ],
-      "Hash": "a2b1c6e3d6bb397a77f9b5f2a0a9b11b"
-    },
-    "RgoogleMaps": {
-      "Package": "RgoogleMaps",
-      "Version": "1.4.5.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "RgoogleMaps",
-      "RemoteRef": "RgoogleMaps",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.4.5.3",
-      "Requirements": [
-        "R",
-        "grDevices",
-        "graphics",
-        "methods",
-        "png",
-        "sp",
-        "stats",
-        "utils"
-      ],
-      "Hash": "bffdcd07380ea0a95228588f8aa93734"
-    },
-    "V8": {
-      "Package": "V8",
-      "Version": "4.2.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "V8",
-      "RemoteRef": "V8",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "4.2.2",
-      "Requirements": [
-        "Rcpp",
-        "curl",
-        "jsonlite",
-        "utils"
-      ],
-      "Hash": "ebee37dadb0a8f5086663825d2c33076"
-    },
-    "animation": {
-      "Package": "animation",
-      "Version": "2.7.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "animation",
-      "RemoteUsername": "yihui",
-      "RemotePkgRef": "yihui/animation",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "0b8414d6fdecda00cecca81f71dda94b8369d7ee",
-      "Requirements": [
-        "R",
-        "magick"
-      ],
-      "Hash": "6c0ee768be9576476359c159ea80cef1"
-    },
     "askpass": {
       "Package": "askpass",
       "Version": "1.1",
@@ -445,26 +331,18 @@
     },
     "async": {
       "Package": "async",
-      "Version": "0.0.0.9004",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "Remotes": "r-lib/webfakes",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "async",
-      "RemoteUsername": "gaborcsardi",
-      "RemotePkgRef": "gaborcsardi/async",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "e6b020bb88bf5c4348d638e0a73773ad33f99d2c",
-      "Remotes": "r-lib/webfakes",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
-        "R6",
-        "callr",
-        "curl",
-        "processx",
-        "utils"
+        "later",
+        "nseval",
+        "promises",
+        "stringr",
+        "testthat"
       ],
-      "Hash": "1ac17e1ce129e54f43d468fd794b4d3b"
+      "Hash": "57f879b14f3e43bcfccaf3ee4fe234a9"
     },
     "backports": {
       "Package": "backports",
@@ -492,44 +370,15 @@
       ],
       "Hash": "543776ae6848fde2f48ff3816d0628bc"
     },
-    "bgmfiles": {
-      "Package": "bgmfiles",
-      "Version": "0.0.6",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "bgmfiles",
-      "RemoteUsername": "AustralianAntarcticDivision",
-      "RemotePkgRef": "AustralianAntarcticDivision/bgmfiles",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "bf3390a23222c788d99c6370d4d5ef2923fb8db5",
-      "Hash": "4c49d391204186904eca7a5c30b9e33d"
-    },
-    "bigD": {
-      "Package": "bigD",
-      "Version": "0.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "bigD",
-      "RemoteRef": "bigD",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.2.0",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "93637e906f3fe962413912c956eb44db"
-    },
     "bit": {
       "Package": "bit",
-      "Version": "4.0.4",
+      "Version": "4.0.5",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "f36715f14d94678eea9933af927bc15d"
+      "Hash": "d242abec29412ce988848d0294b208fd"
     },
     "bit64": {
       "Package": "bit64",
@@ -554,7 +403,7 @@
     },
     "blob": {
       "Package": "blob",
-      "Version": "1.2.3",
+      "Version": "1.2.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -562,7 +411,7 @@
         "rlang",
         "vctrs"
       ],
-      "Hash": "10d231579bc9c06ab1c320618808d4ff"
+      "Hash": "40415719b5a479b87949f3aa0aee737c"
     },
     "brio": {
       "Package": "brio",
@@ -573,7 +422,7 @@
     },
     "broom": {
       "Package": "broom",
-      "Version": "1.0.3",
+      "Version": "1.0.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -583,13 +432,14 @@
         "ellipsis",
         "generics",
         "glue",
+        "lifecycle",
         "purrr",
         "rlang",
         "stringr",
         "tibble",
         "tidyr"
       ],
-      "Hash": "ab67f5ce0aa79b8db7ddba5cb0d4012d"
+      "Hash": "f62b2504021369a2449c54bbda362d30"
     },
     "bslib": {
       "Package": "bslib",
@@ -619,14 +469,14 @@
     },
     "cachem": {
       "Package": "cachem",
-      "Version": "1.0.6",
+      "Version": "1.0.7",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "fastmap",
         "rlang"
       ],
-      "Hash": "648c5b3d71e6a37e3043617489a0a0e9"
+      "Hash": "cda74447c42f529de601fe4d4050daef"
     },
     "callr": {
       "Package": "callr",
@@ -641,75 +491,42 @@
       ],
       "Hash": "9b2191ede20fa29828139b9900922e51"
     },
-    "checkmate": {
-      "Package": "checkmate",
-      "Version": "2.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "checkmate",
-      "RemoteRef": "checkmate",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.1.0",
-      "Requirements": [
-        "R",
-        "backports",
-        "utils"
-      ],
-      "Hash": "147e4db6909d8814bb30f671b49d7e06"
-    },
-    "class": {
-      "Package": "class",
-      "Version": "7.3-21",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "MASS",
-        "R",
-        "stats",
-        "utils"
-      ],
-      "Hash": "8ae0d4328e2eb3a582dfd5391a3663b7"
-    },
-    "classInt": {
-      "Package": "classInt",
-      "Version": "0.4-8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "classInt",
-      "RemoteRef": "classInt",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.4-8",
-      "Requirements": [
-        "KernSmooth",
-        "R",
-        "class",
-        "e1071",
-        "grDevices",
-        "graphics",
-        "stats"
-      ],
-      "Hash": "298fa500d773db0845935cd73bfd9c2e"
-    },
     "cli": {
       "Package": "cli",
-      "Version": "3.6.0",
+      "Version": "3.6.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "cli",
-      "RemoteRef": "cli",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "3.6.0",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "3177a5a16c243adc199ba33117bd9657"
+      "Hash": "89e6d8219950eac806ae0c489052048a"
+    },
+    "cliapp": {
+      "Package": "cliapp",
+      "Version": "0.1.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "cliapp",
+      "RemoteUsername": "r-lib",
+      "RemotePkgRef": "r-lib/cliapp",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "a938b26b6dc444fd07ee3186854e4b4ccf2ce7e1",
+      "Requirements": [
+        "R6",
+        "cli",
+        "crayon",
+        "fansi",
+        "glue",
+        "prettycode",
+        "progress",
+        "selectr",
+        "utils",
+        "withr",
+        "xml2"
+      ],
+      "Hash": "6f3a8b6e97ca232fecb2fdca956ed591"
     },
     "clipr": {
       "Package": "clipr",
@@ -741,37 +558,6 @@
       ],
       "Hash": "f20c47fd52fae58b4e377c37bb8c335b"
     },
-    "colourpicker": {
-      "Package": "colourpicker",
-      "Version": "1.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "colourpicker",
-      "RemoteRef": "colourpicker",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.2.0",
-      "Requirements": [
-        "R",
-        "ggplot2",
-        "htmltools",
-        "htmlwidgets",
-        "jsonlite",
-        "miniUI",
-        "shiny",
-        "shinyjs",
-        "utils"
-      ],
-      "Hash": "ca4d99d106687d68392ffe270081bfc0"
-    },
-    "commonmark": {
-      "Package": "commonmark",
-      "Version": "1.8.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "b6e3e947d1d7ebf3d2bdcea1bde63fe7"
-    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.4.3",
@@ -797,19 +583,6 @@
       ],
       "Hash": "e8a1e41acf02548751f45c718d55aa6a"
     },
-    "crosstalk": {
-      "Package": "crosstalk",
-      "Version": "1.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R6",
-        "htmltools",
-        "jsonlite",
-        "lazyeval"
-      ],
-      "Hash": "6aa54f69598c32177e920eb3402e8293"
-    },
     "curl": {
       "Package": "curl",
       "Version": "5.0.0",
@@ -826,40 +599,16 @@
       ],
       "Hash": "e4f97056611e8e6b8b852d13b7400cf1"
     },
-    "darksky": {
-      "Package": "darksky",
-      "Version": "1.3.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "darksky",
-      "RemoteUsername": "hrbrmstr",
-      "RemotePkgRef": "hrbrmstr/darksky",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "b0c02a8fe7bf710c5799b32e408c1d736cf2ed34",
-      "Requirements": [
-        "R",
-        "ggplot2",
-        "grid",
-        "gridExtra",
-        "gtable",
-        "httr",
-        "plyr",
-        "stats",
-        "utils"
-      ],
-      "Hash": "1fd0240d1cd8474c170df1ec9c668f8a"
-    },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.14.6",
+      "Version": "1.14.8",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "aecef50008ea7b57c76f1cb5c127fb02"
+      "Hash": "b4c06e554f33344e044ccd7fdca750a9"
     },
     "desc": {
       "Package": "desc",
@@ -907,6 +656,16 @@
       ],
       "Hash": "8b708f296afd9ae69f450f9640be8990"
     },
+    "docopt": {
+      "Package": "docopt",
+      "Version": "0.7.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "methods"
+      ],
+      "Hash": "e9eeef7931ee99ca0093f3f20b88e09b"
+    },
     "downloader": {
       "Package": "downloader",
       "Version": "0.4",
@@ -940,22 +699,6 @@
         "vctrs"
       ],
       "Hash": "eb5742d256a0d9306d85ea68756d8187"
-    },
-    "e1071": {
-      "Package": "e1071",
-      "Version": "1.7-12",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "class",
-        "grDevices",
-        "graphics",
-        "methods",
-        "proxy",
-        "stats",
-        "utils"
-      ],
-      "Hash": "0d776df7577206e100c2c4b508208b10"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -1024,10 +767,10 @@
     },
     "fastmap": {
       "Package": "fastmap",
-      "Version": "1.1.0",
+      "Version": "1.1.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "77bd60a6157420d4ffa93b27cf6a58b8"
+      "Hash": "f7736a18de97dea803bde0a2daaafb27"
     },
     "filelock": {
       "Package": "filelock",
@@ -1056,34 +799,19 @@
     },
     "forcats": {
       "Package": "forcats",
-      "Version": "0.5.2",
+      "Version": "1.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "cli",
-        "ellipsis",
         "glue",
         "lifecycle",
         "magrittr",
         "rlang",
-        "tibble",
-        "withr"
+        "tibble"
       ],
-      "Hash": "9d95bc88206321cd1bc98480ecfd74bb"
-    },
-    "foreign": {
-      "Package": "foreign",
-      "Version": "0.8-82",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "methods",
-        "stats",
-        "utils"
-      ],
-      "Hash": "32b25c97ce306a760c4d9f787991b5d9"
+      "Hash": "1a0a9a3d5083d0d573c4214576f1e690"
     },
     "formattable": {
       "Package": "formattable",
@@ -1105,14 +833,14 @@
     },
     "fs": {
       "Package": "fs",
-      "Version": "1.6.0",
+      "Version": "1.6.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "0120e8c933bace1141e0b0d376b0c010"
+      "Hash": "f4dcd23b67e33d851d2079f703e8b985"
     },
     "generics": {
       "Package": "generics",
@@ -1131,44 +859,9 @@
       ],
       "Hash": "15e9634c0fcd294799e9b2e929ed1b86"
     },
-    "ggmap": {
-      "Package": "ggmap",
-      "Version": "3.0.2.9001",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "ggmap",
-      "RemoteUsername": "dkahle",
-      "RemotePkgRef": "dkahle/ggmap",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "2cc32a47cf2730f592680f7d698942aaca32382c",
-      "Requirements": [
-        "R",
-        "RgoogleMaps",
-        "bitops",
-        "cli",
-        "digest",
-        "dplyr",
-        "ggplot2",
-        "glue",
-        "grid",
-        "httr",
-        "jpeg",
-        "magrittr",
-        "plyr",
-        "png",
-        "purrr",
-        "rlang",
-        "scales",
-        "stringr",
-        "tibble",
-        "tidyr"
-      ],
-      "Hash": "eb7b062c0f6e313413c3e9e1a06f7146"
-    },
     "ggplot2": {
       "Package": "ggplot2",
-      "Version": "3.4.0",
+      "Version": "3.4.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1189,7 +882,7 @@
         "vctrs",
         "withr"
       ],
-      "Hash": "fd2aab12f54400c6bca43687231e246b"
+      "Hash": "3a147ee02e85a8941aad9909f1b43b7b"
     },
     "glue": {
       "Package": "glue",
@@ -1227,74 +920,20 @@
       ],
       "Hash": "7aac029100d236bf18ec4387f9cfdb93"
     },
-    "gstat": {
-      "Package": "gstat",
-      "Version": "2.0-9",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "FNN",
-        "R",
-        "graphics",
-        "lattice",
-        "methods",
-        "sp",
-        "spacetime",
-        "stats",
-        "utils",
-        "zoo"
-      ],
-      "Hash": "933584b85b80a3005af4be8220ff2c9f"
-    },
-    "gt": {
-      "Package": "gt",
-      "Version": "0.8.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "gt",
-      "RemoteRef": "gt",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.8.0",
-      "Requirements": [
-        "R",
-        "base64enc",
-        "bigD",
-        "bitops",
-        "cli",
-        "commonmark",
-        "dplyr",
-        "fs",
-        "ggplot2",
-        "glue",
-        "htmltools",
-        "juicyjuice",
-        "magrittr",
-        "rlang",
-        "sass",
-        "scales",
-        "tibble",
-        "tidyselect"
-      ],
-      "Hash": "d100be8d1f54dc589cc8d63366839287"
-    },
     "gtable": {
       "Package": "gtable",
-      "Version": "0.3.1",
+      "Version": "0.3.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "gtable",
-      "RemoteRef": "gtable",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.3.1",
       "Requirements": [
         "R",
-        "grid"
+        "cli",
+        "glue",
+        "grid",
+        "lifecycle",
+        "rlang"
       ],
-      "Hash": "36b4265fb818f6a342bed217549cd896"
+      "Hash": "b44addadb528a0d227794121c00572a0"
     },
     "here": {
       "Package": "here",
@@ -1305,23 +944,6 @@
         "rprojroot"
       ],
       "Hash": "24b224366f9c2e7534d2344d10d59211"
-    },
-    "hexbin": {
-      "Package": "hexbin",
-      "Version": "1.28.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "grDevices",
-        "graphics",
-        "grid",
-        "lattice",
-        "methods",
-        "stats",
-        "utils"
-      ],
-      "Hash": "76314b69dc54f8c14204063a2fd6d74a"
     },
     "highr": {
       "Package": "highr",
@@ -1342,53 +964,23 @@
     },
     "hms": {
       "Package": "hms",
-      "Version": "1.1.2",
+      "Version": "1.1.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
-        "ellipsis",
         "lifecycle",
         "methods",
         "pkgconfig",
         "rlang",
         "vctrs"
       ],
-      "Hash": "41100392191e1244b887878b533eea91"
-    },
-    "htmlTable": {
-      "Package": "htmlTable",
-      "Version": "2.4.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "htmlTable",
-      "RemoteRef": "htmlTable",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.4.1",
-      "Requirements": [
-        "checkmate",
-        "htmltools",
-        "htmlwidgets",
-        "knitr",
-        "magrittr",
-        "methods",
-        "rstudioapi",
-        "stringr"
-      ],
-      "Hash": "d5b485330dcfe241b50db157bf898e97"
+      "Hash": "b59377caa7ed00fa41808342002138f9"
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.4",
+      "Version": "0.5.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "htmltools",
-      "RemoteRef": "htmltools",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.5.4",
       "Requirements": [
         "R",
         "base64enc",
@@ -1399,7 +991,7 @@
         "rlang",
         "utils"
       ],
-      "Hash": "9d27e99cc90bd701c0a7a63e5923f9b7"
+      "Hash": "ba0240784ad50a62165058a27459304a"
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
@@ -1422,24 +1014,9 @@
       ],
       "Hash": "f97e32bac0f6ff6e70905c1598fbc72b"
     },
-    "httpuv": {
-      "Package": "httpuv",
-      "Version": "1.6.8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "R6",
-        "Rcpp",
-        "later",
-        "promises",
-        "utils"
-      ],
-      "Hash": "08e611aee165b27f8ff18770285fb535"
-    },
     "httr": {
       "Package": "httr",
-      "Version": "1.4.4",
+      "Version": "1.4.5",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1450,11 +1027,11 @@
         "mime",
         "openssl"
       ],
-      "Hash": "57557fac46471f0dbbf44705cc6a5c8c"
+      "Hash": "f6844033201269bec3ca0097bc6c97b3"
     },
     "igraph": {
       "Package": "igraph",
-      "Version": "1.2.11",
+      "Version": "1.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1464,10 +1041,11 @@
         "magrittr",
         "methods",
         "pkgconfig",
+        "rlang",
         "stats",
         "utils"
       ],
-      "Hash": "1d10cd31c2979f9c819ffe4d16b9dc2b"
+      "Hash": "a7ef0d811cb66d8be9da0d7b5ab80ded"
     },
     "influenceR": {
       "Package": "influenceR",
@@ -1482,19 +1060,6 @@
         "utils"
       ],
       "Hash": "04a569c515130c758eff1939499d7cc5"
-    },
-    "intervals": {
-      "Package": "intervals",
-      "Version": "0.15.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "graphics",
-        "methods",
-        "utils"
-      ],
-      "Hash": "079e6e04c6aafe087aba89f93311d8ba"
     },
     "isoband": {
       "Package": "isoband",
@@ -1530,22 +1095,6 @@
       ],
       "Hash": "acf397c005e2d96a4b7616bf7dfc3112"
     },
-    "jpeg": {
-      "Package": "jpeg",
-      "Version": "0.1-10",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "jpeg",
-      "RemoteRef": "jpeg",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.1-10",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "031a0b683d001a7519202f0628fc0358"
-    },
     "jquerylib": {
       "Package": "jquerylib",
       "Version": "0.1.4",
@@ -1577,22 +1126,6 @@
         "methods"
       ],
       "Hash": "a4269a09a9b865579b2635c77e572374"
-    },
-    "juicyjuice": {
-      "Package": "juicyjuice",
-      "Version": "0.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "juicyjuice",
-      "RemoteRef": "juicyjuice",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.1.0",
-      "Requirements": [
-        "V8"
-      ],
-      "Hash": "3bcd11943da509341838da9399e18bce"
     },
     "knitr": {
       "Package": "knitr",
@@ -1652,7 +1185,7 @@
     },
     "lattice": {
       "Package": "lattice",
-      "Version": "0.20-45",
+      "Version": "0.21-8",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1663,85 +1196,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "b64cdbb2b340437c4ee047a1f4c4377b"
-    },
-    "lazyeval": {
-      "Package": "lazyeval",
-      "Version": "0.2.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "d908914ae53b04d4c0c0fd72ecc35370"
-    },
-    "leaflet": {
-      "Package": "leaflet",
-      "Version": "2.1.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "leaflet",
-      "RemoteRef": "leaflet",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.1.1",
-      "Requirements": [
-        "R",
-        "RColorBrewer",
-        "base64enc",
-        "crosstalk",
-        "htmltools",
-        "htmlwidgets",
-        "leaflet.providers",
-        "magrittr",
-        "markdown",
-        "methods",
-        "png",
-        "raster",
-        "scales",
-        "sp",
-        "stats",
-        "viridis"
-      ],
-      "Hash": "97fadb60ef6eb8524b9f6e2c4a69ee93"
-    },
-    "leaflet.extras": {
-      "Package": "leaflet.extras",
-      "Version": "1.0.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "leaflet.extras",
-      "RemoteRef": "leaflet.extras",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.0.0",
-      "Requirements": [
-        "R",
-        "htmltools",
-        "htmlwidgets",
-        "leaflet",
-        "magrittr",
-        "stringr"
-      ],
-      "Hash": "8dbfc2c4d7ca2660971caf1153ca95c2"
-    },
-    "leaflet.providers": {
-      "Package": "leaflet.providers",
-      "Version": "1.9.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "leaflet.providers",
-      "RemoteRef": "leaflet.providers",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.9.0",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "d3082a7beac4a1aeb96100ff06265d7e"
+      "Hash": "0b8a6d63c8770f02a8b5635f3c431e6b"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -1762,37 +1217,6 @@
       ],
       "Hash": "001cecbeac1cff9301bdc3775ee46a86"
     },
-    "lubridate": {
-      "Package": "lubridate",
-      "Version": "1.9.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "generics",
-        "methods",
-        "timechange"
-      ],
-      "Hash": "2af4550c2f0f7fbe7cbbf3dbf4ea3902"
-    },
-    "magick": {
-      "Package": "magick",
-      "Version": "2.7.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "magick",
-      "RemoteRef": "magick",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.7.3",
-      "Requirements": [
-        "Rcpp",
-        "curl",
-        "magrittr"
-      ],
-      "Hash": "56fbad418aa50939ed8c3028126af8d7"
-    },
     "magrittr": {
       "Package": "magrittr",
       "Version": "2.0.3",
@@ -1808,57 +1232,6 @@
         "R"
       ],
       "Hash": "7ce2733a9826b3aeb1775d56fd305472"
-    },
-    "maptools": {
-      "Package": "maptools",
-      "Version": "1.1-4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "foreign",
-        "grDevices",
-        "grid",
-        "lattice",
-        "methods",
-        "sp",
-        "stats",
-        "utils"
-      ],
-      "Hash": "e60a1728ad29c48a3491777e0c55a07d"
-    },
-    "markdown": {
-      "Package": "markdown",
-      "Version": "1.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "markdown",
-      "RemoteRef": "markdown",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.4",
-      "Requirements": [
-        "R",
-        "commonmark",
-        "mime",
-        "utils",
-        "xfun"
-      ],
-      "Hash": "f99f5d2d7b2c2c031343bfa7b9f97980"
-    },
-    "measurements": {
-      "Package": "measurements",
-      "Version": "1.4.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "measurements",
-      "RemoteRef": "measurements",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.4.0",
-      "Hash": "7d491085f997665f4e9f9735b9110979"
     },
     "memoise": {
       "Package": "memoise",
@@ -1879,7 +1252,7 @@
     },
     "mgcv": {
       "Package": "mgcv",
-      "Version": "1.8-41",
+      "Version": "1.8-42",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1892,7 +1265,24 @@
         "stats",
         "utils"
       ],
-      "Hash": "6b3904f13346742caa3e82dd0303d4ad"
+      "Hash": "3460beba7ccc8946249ba35327ba902a"
+    },
+    "microbenchmark": {
+      "Package": "microbenchmark",
+      "Version": "1.4.9",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "microbenchmark",
+      "RemoteUsername": "joshuaulrich",
+      "RemotePkgRef": "joshuaulrich/microbenchmark",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "c20197fe60c48ab423e61c240d78144fc992d5dd",
+      "Requirements": [
+        "graphics",
+        "stats"
+      ],
+      "Hash": "ab5bc56b81d686d90b3736deee6c4793"
     },
     "mime": {
       "Package": "mime",
@@ -1909,42 +1299,6 @@
         "tools"
       ],
       "Hash": "18e9c28c1d3ca1560ce30658b22ce104"
-    },
-    "miniUI": {
-      "Package": "miniUI",
-      "Version": "0.1.1.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "miniUI",
-      "RemoteRef": "miniUI",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.1.1.1",
-      "Requirements": [
-        "htmltools",
-        "shiny",
-        "utils"
-      ],
-      "Hash": "fec5f52652d60615fdb3957b3d74324a"
-    },
-    "modelr": {
-      "Package": "modelr",
-      "Version": "0.1.8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "broom",
-        "magrittr",
-        "purrr",
-        "rlang",
-        "tibble",
-        "tidyr",
-        "tidyselect",
-        "vctrs"
-      ],
-      "Hash": "9fd59716311ee82cba83dc2826fc5577"
     },
     "munsell": {
       "Package": "munsell",
@@ -1963,21 +1317,9 @@
       ],
       "Hash": "6dfe8bf774944bd5595785e3229d8771"
     },
-    "mvtnorm": {
-      "Package": "mvtnorm",
-      "Version": "1.1-3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "methods",
-        "stats"
-      ],
-      "Hash": "7a7541cc284cb2ba3ba7eae645892af5"
-    },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-161",
+      "Version": "3.1-162",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1987,35 +1329,44 @@
         "stats",
         "utils"
       ],
-      "Hash": "b49e163093c0ef46fbbfc40bcb87916c"
+      "Hash": "0984ce8da8da9ead8643c5cbbb60f83e"
+    },
+    "nseval": {
+      "Package": "nseval",
+      "Version": "0.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "methods"
+      ],
+      "Hash": "48ce202f02c0b8bc7d16b480f344e765"
+    },
+    "nycflights13": {
+      "Package": "nycflights13",
+      "Version": "1.0.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "nycflights13",
+      "RemoteUsername": "tidyverse",
+      "RemotePkgRef": "tidyverse/nycflights13",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "6c38793cddb3ebf4eb8924c9ae9ee4922970b691",
+      "Requirements": [
+        "R",
+        "tibble"
+      ],
+      "Hash": "90e6ad0096d0c546fb95863488e367fc"
     },
     "openssl": {
       "Package": "openssl",
-      "Version": "2.0.4",
+      "Version": "2.0.6",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "askpass"
       ],
-      "Hash": "e86c5ffeb8474a9e03d75f5d2919683e"
-    },
-    "packrat": {
-      "Package": "packrat",
-      "Version": "0.9.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "packrat",
-      "RemoteRef": "packrat",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.9.1",
-      "Requirements": [
-        "R",
-        "tools",
-        "utils"
-      ],
-      "Hash": "481428983c19a7c443f7ea1beff0a2de"
+      "Hash": "0f7cd2962e3044bb940cca4f4b5cecbe"
     },
     "parsedate": {
       "Package": "parsedate",
@@ -2032,7 +1383,7 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.8.1",
+      "Version": "1.9.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2045,7 +1396,7 @@
         "utils",
         "vctrs"
       ],
-      "Hash": "f2316df30902c81729ae9de95ad5a608"
+      "Hash": "15da5a8412f317beeee6175fbc76f4bb"
     },
     "pkgcache": {
       "Package": "pkgcache",
@@ -2130,63 +1481,16 @@
       "Repository": "CRAN",
       "Hash": "09eb987710984fc2905c7129c7d85e65"
     },
-    "plotly": {
-      "Package": "plotly",
-      "Version": "4.10.0.9001",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "plotly",
-      "RemoteUsername": "ropensci",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "a4b1581d0bb248f926ef86f94b25ee87f17d2b1f",
-      "Requirements": [
-        "R",
-        "RColorBrewer",
-        "base64enc",
-        "crosstalk",
-        "data.table",
-        "digest",
-        "dplyr",
-        "ggplot2",
-        "htmltools",
-        "htmlwidgets",
-        "httr",
-        "jsonlite",
-        "lazyeval",
-        "magrittr",
-        "promises",
-        "purrr",
-        "rlang",
-        "scales",
-        "tibble",
-        "tidyr",
-        "tools",
-        "vctrs",
-        "viridisLite"
-      ],
-      "Hash": "0e9a9f974f390a8a239b454396e09ca0"
-    },
     "plyr": {
       "Package": "plyr",
-      "Version": "1.8.7",
+      "Version": "1.8.8",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "Rcpp"
       ],
-      "Hash": "9c17c6ee41639ebdc1d7266546d3b627"
-    },
-    "png": {
-      "Package": "png",
-      "Version": "0.1-8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "bd54ba8a0a5faded999a7aab6e46b374"
+      "Hash": "d744387aef9047b0b48be2933d78e862"
     },
     "praise": {
       "Package": "praise",
@@ -2194,6 +1498,23 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "a555924add98c99d2f411e37e7d25e9f"
+    },
+    "prettycode": {
+      "Package": "prettycode",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "prettycode",
+      "RemoteRef": "prettycode",
+      "RemoteRepos": "https://cloud.r-project.org",
+      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
+      "RemoteSha": "1.1.0",
+      "Requirements": [
+        "crayon",
+        "utils"
+      ],
+      "Hash": "1127b6ce86f2be28af0a9250a268a909"
     },
     "prettyunits": {
       "Package": "prettyunits",
@@ -2214,18 +1535,6 @@
         "utils"
       ],
       "Hash": "a33ee2d9bf07564efb888ad98410da84"
-    },
-    "profvis": {
-      "Package": "profvis",
-      "Version": "0.3.7",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "htmlwidgets",
-        "stringr"
-      ],
-      "Hash": "e9d21e79848e02e524bea6f5bd53e7e4"
     },
     "progress": {
       "Package": "progress",
@@ -2261,34 +1570,16 @@
       ],
       "Hash": "4ab2c43adb4d4699cf3690acd378d75d"
     },
-    "proxy": {
-      "Package": "proxy",
-      "Version": "0.4-27",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "proxy",
-      "RemoteRef": "proxy",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.4-27",
-      "Requirements": [
-        "R",
-        "stats",
-        "utils"
-      ],
-      "Hash": "e0ef355c12942cf7a6b91a6cfaea8b3e"
-    },
     "ps": {
       "Package": "ps",
-      "Version": "1.7.2",
+      "Version": "1.7.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "68dd03d98a5efd1eb3012436de45ba83"
+      "Hash": "d88be14c6790aa6fd7b27a2079a45a85"
     },
     "purrr": {
       "Package": "purrr",
@@ -2347,66 +1638,9 @@
       ],
       "Hash": "5e3c5dc0b071b21fa128676560dbe94d"
     },
-    "raster": {
-      "Package": "raster",
-      "Version": "3.6-14",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "raster",
-      "RemoteRef": "raster",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "3.6-14",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "methods",
-        "sp",
-        "terra"
-      ],
-      "Hash": "2406e2380237f4dcf84e83260419895a"
-    },
-    "reactR": {
-      "Package": "reactR",
-      "Version": "0.4.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "reactR",
-      "RemoteRef": "reactR",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.4.4",
-      "Requirements": [
-        "htmltools"
-      ],
-      "Hash": "75389c8091eb14ee21c6bc87a88b3809"
-    },
-    "reactable": {
-      "Package": "reactable",
-      "Version": "0.4.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "reactable",
-      "RemoteRef": "reactable",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.4.3",
-      "Requirements": [
-        "R",
-        "digest",
-        "htmltools",
-        "htmlwidgets",
-        "jsonlite",
-        "reactR"
-      ],
-      "Hash": "4fec6f287e77503ceb822812722930d0"
-    },
     "readr": {
       "Package": "readr",
-      "Version": "2.1.3",
+      "Version": "2.1.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2425,7 +1659,7 @@
         "utils",
         "vroom"
       ],
-      "Hash": "2dfbfc673ccb3de3d8836b4b3bd23d14"
+      "Hash": "b5047343b3825f37ad9d3b5d89aa1078"
     },
     "rematch2": {
       "Package": "rematch2",
@@ -2439,13 +1673,13 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.17.2",
+      "Version": "0.17.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "utils"
       ],
-      "Hash": "aaf3c7f769695266a2113db67a25148b"
+      "Hash": "4543b8cd233ae25c6aba8548be9e747e"
     },
     "rlang": {
       "Package": "rlang",
@@ -2460,19 +1694,14 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.20",
+      "Version": "2.21",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "rmarkdown",
-      "RemoteRef": "rmarkdown",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.20",
       "Requirements": [
         "R",
         "bslib",
         "evaluate",
+        "fontawesome",
         "htmltools",
         "jquerylib",
         "jsonlite",
@@ -2485,7 +1714,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "716fde5382293cc94a71f68c85b78d19"
+      "Hash": "493df4ae51e2e984952ea4d5c75786a3"
     },
     "rprintf": {
       "Package": "rprintf",
@@ -2508,33 +1737,6 @@
       ],
       "Hash": "1de7ab598047a87bba48434ba35d497d"
     },
-    "rsconnect": {
-      "Package": "rsconnect",
-      "Version": "0.8.29.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "rsconnect",
-      "RemoteUsername": "rstudio",
-      "RemotePkgRef": "rstudio/rsconnect",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "a796bfd26658711c062c017286db2adf0067a351",
-      "Requirements": [
-        "R",
-        "cli",
-        "curl",
-        "digest",
-        "jsonlite",
-        "lifecycle",
-        "openssl",
-        "packrat",
-        "rlang",
-        "rstudioapi",
-        "tools",
-        "yaml"
-      ],
-      "Hash": "3d067ee299fb0be438e309c7c302f718"
-    },
     "rstudioapi": {
       "Package": "rstudioapi",
       "Version": "0.14.0-9000",
@@ -2547,44 +1749,6 @@
       "RemoteRef": "HEAD",
       "RemoteSha": "72e63b1e6fa28dafdb9b68c6b95f23667b87642e",
       "Hash": "cb482807f62ab404220513de51858188"
-    },
-    "rvest": {
-      "Package": "rvest",
-      "Version": "1.0.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "rvest",
-      "RemoteRef": "rvest",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.0.3",
-      "Requirements": [
-        "R",
-        "cli",
-        "glue",
-        "httr",
-        "lifecycle",
-        "magrittr",
-        "rlang",
-        "selectr",
-        "tibble",
-        "withr",
-        "xml2"
-      ],
-      "Hash": "a4a5ac819a467808c60e36e92ddf195e"
-    },
-    "s2": {
-      "Package": "s2",
-      "Version": "1.1.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "wk"
-      ],
-      "Hash": "5cca323babe990f99d5bc3402f64b905"
     },
     "sass": {
       "Package": "sass",
@@ -2643,140 +1807,6 @@
       ],
       "Hash": "3838071b66e0c566d55cc26bd6e27bf4"
     },
-    "sf": {
-      "Package": "sf",
-      "Version": "1.0-9",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "sf",
-      "RemoteRef": "sf",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.0-9",
-      "Requirements": [
-        "DBI",
-        "R",
-        "Rcpp",
-        "classInt",
-        "grDevices",
-        "graphics",
-        "grid",
-        "magrittr",
-        "methods",
-        "s2",
-        "stats",
-        "tools",
-        "units",
-        "utils"
-      ],
-      "Hash": "8a348490fefb623e7935f405230900a7"
-    },
-    "shiny": {
-      "Package": "shiny",
-      "Version": "1.7.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "shiny",
-      "RemoteRef": "shiny",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.7.4",
-      "Requirements": [
-        "R",
-        "R6",
-        "bslib",
-        "cachem",
-        "commonmark",
-        "crayon",
-        "ellipsis",
-        "fastmap",
-        "fontawesome",
-        "glue",
-        "grDevices",
-        "htmltools",
-        "httpuv",
-        "jsonlite",
-        "later",
-        "lifecycle",
-        "methods",
-        "mime",
-        "promises",
-        "rlang",
-        "sourcetools",
-        "tools",
-        "utils",
-        "withr",
-        "xtable"
-      ],
-      "Hash": "c2eae3d8c670fa9dfa35a12066f4a1d5"
-    },
-    "shinyjs": {
-      "Package": "shinyjs",
-      "Version": "2.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "shinyjs",
-      "RemoteRef": "shinyjs",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.1.0",
-      "Requirements": [
-        "R",
-        "digest",
-        "jsonlite",
-        "shiny"
-      ],
-      "Hash": "802e4786b353a4bb27116957558548d5"
-    },
-    "sourcetools": {
-      "Package": "sourcetools",
-      "Version": "0.1.7",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "947e4e02a79effa5d512473e10f41797"
-    },
-    "sp": {
-      "Package": "sp",
-      "Version": "1.5-1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "grDevices",
-        "graphics",
-        "grid",
-        "lattice",
-        "methods",
-        "stats",
-        "utils"
-      ],
-      "Hash": "7b6b37e9d8e3295ccd5a73ac6d62db98"
-    },
-    "spacetime": {
-      "Package": "spacetime",
-      "Version": "1.2-6",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "graphics",
-        "intervals",
-        "lattice",
-        "methods",
-        "sp",
-        "stats",
-        "utils",
-        "xts",
-        "zoo"
-      ],
-      "Hash": "9452d26fb397ac64bae1b984506de8ae"
-    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.7.12",
@@ -2819,22 +1849,6 @@
       ],
       "Hash": "671a4d384ae9d32fc47a14e98bfa3dc8"
     },
-    "survival": {
-      "Package": "survival",
-      "Version": "3.5-0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "Matrix",
-        "R",
-        "graphics",
-        "methods",
-        "splines",
-        "stats",
-        "utils"
-      ],
-      "Hash": "db758f6f1e367f04222c745ca0260b8a"
-    },
     "sys": {
       "Package": "sys",
       "Version": "3.4.1",
@@ -2842,27 +1856,9 @@
       "Repository": "CRAN",
       "Hash": "34c16f1ef796057bfa06d3f4ff818a5d"
     },
-    "terra": {
-      "Package": "terra",
-      "Version": "1.6-53",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "terra",
-      "RemoteRef": "terra",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.6-53",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "methods"
-      ],
-      "Hash": "3bd9337c86c21c0f6d15ebecc6cb0ea9"
-    },
     "testthat": {
       "Package": "testthat",
-      "Version": "3.1.6",
+      "Version": "3.1.7",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2888,7 +1884,7 @@
         "waldo",
         "withr"
       ],
-      "Hash": "7910146255835c66e9eb272fb215248d"
+      "Hash": "7eb5fd202a61d2fb78af5869b6c08998"
     },
     "tibble": {
       "Package": "tibble",
@@ -2960,26 +1956,15 @@
       ],
       "Hash": "79540e5fcd9e0435af547d885f184fd5"
     },
-    "timechange": {
-      "Package": "timechange",
-      "Version": "0.1.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "cpp11"
-      ],
-      "Hash": "4657195cc632097bb8d140d626b519fb"
-    },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.43",
+      "Version": "0.44",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "xfun"
       ],
-      "Hash": "facc02f3d63ed7dd765513c004c394ce"
+      "Hash": "c0f007e2eeed7722ce13d42b84a22e07"
     },
     "tzdb": {
       "Package": "tzdb",
@@ -2998,26 +1983,15 @@
       ],
       "Hash": "b2e1cbce7c903eaf23ec05c58e59fb5e"
     },
-    "units": {
-      "Package": "units",
-      "Version": "0.8-1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "Rcpp"
-      ],
-      "Hash": "81433967f9b34a120a4f5a5a016cd5ed"
-    },
     "utf8": {
       "Package": "utf8",
-      "Version": "1.2.2",
+      "Version": "1.2.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "c9c462b759a5cc844ae25b5942654d13"
+      "Hash": "1fe17157424bb09c48a8b3b550c753bc"
     },
     "vctrs": {
       "Package": "vctrs",
@@ -3089,7 +2063,7 @@
     },
     "vroom": {
       "Package": "vroom",
-      "Version": "1.6.0",
+      "Version": "1.6.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -3111,7 +2085,7 @@
         "vctrs",
         "withr"
       ],
-      "Hash": "64f81fdead6e0d250fb041e175d123ab"
+      "Hash": "7015a74373b83ffaef64023f4a0f5033"
     },
     "waldo": {
       "Package": "waldo",
@@ -3132,10 +2106,10 @@
     },
     "whisker": {
       "Package": "whisker",
-      "Version": "0.4",
+      "Version": "0.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ca970b96d894e90397ed20637a0c1bbe"
+      "Hash": "c6abfa47a46d281a7d5159d0a8891e88"
     },
     "withr": {
       "Package": "withr",
@@ -3156,38 +2130,16 @@
       ],
       "Hash": "c0e49a9760983e81e55cdd9be92e7182"
     },
-    "wk": {
-      "Package": "wk",
-      "Version": "0.7.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "wk",
-      "RemoteRef": "wk",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.7.1",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "141385279f2cd7faa6a3eccd8d1279dd"
-    },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.36",
+      "Version": "0.38",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "xfun",
-      "RemoteRef": "xfun",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.36",
       "Requirements": [
         "stats",
         "tools"
       ],
-      "Hash": "f5baec54606751aa53ac9c0e05848ed6"
+      "Hash": "1ed71215d45e85562d3b1b29a068ccec"
     },
     "xml2": {
       "Package": "xml2",
@@ -3199,42 +2151,6 @@
         "methods"
       ],
       "Hash": "40682ed6a969ea5abfd351eb67833adc"
-    },
-    "xtable": {
-      "Package": "xtable",
-      "Version": "1.8-4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "xtable",
-      "RemoteRef": "xtable",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.8-4",
-      "Requirements": [
-        "R",
-        "stats",
-        "utils"
-      ],
-      "Hash": "b8acdf8af494d9ec19ccb2481a9b11c2"
-    },
-    "xts": {
-      "Package": "xts",
-      "Version": "0.13.0.3",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "xts",
-      "RemoteUsername": "joshuaulrich",
-      "RemotePkgRef": "joshuaulrich/xts",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "d3d5c95959c109691f44548662b2ea5f6947552d",
-      "Requirements": [
-        "R",
-        "methods",
-        "zoo"
-      ],
-      "Hash": "ba0eb1e3166d0e77c8049419f6c33bc8"
     },
     "yaml": {
       "Package": "yaml",
@@ -3264,21 +2180,6 @@
         "R"
       ],
       "Hash": "9fba12c79cf38e29cc09065b5cc5242d"
-    },
-    "zoo": {
-      "Package": "zoo",
-      "Version": "1.8-11",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "grDevices",
-        "graphics",
-        "lattice",
-        "stats",
-        "utils"
-      ],
-      "Hash": "874a5b77fe0cfacf2a3450069ae70926"
     }
   }
 }
