@@ -17,42 +17,46 @@ date_curr_yr      <- as.numeric(format(Sys.Date(), format = "%y"))
 date_curr_yr4     <- as.numeric(format(Sys.Date(), format = "%Y"))
 date_prefix       <- as.character(today(), format = '%Y%m%d')
 # ------------------------------------------------------------------------------
-# Directory Configuration
+# OneDrive Configuration
 # ------------------------------------------------------------------------------
-dir_downloads     <- "C:/Users/glen.falk/Downloads/"
-dir_git_data      <- "Documents/GitHub/ValueLine/data"
-dir_git_ml        <- "Documents/GitHub/ValueLine/ml"
+dir_git_data      <- "Documents/GitHub/vl/data"
+dir_git_ml        <- "Documents/GitHub/vl/ml"
 dir_ms365_top_200 <- "Options/ValueLine/Top200"
 dir_ms365_zip     <- "Options/ValueLine/Zip/"
 # ------------------------------------------------------------------------------
+# Directory Configuration
+# ------------------------------------------------------------------------------
+dir_downloads     <- "C:/Users/falkg/Downloads/"
 vl_path           <- file.path(
   "C:/Users/glen.falk/OneDrive - IHS Markit/Documents/github/vl//"
 )
 # ------------------------------------------------------------------------------
 valueline_path_data      <- file.path(
-  "C:/Users/glen.falk/OneDrive - IHS Markit/Documents/github/ValueLine/data/"
+  "C:/Users/falkg/OneDrive/Documents/GitHub/vl/data"
 )
-
 # ------------------------------------------------------------------------------
 valueline_path           <- file.path(
-  "C:/Users/glen.falk/OneDrive - IHS Markit/Documents/github/ValueLine/"
+  "C:/Users/falkg/OneDrive/Documents/GitHub/vl/"  
 )
-vl_source         <- "/ValueLine.r"
+vl_source         <- "/vl.r"
 # ------------------------------------------------------------------------------  
 zip_file_path <- paste0(here::here("zip//"))
 # ------------------------------------------------------------------------------
-# create global environment to dynamically name data frames                     ### https://tinyurl.com/y3adrqwa ###
+# create global environment to dynamically name data frames                     
+# https://tinyurl.com/y3adrqwa ###
 # ------------------------------------------------------------------------------
 g                 <- globalenv()             # https://tinyurl.com/r3yrspv   ###
-z                 <- TRUE                  # template switch create dx_blob
+z                 <- TRUE                    # template switch create dx_blob
 ################################################################################
 # Hmisc package
 ################################################################################
 # getRs('reptools.r')
 # getRs('movStats.r')
 ################################################################################
-## Repo Package: data management to build centralized metadata repository       ### https://github.com/franapoli/repo
-## Check existence of directory and create if doesn't exist                     ### https://tinyurl.com/y3adrqwa
+## Repo Package: data management to build centralized metadata repository       
+## https://github.com/franapoli/repo
+## Check existence of directory and create if doesn't exist                     
+## https://tinyurl.com/y3adrqwa
 ################################################################################
 mainDir           <- (".")
 subDir            <- ("repo")
