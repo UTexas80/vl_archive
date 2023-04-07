@@ -16,14 +16,14 @@
     "AzureAuth": {
       "Package": "AzureAuth",
       "Version": "1.3.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "AzureAuth",
-      "RemoteRef": "AzureAuth",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.3.3",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "AzureAuth",
+      "RemoteUsername": "Azure",
+      "RemotePkgRef": "Azure/AzureAuth",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "f6e54d77089d37fa42d437d6dc56c9917282c41a",
       "Requirements": [
         "R",
         "R6",
@@ -34,7 +34,7 @@
         "rappdirs",
         "utils"
       ],
-      "Hash": "3ce531ce76e84cf7f86c4deb01f225ce"
+      "Hash": "2158b3c3941f99dd3537f0584cbee1eb"
     },
     "AzureGraph": {
       "Package": "AzureGraph",
@@ -115,7 +115,7 @@
         "R",
         "dplyr"
       ],
-      "Hash": "677950780aad963645d1bdf69a449175"
+      "Hash": "58c590d4f981bad2ee79e606446d5caf"
     },
     "MASS": {
       "Package": "MASS",
@@ -235,12 +235,6 @@
       "Version": "2.5.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "R6",
-      "RemoteRef": "R6",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.5.1",
       "Requirements": [
         "R"
       ],
@@ -251,12 +245,6 @@
       "Version": "1.1-3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "RColorBrewer",
-      "RemoteRef": "RColorBrewer",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.1-3",
       "Requirements": [
         "R"
       ],
@@ -307,12 +295,6 @@
       "Version": "1.0.10",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "Rcpp",
-      "RemoteRef": "Rcpp",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.0.10",
       "Requirements": [
         "methods",
         "utils"
@@ -359,12 +341,6 @@
       "Version": "0.1-3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "base64enc",
-      "RemoteRef": "base64enc",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.1-3",
       "Requirements": [
         "R"
       ],
@@ -446,12 +422,6 @@
       "Version": "0.4.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "bslib",
-      "RemoteRef": "bslib",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.4.2",
       "Requirements": [
         "R",
         "base64enc",
@@ -543,12 +513,6 @@
       "Version": "2.1-0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "colorspace",
-      "RemoteRef": "colorspace",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "2.1-0",
       "Requirements": [
         "R",
         "grDevices",
@@ -560,22 +524,22 @@
     },
     "cpp11": {
       "Package": "cpp11",
-      "Version": "0.4.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "ed588261931ee3be2c700d22e94a29ab"
+      "Version": "0.4.3.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "cpp11",
+      "RemoteUsername": "r-lib",
+      "RemotePkgRef": "r-lib/cpp11",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "3c36f7f48a4998c0cd0abb2fc964b24393eafe21",
+      "Hash": "99817ff9e7df10b71ad750366c35af18"
     },
     "crayon": {
       "Package": "crayon",
       "Version": "1.5.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "crayon",
-      "RemoteRef": "crayon",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.5.2",
       "Requirements": [
         "grDevices",
         "methods",
@@ -585,19 +549,19 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "5.0.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "curl",
-      "RemoteRef": "curl",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "5.0.0",
+      "Version": "5.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "curl",
+      "RemoteUsername": "jeroen",
+      "RemotePkgRef": "jeroen/curl",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "ec379976dc5e358adbdee5f640cd7686a830f2d0",
       "Requirements": [
         "R"
       ],
-      "Hash": "e4f97056611e8e6b8b852d13b7400cf1"
+      "Hash": "a801d577adb0bb58369f41bee05babc9"
     },
     "data.table": {
       "Package": "data.table",
@@ -644,12 +608,6 @@
       "Version": "0.6.31",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "digest",
-      "RemoteRef": "digest",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.6.31",
       "Requirements": [
         "R",
         "utils"
@@ -705,12 +663,6 @@
       "Version": "0.3.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "ellipsis",
-      "RemoteRef": "ellipsis",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.3.2",
       "Requirements": [
         "R",
         "rlang"
@@ -722,12 +674,6 @@
       "Version": "0.20",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "evaluate",
-      "RemoteRef": "evaluate",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.20",
       "Requirements": [
         "R",
         "methods"
@@ -739,12 +685,6 @@
       "Version": "1.0.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "fansi",
-      "RemoteRef": "fansi",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.0.4",
       "Requirements": [
         "R",
         "grDevices",
@@ -761,7 +701,7 @@
       "RemotePkgRef": "farver",
       "RemoteRef": "farver",
       "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
+      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
       "RemoteSha": "2.1.1",
       "Hash": "8106d78941f34855c440ddb946b8f7a5"
     },
@@ -784,12 +724,6 @@
       "Version": "0.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "fontawesome",
-      "RemoteRef": "fontawesome",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.5.0",
       "Requirements": [
         "R",
         "htmltools",
@@ -847,12 +781,6 @@
       "Version": "0.1.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "generics",
-      "RemoteRef": "generics",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.1.3",
       "Requirements": [
         "R",
         "methods"
@@ -889,12 +817,6 @@
       "Version": "1.6.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "glue",
-      "RemoteRef": "glue",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.6.2",
       "Requirements": [
         "R",
         "methods"
@@ -950,12 +872,6 @@
       "Version": "0.10",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "highr",
-      "RemoteRef": "highr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.10",
       "Requirements": [
         "R",
         "xfun"
@@ -1066,12 +982,6 @@
       "Version": "0.2.7",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "isoband",
-      "RemoteRef": "isoband",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.2.7",
       "Requirements": [
         "grid",
         "utils"
@@ -1081,31 +991,25 @@
     "jose": {
       "Package": "jose",
       "Version": "1.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "jose",
-      "RemoteRef": "jose",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.2.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "jose",
+      "RemoteUsername": "r-lib",
+      "RemotePkgRef": "r-lib/jose",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "429a463add39ed3329b2b7d6ac71e6a6e68d66f6",
       "Requirements": [
         "jsonlite",
         "openssl"
       ],
-      "Hash": "acf397c005e2d96a4b7616bf7dfc3112"
+      "Hash": "2d88251f6812b2789c4c9308f6d90759"
     },
     "jquerylib": {
       "Package": "jquerylib",
       "Version": "0.1.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "jquerylib",
-      "RemoteRef": "jquerylib",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.1.4",
       "Requirements": [
         "htmltools"
       ],
@@ -1116,12 +1020,6 @@
       "Version": "1.8.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "jsonlite",
-      "RemoteRef": "jsonlite",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.8.4",
       "Requirements": [
         "methods"
       ],
@@ -1132,12 +1030,6 @@
       "Version": "1.42",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "knitr",
-      "RemoteRef": "knitr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.42",
       "Requirements": [
         "R",
         "evaluate",
@@ -1154,12 +1046,6 @@
       "Version": "0.4.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "labeling",
-      "RemoteRef": "labeling",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.4.2",
       "Requirements": [
         "graphics",
         "stats"
@@ -1171,12 +1057,6 @@
       "Version": "1.3.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "later",
-      "RemoteRef": "later",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.3.0",
       "Requirements": [
         "Rcpp",
         "rlang"
@@ -1203,12 +1083,6 @@
       "Version": "1.0.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "lifecycle",
-      "RemoteRef": "lifecycle",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.0.3",
       "Requirements": [
         "R",
         "cli",
@@ -1222,12 +1096,6 @@
       "Version": "2.0.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "magrittr",
-      "RemoteRef": "magrittr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "2.0.3",
       "Requirements": [
         "R"
       ],
@@ -1238,12 +1106,6 @@
       "Version": "2.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "memoise",
-      "RemoteRef": "memoise",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.0.1",
       "Requirements": [
         "cachem",
         "rlang"
@@ -1289,12 +1151,6 @@
       "Version": "0.12",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "mime",
-      "RemoteRef": "mime",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.12",
       "Requirements": [
         "tools"
       ],
@@ -1305,12 +1161,6 @@
       "Version": "0.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "munsell",
-      "RemoteRef": "munsell",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "0.5.0",
       "Requirements": [
         "colorspace",
         "methods"
@@ -1424,12 +1274,6 @@
       "Version": "2.0.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "pkgconfig",
-      "RemoteRef": "pkgconfig",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.0.3",
       "Requirements": [
         "utils"
       ],
@@ -1554,12 +1398,6 @@
       "Version": "1.2.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "promises",
-      "RemoteRef": "promises",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.2.0.1",
       "Requirements": [
         "R6",
         "Rcpp",
@@ -1586,12 +1424,6 @@
       "Version": "1.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "purrr",
-      "RemoteRef": "purrr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.0.1",
       "Requirements": [
         "R",
         "cli",
@@ -1627,12 +1459,6 @@
       "Version": "0.3.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "rappdirs",
-      "RemoteRef": "rappdirs",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.3.3",
       "Requirements": [
         "R"
       ],
@@ -1683,14 +1509,20 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "1.1.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "rlang",
+      "RemoteUsername": "r-lib",
+      "RemotePkgRef": "r-lib/rlang",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "ea2fe5f4b1f3b23941ce3d664572af0703a9cd82",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "dc079ccd156cde8647360f473c1fa718"
+      "Hash": "68cd030276d05405fd8c11c68f637286"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -1775,12 +1607,6 @@
       "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "scales",
-      "RemoteRef": "scales",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.2.1",
       "Requirements": [
         "R",
         "R6",
@@ -1812,12 +1638,6 @@
       "Version": "1.7.12",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "stringi",
-      "RemoteRef": "stringi",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.7.12",
       "Requirements": [
         "R",
         "stats",
@@ -1831,12 +1651,6 @@
       "Version": "1.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "stringr",
-      "RemoteRef": "stringr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "1.5.0",
       "Requirements": [
         "R",
         "cli",
@@ -1910,12 +1724,6 @@
       "Version": "1.3.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "tidyr",
-      "RemoteRef": "tidyr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "1.3.0",
       "Requirements": [
         "R",
         "cli",
@@ -2116,12 +1924,6 @@
       "Version": "2.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "withr",
-      "RemoteRef": "withr",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
-      "RemoteSha": "2.5.0",
       "Requirements": [
         "R",
         "grDevices",
@@ -2155,15 +1957,15 @@
     "yaml": {
       "Package": "yaml",
       "Version": "2.3.7",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "yaml",
-      "RemoteRef": "yaml",
-      "RemoteRepos": "https://radiant-rstats.github.io/minicran",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "2.3.7",
-      "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "r-yaml",
+      "RemoteUsername": "vubiostat",
+      "RemotePkgRef": "vubiostat/r-yaml",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "91a977ffea291996fda7c877f547cb45411dc451",
+      "Hash": "8753e4087b3ba6c57eb936b46b564b6c"
     },
     "zeallot": {
       "Package": "zeallot",
