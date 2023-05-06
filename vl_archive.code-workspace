@@ -1,11 +1,23 @@
 {
 	"folders": [
 		{
+			"name": "vl_archive",
 			"path": "."
 		},
 		{
-			"path": "../ProjectTemplate"
+			"name": "vl",
+			"path": "../vl"
+		},
+		{
+			"name": "ProjectTemplate",
+			"path": "../../../../Documents/GitHub/ProjectTemplate"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#361675",
+			"titleBar.activeBackground": "#4C1FA4",
+			"titleBar.activeForeground": "#FDFCFE"
+		}
+	}
 }

@@ -1502,12 +1502,9 @@
     "renv": {
       "Package": "renv",
       "Version": "0.17.3",
-      "Source": "Repository",
+      "OS_type": null,
       "Repository": "CRAN",
-      "Requirements": [
-        "utils"
-      ],
-      "Hash": "4543b8cd233ae25c6aba8548be9e747e"
+      "Source": "Repository"
     },
     "rlang": {
       "Package": "rlang",

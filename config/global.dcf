@@ -6,29 +6,29 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet,
+libraries:  zoo, AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet,
             checkpoint, circlize, collapse, compareDF, curl, DALEX, daff,
             data.table, data.tree, DataEditR, DataExplorer, dataMeta, datawizard,
             devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT,
-            ExcelFunctionsR,explore, fst, fuzzyjoin, ggdogs, ggfortify, ggplot2,
-            ggpp, grid, gt, h2o, headliner, healthyR, heatmaply, here,
-            highcharter, httr, humaniformat, janitor, job, keyring, knitr,
-            lintr, logger, lubridate, magrittr,metaflow, Microsoft365R, mltools,
-            modelsummary, openxlsx, orca, pacman, packagefinder, pak, parsnip,
-            patchwork, pdftools, plotluck, plyr, pointblank,  ProjectTemplate,
-            qs, quantmod, rprintf, rstudio.prefs, readr, readxl, reprex,
-            reshape2, rio, rmarkdown, rsample, rstudioapi, rtables,
-            RVerbalExpressions, rvest,scales, scribblr, shiny, shinyAce,
+            ExcelFunctionsR, explore, filenamer, fst, fuzzyjoin, gganimate,
+            ggdogs, ggfortify, ggplot2, ggpp, grid, gt, h2o, headliner, healthyR,
+            heatmaply, here, highcharter, httr, humaniformat, janitor, job, keyring,
+            knitr, lintr, logger, lubridate, magrittr,metaflow, Microsoft365R,
+            mltools, modelsummary, openxlsx, orca, pacman, packagefinder, pak,
+            parsnip, patchwork, pdftools, plotluck, plyr, pointblank,
+            ProjectTemplate, qs, quantmod, rprintf, rstudio.prefs, rcolorutils,
+            readr, readxl, reprex, reshape2, rio, rmarkdown, rsample, rstudioapi,
+            rtables, RVerbalExpressions, rvest, scales, scribblr, shiny, shinyAce,
             shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
             summarytools, sunburstR, tidyverse, timeDate, timetk, treemap,
             tryCatchLog, utils, validate, visdat, waldo, writexl, xfun, xtable,
-            xts, zoo
+            xts
 logging: TRUE
 logging_level: INFO
 munging: TRUE
 recursive_loading: TRUE
 sticky_variables: NONE
-version: 0.10.2
+version: 0.10.3
 tables_type: data_table
 underscore_variables: TRUE
 cache_file_format: RData
