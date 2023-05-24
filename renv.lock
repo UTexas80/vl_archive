@@ -419,9 +419,15 @@
     },
     "bslib": {
       "Package": "bslib",
-      "Version": "0.4.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "0.4.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "bslib",
+      "RemoteUsername": "rstudio",
+      "RemotePkgRef": "rstudio/bslib",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "379528d5ba31fbee6edee7274b4ad41bb9010ed0",
       "Requirements": [
         "R",
         "base64enc",
@@ -435,7 +441,7 @@
         "rlang",
         "sass"
       ],
-      "Hash": "a7fbf03946ad741129dc81098722fca1"
+      "Hash": "c1e48890d0b4ea483d2aa3c9df5454ec"
     },
     "cachem": {
       "Package": "cachem",
@@ -1502,9 +1508,12 @@
     "renv": {
       "Package": "renv",
       "Version": "0.17.3",
-      "OS_type": null,
+      "Source": "Repository",
       "Repository": "CRAN",
-      "Source": "Repository"
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "4543b8cd233ae25c6aba8548be9e747e"
     },
     "rlang": {
       "Package": "rlang",

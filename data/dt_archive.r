@@ -26,7 +26,7 @@ file_table    <- data.table(file_name = character(0))
 dt_file_table <- as.data.table(sapply(dt_zip_files[,1], function(x) x))
 # ------------------------------------------------------------------------------
 # data.table - create multiple column names
-dt_file_table <- 
+dt_file_table <-
   dt_file_table[
     , .(
       name      = name,
@@ -39,7 +39,7 @@ dt_file_table <-
 # dt_file_table$name_num <- as.character(gsub("[^0-9]", "", dt_file_table$name))
 # ------------------------------------------------------------------------------
 dt_file_table[, N :=.N, by = name_num]
-dt_file_table <- 
+dt_file_table <-
   rbind(
     dt_file_table[stringr::str_ends(name_char, "W") & N == 1, ],
     dt_file_table[stringr::str_ends(name_char, "W") & N == 2, ],

@@ -11,18 +11,18 @@ libraries:  zoo, AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet
             data.table, data.tree, DataEditR, DataExplorer, dataMeta, datawizard,
             devtools, DiagrammeR, diffobj, dbplyr, dplyr, dtplyr, DT,
             ExcelFunctionsR, explore, filenamer, fst, fuzzyjoin, gganimate,
-            ggdogs, ggfortify, ggplot2, ggpp, grid, gt, h2o, headliner, healthyR,
-            heatmaply, here, highcharter, httr, humaniformat, janitor, job, keyring,
-            knitr, lintr, logger, lubridate, magrittr,metaflow, Microsoft365R,
-            mltools, modelsummary, openxlsx, orca, pacman, packagefinder, pak,
-            parsnip, patchwork, pdftools, plotluck, plyr, pointblank,
-            ProjectTemplate, qs, quantmod, rprintf, rstudio.prefs, rcolorutils,
-            readr, readxl, reprex, reshape2, rio, rmarkdown, rsample, rstudioapi,
-            rtables, RVerbalExpressions, rvest, scales, scribblr, shiny, shinyAce,
-            shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
-            summarytools, sunburstR, tidyverse, timeDate, timetk, treemap,
-            tryCatchLog, utils, validate, visdat, waldo, writexl, xfun, xtable,
-            xts
+            ggdogs, ggflowchart, ggfortify, ggplot2, ggpp, gptstudio, gpttools,
+            grid, gt,  headliner, healthyR, heatmaply, here, highcharter, httr,
+            humaniformat, janitor, job, keyring, knitr, lintr, logger, lubridate,
+            magrittr,metaflow, Microsoft365R, mltools, modelsummary, openxlsx,
+            orca, pacman, packagefinder, pak, parsnip, patchwork, pdftools,
+            plotluck, plyr, pointblank, ProjectTemplate, qs, quantmod, rprintf,
+            rstudio.prefs, rcolorutils, readr, readxl, reprex, reshape2, rio,
+            rmarkdown, rsample, rstudioapi, rtables, RVerbalExpressions, rvest,
+            scales, scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma,
+            skimr, SmartEDA, stringr, styler, summarytools, sunburstR, tidyverse,
+            timeDate, timetk, treemap, tryCatchLog, utils, validate, visdat,
+            waldo, writexl, xfun, xtable, xts
 logging: TRUE
 logging_level: INFO
 munging: TRUE

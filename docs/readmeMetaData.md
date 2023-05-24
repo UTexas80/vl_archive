@@ -2,7 +2,17 @@ names(df)
 
 [Menu Navigation](./readmeNavigation.md)
 
-| aidByAY                               |                                 |                                 |                                |
+| dx_blob           |                   |                     |                 |                      |                |                    |
+|---------------------------------------|----------------------------------------------------------------------------------------------------|
+| [1] "Company"     |     "DIV'D"       |      "CMRK"         |     "TechRank"  |  "^vCM"              | "HISTVO"       |   "INDUST"         |   
+| [8] "CMPRICE"     |     "VOLF"        |      "TKR"          |     "C/P"       |  "STRIKE"            | "OPTKR"        |   "Record Number"  |   
+| [15] "EXPDAY"     |     "OI"          |      "VOL"          |     "BID"       |  "ASK"               | "EST"          |   "DLTA"           |   
+| [22] "BID OPRK"   |     "ASK OPRK"    |      "BID UN/OV"    |     "ASK UN/OV" |  "RVOPT"             | "10%"          |   "-10%"           |   
+| [29] "CCMPRK"     |     "CCMPBE"      |      "CCMPRV"       |     "CCPWPA"    |  "CCPWBE"            | "CCPWMAX"      |   "I/OTM"          |   
+| [36] "THETA"      |     "BID IMPLIE"  |      "ASK IMPLIE"   |     "VOLFADJ"   |  "Forecast PrtbStrk" | "Bid Prbstrk"  |   "Ask Prbstrk"    |   
+| [43] "PctDble"    |     "Margin"      |      "YLDMGN"       |     "MXMGN"     |  "ROBUY"             | "ROWRITE"      |   "ROCCMP"         |   
+| [50] "GAMMA"      |     "VEGA"        |      "RHO"          |    "TimPrPct"   |  "BID/ASKPcnt"       | "date_run"     |                    |  
+ 
 |---------------------------------------|---------------------------------|---------------------------------|--------------------------------|
 | [1] "ay"                              | "tot_aid"                       | "tot_fed_aid"                   | "tot_st_aid"                   |
 | [5] "tot_non_gov_aid"                 | "resources"                     |                                 |                                |
