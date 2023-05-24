@@ -25,8 +25,8 @@ fun_0000_archive_processing      <- function(nm){
 #...............................................................................
   fun_1000_download_zip(nm)
   fun_2000_archive_mungle(ALLNEW)
-  #fun_3000_strike_processing(dx_blob)
-  fun_3000_strike_main()
+  fun_3000_strike_processing(dx_blob)
+  # fun_3000_strike_main()
   fun_4000_bfly_main(dx_blob)
 #...............................................................................
 }
@@ -333,7 +333,7 @@ dt_gf[, c(
 # ------------------------------------------------------------------------------
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 #...............................................................................
@@ -441,7 +441,7 @@ fun_3000_strike_processing  <- function(dx_blob){
 #...............................................................................
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -460,6 +460,10 @@ fun_3000_strike_processing  <- function(dx_blob){
   s_plus_0               <- unique(dx_ticker[dx_tkr_stk, allow.cartesian=TRUE])[CMPRICE <= STRIKE, head(.SD, 1),   by = .(TKR)]
   s_plus_1               <- unique(dx_ticker[dx_tkr_stk, allow.cartesian=TRUE])[CMPRICE <= STRIKE, .SD[2],         by = .(TKR)]
 # ------------------------------------------------------------------------------
+
+#...............................................................................
+# browser()
+#...............................................................................
 
 # ------------------------------------------------------------------------------230518
 #  dx_s_minus_0           <<- unique(dx_ticker[dx_tkr_stk, allow.cartesian=TRUE])[CMPRICE >= STRIKE, STRIKE[.N],     by = .(TKR)]
@@ -510,6 +514,21 @@ fun_3000_strike_processing  <- function(dx_blob){
   #   setkey(df, "TKR")
   #   }
   # )
+
+#...............................................................................
+browser()
+#...............................................................................
+
+  # dx_s_minus_1[dx_blob, nomatch = 0][C.P == "P" & EXPDAY %like% '2023-06-16',][,13]
+  # dx_s_minus_0[dx_blob, nomatch = 0][C.P == "C" & EXPDAY %like% '2023-06-16',][,13]
+  # dx_s_plus_0[dx_blob,  nomatch = 0][C.P == "P" & EXPDAY %like% '2023-06-16',][,13]
+  # dx_s_plus_1[dx_blob,  nomatch = 0][C.P == "C" & EXPDAY %like% '2023-06-16',][,13]
+# ------------------------------------------------------------------------------230524
+  dx_s_minus_1           <<- dx_tkr_stk[dx_tkr_stk[[11]] == 'P' & CMPRICE >= STRIKE, .SD[2], by = .(TKR)][,c(1,11,9,12:13)]
+  dx_s_minus_0           <<- dx_tkr_stk[dx_tkr_stk[[11]] == 'C' & CMPRICE >= STRIKE, .SD[1], by = .(TKR)][,c(1,11,9,12:13)]
+  dx_s_plus_0            <<- dx_tkr_stk[dx_tkr_stk[[11]] == 'P' & CMPRICE <= STRIKE, .SD[1], by = .(TKR)][,c(1,11,9,12:13)]
+  dx_s_plus_1            <<- dx_tkr_stk[dx_tkr_stk[[11]] == 'C' & CMPRICE <= STRIKE, .SD[2], by = .(TKR)][,c(1,11,9,12:13)]
+
 # ------------------------------------------------------------------------------
   dx_s_minus_0 <<- names(dx_s_minus_0)  [1:2]  <- c("TKR", "STRIKE")
   dx_s_minus_1 <<- names(dx_s_minus_1)  [1:2]  <- c("TKR", "STRIKE")
@@ -572,7 +591,7 @@ fun_4000_bfly_main          <- function(dx_blob) {
     map(., fun_4100_bfly_processing)
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 #...............................................................................
@@ -809,7 +828,19 @@ sum(
 }
 #...............................................................................
 
+# dx_condor        <- merge(dx_tkr_stk, dx_ticker, by = "TKR")
+# dx_condor_strike <- dx_condor[dx_condor[[2]]=='P', .SD[which.min(abs(STRIKE - CMPRICE))], by = c("TKR", "C/P")]
+# dx_condor_strike_c <- dx_condor[dx_condor[[2]]=='C', .SD[which.min(abs(STRIKE - CMPRICE))], by = c("TKR", "C/P")]
+# dx_condor_strike_p <- dx_condor[dx_condor[[2]]=='P', .SD[which.min(abs(STRIKE - CMPRICE))], by = c("TKR", "C/P")]
+# dx_condor_index  <- dx_condor[dx_condor[[2]]=='P', .I[ which.min(abs(STRIKE - CMPRICE))], by = c("TKR", "C/P")]
+
+# na.omit(as.data.table(shift(dx_condor[order(TKR)][dx_condor_strike, roll = Inf, on = .(TKR, STRIKE = CMPRICE)][order(TKR)], type = "lead", n = -1)))
+# na.omit(as.data.table(shift(dx_condor[order(TKR)][dx_condor_strike, roll = -Inf, on = .(TKR, STRIKE = CMPRICE)][order(TKR)], type = "lag", n = 1)))
+
 # dx_s_minus_1[dx_blob, nomatch = 0][C.P == "P" & EXPDAY %like% '2023-06-16',][,13]
 # dx_s_minus_0[dx_blob, nomatch = 0][C.P == "C" & EXPDAY %like% '2023-06-16',][,13]
 # dx_s_plus_0[dx_blob, nomatch = 0][C.P == "P" & EXPDAY %like% '2023-06-16',][,13]
 # dx_s_plus_1[dx_blob, nomatch = 0][C.P == "C" & EXPDAY %like% '2023-06-16',][,13]
+
+# dx_condor <- rbind( dx_s_minus_1,  dx_s_minus_0,  dx_s_plus_0,  dx_s_plus_1)
+# dx_condor[, .N, by = TKR][N == 4]
