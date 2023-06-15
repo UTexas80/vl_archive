@@ -170,11 +170,11 @@ dt_date_exp_mth             <<- setorder(dt_date_exp_mth, EXPDAY)
 
 # ------------------------------------------------------------------------------
 dt_date_run             <<- date_run
-names(dt_date_run)[1]   <<- "EXPDAY"
-dt_date_run$EXPDAY      <<- as.Date(dt_date_run$EXPDAY, format('%m/%d/%Y'))
+names(dt_date_run)[1]   <<- "date_run"
+dt_date_run$date_run    <<- as.Date(dt_date_run$date_run, format('%m/%d/%Y'))
 # ------------------------------------------------------------------------------
 setkey(dx_blob,         EXPDAY)
-setkey(dt_date_run,     EXPDAY)
+setkey(dt_date_run,     date_run)
 setkey(dt_date_exp_mth, EXPDAY)
 # ------------------------------------------------------------------------------
 

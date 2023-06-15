@@ -36,3 +36,29 @@ results[, position := ifelse(strike_price == nearest_strike, 0,
                              ifelse(strike_price > nearest_strike, rank(-strike_price, ties.method = "first") - 1,
                                     -rank(strike_price, ties.method = "first") + 1))]
 
+
+
+library(data.table)
+
+# Create two data.tables
+dt1 <- data.table(key = c(1, 2, 3, 4, 5), value1 = letters[1:5])
+dt2 <- data.table(key = c(1, 2, 3, 4, 6), value2 = LETTERS[1:5])
+
+# Define the condition for the join
+condition <- function(key_value) {
+  if (key_value %% 2 == 1) {
+    return("odd_join")
+  } else {
+    return("even_join")
+  }
+}
+
+# Perform the join based on the condition
+if (condition(1) == "odd_join") {
+  result <- dt1[dt2, on = "key", nomatch = 0]
+} else {
+  result <- dt1[dt2, on = "key", nomatch = 0]
+}
+
+# Print the result
+print(result)

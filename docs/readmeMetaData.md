@@ -4,15 +4,15 @@ names(df)
 
 | dx_blob           |                   |                     |                 |                      |                |                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------------|
-| [1] "Company"     |     "DIV'D"       |      "CMRK"         |     "TechRank"  |  "^vCM"              | "HISTVO"       |   "INDUST"         |   
-| [8] "CMPRICE"     |     "VOLF"        |      "TKR"          |     "C/P"       |  "STRIKE"            | "OPTKR"        |   "Record Number"  |   
-| [15] "EXPDAY"     |     "OI"          |      "VOL"          |     "BID"       |  "ASK"               | "EST"          |   "DLTA"           |   
-| [22] "BID OPRK"   |     "ASK OPRK"    |      "BID UN/OV"    |     "ASK UN/OV" |  "RVOPT"             | "10%"          |   "-10%"           |   
-| [29] "CCMPRK"     |     "CCMPBE"      |      "CCMPRV"       |     "CCPWPA"    |  "CCPWBE"            | "CCPWMAX"      |   "I/OTM"          |   
-| [36] "THETA"      |     "BID IMPLIE"  |      "ASK IMPLIE"   |     "VOLFADJ"   |  "Forecast PrtbStrk" | "Bid Prbstrk"  |   "Ask Prbstrk"    |   
-| [43] "PctDble"    |     "Margin"      |      "YLDMGN"       |     "MXMGN"     |  "ROBUY"             | "ROWRITE"      |   "ROCCMP"         |   
-| [50] "GAMMA"      |     "VEGA"        |      "RHO"          |    "TimPrPct"   |  "BID/ASKPcnt"       | "date_run"     |                    |  
- 
+| [1] "Company"     |     "DIV'D"       |      "CMRK"         |     "TechRank"  |  "^vCM"              | "HISTVO"       |   "INDUST"         |
+| [8] "CMPRICE"     |     "VOLF"        |      "TKR"          |     "C/P"       |  "STRIKE"            | "OPTKR"        |   "Record Number"  |
+| [15] "EXPDAY"     |     "OI"          |      "VOL"          |     "BID"       |  "ASK"               | "EST"          |   "DLTA"           |
+| [22] "BID OPRK"   |     "ASK OPRK"    |      "BID UN/OV"    |     "ASK UN/OV" |  "RVOPT"             | "10%"          |   "-10%"           |
+| [29] "CCMPRK"     |     "CCMPBE"      |      "CCMPRV"       |     "CCPWPA"    |  "CCPWBE"            | "CCPWMAX"      |   "I/OTM"          |
+| [36] "THETA"      |     "BID IMPLIE"  |      "ASK IMPLIE"   |     "VOLFADJ"   |  "Forecast PrtbStrk" | "Bid Prbstrk"  |   "Ask Prbstrk"    |
+| [43] "PctDble"    |     "Margin"      |      "YLDMGN"       |     "MXMGN"     |  "ROBUY"             | "ROWRITE"      |   "ROCCMP"         |
+| [50] "GAMMA"      |     "VEGA"        |      "RHO"          |    "TimPrPct"   |  "BID/ASKPcnt"       | "date_run"     |                    |
+  
 |---------------------------------------|---------------------------------|---------------------------------|--------------------------------|
 | [1] "ay"                              | "tot_aid"                       | "tot_fed_aid"                   | "tot_st_aid"                   |
 | [5] "tot_non_gov_aid"                 | "resources"                     |                                 |                                |
@@ -122,5 +122,5 @@ names(df)
 | [1] "geoid"                           | "state"                         | "geography_name"                | "census_tot_pop_2010"          |  "census_urb_pop_2010"       |
 | [6] "census_rural_pop_2010"           | "census_rur_percent_2010"       | "classification"                | "county_cd"                    |  "county_desc"               |
 |[11] "county_seat"                     | "county_name"                   | "fips_cd"                       | "state_cd"                     |  "lat"                       |
-|[16] "long"                            |                                 |                                 |             |                  |                              | 
+|[16] "long"                            |                                 |                                 |             |                  |                              |  
 |---------------------------------------|---------------------------------|---------------------------------|--------------------------------|------------------------------|

@@ -19,7 +19,7 @@
       - [ ] ((dt_bfly[.N,7] - dt_bfly[.N,6])/dt_bfly[.N,6])*100]
 - [ ] add fields to the dx_bfly:
     - [x] I.OTM
-    - [x] OI    
+    - [x] OI
     - [x] Bid.UN.OV
     - [ ] Ask.UN.OV
     - [x] PrtbStrk.VOLF
@@ -31,7 +31,7 @@
     - [x] DLTA
     - [x] GAMMA
     - [ ] RHO
-    - [x] THETA    
+    - [x] THETA
     - [x] VEGA
 
 - dx_butterfly:
@@ -67,7 +67,7 @@
    - [ ] id
    - [ ] delta
    - [ ] gamma
-   - [ ] theta   
+   - [ ] theta
    - [ ] vega
 - [ ] Rank
   - [ ] Id

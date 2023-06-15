@@ -97,7 +97,7 @@ fun_2000_archive_mungle     <- function(ALLNEW){
 # ------------------------------------------------------------------------------
 # Step 2000.01.a create a template to rbind the dataframes
 # ------------------------------------------------------------------------------
-  date_run <- ALLNEW[4,2]
+  date_run <<- ALLNEW[4,2]
 # ------------------------------------------------------------------------------
   dx_blob  <- ALLNEW[12,]      %>%  row_to_names(row_number = 1)
   ALLNEW   <- tail(ALLNEW,-11) %>%  row_to_names(row_number = 1)
@@ -257,7 +257,7 @@ dx_tkr_stk <- data.table::setorder(
 
 nearest_strike <-  merge(dx_tkr_stk,dx_ticker, by = "TKR")[, .SD[which.min(abs(STRIKE - CMPRICE))], by = TKR]
 # ------------------------------------------------------------------------------
-dx_tkr_stk              <<-  dx_tkr_stk[dx_strike, on = .(STRIKE), nomatch = 0]
+dx_tkr_stk     <<-  dx_tkr_stk[dx_strike, on = .(STRIKE), nomatch = 0]
 # ------------------------------------------------------------------------------
 
 #...............................................................................
@@ -320,17 +320,116 @@ dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
             on = .(TKR, EXPDAY),
             nomatch=0][
             , id := .I]
-# ------------------------------------------------------------------------------
-dt_condor_key <-  data.table::setorder(
-                    data.table::melt(dt_gf, 
-                                      id = 1:3,
-                                      measure = c(21, 9, 27, 15)),
-                    "TKR")[
-                  ,c(1, 3, 5)]
-# ------------------------------------------------------------------------------
 
 #...............................................................................
 # browser()
+#...............................................................................
+
+# ------------------------------------------------------------------------------
+dx_condor_key <<- data.table::setorder(
+  data.table::melt(dt_gf,
+    id = 1:3,
+    measure = c(21, 9, 27, 15)
+  ), # bid/ask
+  "TKR"
+)[
+  , c(1, 3, 5)
+]
+# ------------------------------------------------------------------------------
+dx_condor_key[, id_strike:= rleid(value), by = .(TKR, rleid(TKR))]
+names(dx_condor_key)[2:3] <- c("CMPRICE", "OPTKR")
+# ------------------------------------------------------------------------------
+# Define the cost for the condor
+# ------------------------------------------------------------------------------
+setkey(dx_condor_key, OPTKR)
+setkey(dx_blob, OPTKR)
+# ------------------------------------------------------------------------------
+dx_condor_max_profit <<- dx_condor_key[!(id_strike > 1 & id_strike < 4), ][
+  dx_blob,
+  nomatch = 0
+][
+  , c(1:4, 21)
+][
+  , BID := BID * -1
+]
+# ------------------------------------------------------------------------------
+dx_condor_max_profit <<- data.table::setorder(
+  rbind(
+    dx_condor_max_profit,
+    dx_condor_key[id_strike > 1 & id_strike < 4, ][
+      dx_blob,
+      nomatch = 0
+    ][
+      , c(1:4, 22)
+    ],
+    use.names = FALSE
+  )
+)
+# ------------------------------------------------------------------------------
+dx_condor_max_profit <<- dx_condor_max_profit[, profit := sum(BID), by = TKR]
+dx_condor_max_profit <<- unique(
+  dx_condor_max_profit[
+    , profit := sum(BID),
+    by = TKR
+  ][
+    , c(1, 6)
+  ]
+)
+# ------------------------------------------------------------------------------
+# odd id_strike, i.e., puts
+# ------------------------------------------------------------------------------
+dx_condor_max_loss <<- data.table::setorder(
+  na.omit(
+    rbind(
+      dx_condor_key[id_strike %% 2 == 1, ][
+        dx_blob,
+        nomatch = 0
+      ][
+        , c(1:4, 16)
+      ][
+        , diff := STRIKE - shift(STRIKE),
+        by = TKR
+      ],
+      dx_condor_key[id_strike %% 2 != 1, ][
+        dx_blob,
+        nomatch = 0
+      ][
+        , c(1:4, 16)
+      ][
+        , diff := STRIKE - shift(STRIKE),
+        by = TKR
+      ]
+    )
+  ), TKR, id_strike
+)
+# ------------------------------------------------------------------------------
+dx_condor_max_loss <<-
+  unique(
+    dx_condor_max_loss[,
+      loss := sum(diff),
+      by = TKR
+    ][
+      , c(1, 7)
+    ]
+  )
+# ------------------------------------------------------------------------------
+dx_condor_roi <<-
+  cbind(
+    dx_condor_max_profit[
+      dx_condor_max_loss,
+      on = .(TKR)
+    ][
+      , roi := scales::percent(profit / loss)
+    ],
+    date_run,
+    as.Date(mid(dx_condor_key[, 3], 10, 6), format = "%y%m%d")
+  )[
+    , setnames(.SD, c("V2", "V3"), c("date_run", "date_exp"))
+  ][, .(TKR, profit, loss, roi, date_exp, date_run)]
+# ------------------------------------------------------------------------------
+
+#...............................................................................
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -431,7 +530,6 @@ dt_gf[complete.cases(dt_gf), ][
 #...............................................................................
 # browser()
 #...............................................................................
-
 
 # ------------------------------------------------------------------------------230516
 # chat_gpt: filter data.table all columns contain a value using r code
