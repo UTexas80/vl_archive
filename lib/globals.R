@@ -31,11 +31,11 @@ vl_path           <- file.path(
   "C:/Users/glen.falk/OneDrive - IHS Markit/Documents/github/vl//"
 )
 # ------------------------------------------------------------------------------
-valueline_path_data      <- file.path(
+vl_path_data      <- file.path(
   "C:/Users/falkg/OneDrive/Documents/GitHub/vl/data"
 )
 # ------------------------------------------------------------------------------
-valueline_path           <- file.path(
+valueline_path    <- file.path(
   "C:/Users/falkg/OneDrive/Documents/GitHub/vl/"  
 )
 vl_source         <- "/vl.r"
