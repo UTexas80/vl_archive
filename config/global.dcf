@@ -14,15 +14,16 @@ libraries:  zoo, AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet
             ggdogs, ggflowchart, ggfortify, ggplot2, ggpp, gptstudio, gpttools,
             grid, gt,  headliner, healthyR, heatmaply, here, highcharter, httr,
             humaniformat, janitor, job, keyring, knitr, lintr, logger, lubridate,
-            magrittr,metaflow, Microsoft365R, mltools, modelsummary, openxlsx,
-            orca, pacman, packagefinder, pak, parsnip, patchwork, pdftools,
-            plotluck, plyr, pointblank, ProjectTemplate, qs, quantmod, rprintf,
-            rstudio.prefs, rcolorutils, readr, readxl, reprex, reshape2, rio,
-            rmarkdown, rsample, rstudioapi, rtables, RVerbalExpressions, rvest,
-            scales, scribblr, shiny, shinyAce, shinydashboard, SIT, SixSigma,
-            skimr, SmartEDA, stringr, styler, summarytools, sunburstR, tidyverse,
-            timeDate, timetk, treemap, tryCatchLog, utils, validate, visdat,
-            waldo, writexl, xfun, xtable, xts
+            magrittr,metaflow, Microsoft365R, mlr3, mlr3verse, mltools, 
+            modelsummary, openxlsx, orca, pacman, packagefinder, pak, parsnip,
+            patchwork, pdftools, plotluck, plyr, pointblank, ProjectTemplate, qs,
+            quantmod, rprintf, rstudio.prefs, rcolorutils, readr, readxl, reprex,
+            reshape2, rio, rmarkdown, rsample, rstudioapi, rtables,
+            RVerbalExpressions, rvest, scales, scribblr, shiny, shinyAce,
+            shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
+            summarytools, sunburstR, tidyverse, timeDate, timetk, treemap,
+            tryCatchLog, utils, validate, visdat, waldo, writexl, xfun, xtable,
+            xts
 logging: TRUE
 logging_level: INFO
 munging: TRUE
