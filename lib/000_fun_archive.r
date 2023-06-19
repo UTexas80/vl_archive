@@ -302,6 +302,7 @@ fun_3000_strike_main        <- function(){
 # ------------------------------------------------------------------------------
 # g <<- dx_blob[.0,0]                               # stub template dataframe---
 g[[paste0("dt_gf")]] <<- dx_blob[.0,0]
+g[[paste0("dx_condor_strike")]] <<- dx_blob[.0,0]
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
@@ -333,16 +334,22 @@ dx_stk <- dx_stk[dt_date_exp_mth[data.table::between(diff_today, 27,63),][1,1], 
 # ------------------------------------------------------------------------------
 dx_stk  %>%
   split(., by = c("TKR", "EXPDAY", 'C/P')) %>%
-  map(., fun_3100_strike_processing)
+  map(., fun_3010_strike_processing)
 
 #...............................................................................
 # browser()
 #...............................................................................
 
 dt_gf[LEN(OPTKR)>0 & LEN(lag_1_optkr)>0 & LEN(lag_0_optkr)>0 & LEN(lead_0_optkr)>0 & LEN(lead_1_optkr)>0,]
+dx_condor_strike[LEN(OPTKR)>0 & LEN(lag_1_optkr)>0 & LEN(lag_0_optkr)>0 & LEN(lead_0_optkr)>0 & LEN(lead_1_optkr)>0,]
 
 # ------------------------------------------------------------------------------
-dt_gf <-  na.omit(dt_gf[OPTKR == "",])
+dt_gf <-            na.omit(dt_gf[OPTKR == "",])
+dx_condor_strike <- na.omit(dx_condor_strike[OPTKR == "",])
+
+#...............................................................................
+browser()
+#...............................................................................
 
 dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
           dt_gf[dt_gf[[2]]=='P',],
@@ -350,8 +357,19 @@ dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
             nomatch=0][
             , id := .I]
 
+dx_condor_strike <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
+          dx_condor_strike[dx_condor_strike[[2]]=='P',],
+            on = .(TKR, EXPDAY),
+            nomatch=0][
+            , lead_0_stk_cmp_diff:= i.lead_0_stk - STRIKE][
+            , cmp   := STRIKE][
+            , mid      := lag_0_stk + ((i.lead_0_stk - lag_0_stk))/2][
+            , diff     := (STRIKE -(lag_0_stk + ((i.lead_0_stk - lag_0_stk))/2))][
+            , pct_diff := (STRIKE -(lag_0_stk + ((i.lead_0_stk - lag_0_stk))/2))/STRIKE][
+            , id := .I]
+
 # ------------------------------------------------------------------------------
-# dt_gf
+# dt_condor_strike
 # ------------------------------------------------------------------------------
 # 01 TKR              <chr>
 # ------------------------------------------------------------------------------
@@ -391,17 +409,18 @@ dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
 # 30 i.lead_1_optkr   <chr>
 # 31 i.lead_1_stk     <dbl>
 # 32 i.lead_1_pct_chg <dbl>
-# 33 id               <int>
+# 33 lead_0_stk_diff  <dbl>
+# 34 id               <int>
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
 dx_condor_key <- data.table::setorder(
-  data.table::melt(dt_gf,
+  data.table::melt(dx_condor_strike,
     id = 1:3,                              # TKR, 'C/P' = 'C', STRIKE
-    measure = c(21, 9, 27, 15)             # i.lag_1_optkr, lag_0_optkr, i.lead_0_optkr, lead_1_optkr  
+    measure = c(21, 9, 27, 15)             # i.lag_1_optkr, lag_0_optkr, i.lead_0_optkr, lead_1_optkr
   ), # bid/ask
   "TKR"
 )[
@@ -563,7 +582,7 @@ if (z == TRUE) {
 }
 #...............................................................................
 
-fun_3100_strike_processing  <- function(l) {
+fun_3010_strike_processing  <- function(l) {
 
 #...............................................................................
 # browser()
@@ -609,7 +628,7 @@ new_records <-
 # ------------------------------------------------------------------------------lead_0_c
         shift(OPTKR,    type = 'lead', n = 1),
         shift(STRIKE,   type = 'lead', n = 1),
-        (STRIKE - shift(STRIKE, type = "lead", n = 1)) /
+        (STRIKE  - shift(STRIKE, type = "lead", n = 1)) /
           shift(STRIKE, type = "lead", n = 1) * 100,
 # ------------------------------------------------------------------------------lead_1_c
         shift(OPTKR,    type = "lead", n = 2),
@@ -621,12 +640,21 @@ new_records <-
 #        TKR=='AA' & OPTKR == "",]
 # ------------------------------------------------------------------------------
 g[[paste0("dt_gf")]] <<- rbind(g[[paste0("dt_gf")]], new_records)
+g[[paste0("dx_condor_strike")]] <<- rbind(g[[paste0("dx_condor_strike")]], new_records)
 #...............................................................................
 # browser()
 #...............................................................................
 
 dt_gf[complete.cases(dt_gf), ][
   (OPTKR        == "" &
+     !lag_0_optkr  == "" &
+     !lag_1_optkr  == "" &
+     !lead_0_optkr == "" &
+     !lead_1_optkr == ""),
+]
+
+dx_condor_strike[complete.cases(dx_condor_strike), ][
+  (OPTKR           == "" &
      !lag_0_optkr  == "" &
      !lag_1_optkr  == "" &
      !lead_0_optkr == "" &
