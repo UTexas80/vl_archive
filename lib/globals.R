@@ -9,13 +9,16 @@ add.config(
   currentAY       = as.numeric(paste(as.numeric(format(Sys.Date(), format = "%y")) - 1, as.numeric(format(Sys.Date(), format = "%y")), sep = "")),
   header          = "ValueLine" # header in reports
 )
-# ----------------------------------dat--------------------------------------------
+# ------------------------------------------------------------------------------
 # Date Configuration
 # ------------------------------------------------------------------------------
 date_curr_mo      <- as.numeric(format(Sys.Date(), format = "%m"))
 date_curr_yr      <- as.numeric(format(Sys.Date(), format = "%y"))
 date_curr_yr4     <- as.numeric(format(Sys.Date(), format = "%Y"))
 date_prefix       <- as.character(today(), format = '%Y%m%d')
+# Risk Free Interest Rate
+getSymbols('DGS3MO', src = 'FRED')
+int_rate          <<- tail(na.omit(DGS3MO),1)
 # ------------------------------------------------------------------------------
 # OneDrive Configuration
 # ------------------------------------------------------------------------------
@@ -36,13 +39,13 @@ vl_path_data      <- file.path(
 )
 # ------------------------------------------------------------------------------
 valueline_path    <- file.path(
-  "C:/Users/falkg/OneDrive/Documents/GitHub/vl/"  
+  "C:/Users/falkg/OneDrive/Documents/GitHub/vl/"
 )
 vl_source         <- "/vl.r"
-# ------------------------------------------------------------------------------  
+# ------------------------------------------------------------------------------
 zip_file_path <- paste0(here::here("zip//"))
 # ------------------------------------------------------------------------------
-# create global environment to dynamically name data frames                     
+# create global environment to dynamically name data frames
 # https://tinyurl.com/y3adrqwa ###
 # ------------------------------------------------------------------------------
 g                 <- globalenv()             # https://tinyurl.com/r3yrspv   ###
@@ -53,9 +56,9 @@ z                 <- TRUE                    # template switch create dx_blob
 # getRs('reptools.r')
 # getRs('movStats.r')
 ################################################################################
-## Repo Package: data management to build centralized metadata repository       
+## Repo Package: data management to build centralized metadata repository
 ## https://github.com/franapoli/repo
-## Check existence of directory and create if doesn't exist                     
+## Check existence of directory and create if doesn't exist
 ## https://tinyurl.com/y3adrqwa
 ################################################################################
 mainDir           <- (".")

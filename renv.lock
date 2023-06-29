@@ -571,14 +571,14 @@
     },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.14.8",
+      "Version": "1.14.9",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSM",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "b4c06e554f33344e044ccd7fdca750a9"
+      "Hash": "b11433606c156cc08a797faffd9c65f1"
     },
     "desc": {
       "Package": "desc",
