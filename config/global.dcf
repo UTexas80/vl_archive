@@ -21,9 +21,9 @@ libraries:  zoo, AmesHousing, archivist, ARTofR, bookdownplus, caret, cheatsheet
             reshape2, rio, rmarkdown, rprintf, rsample, rstudioapi,rstudio.prefs,
             rtables, RVerbalExpressions, rvest, scales, scribblr, shiny, shinyAce,
             shinydashboard, SIT, SixSigma, skimr, SmartEDA, stringr, styler,
-            summarytools, sunburstR, tidyverse, timeDate, timetk, treemap,
-            tryCatchLog, utils, validate, visdat, waldo, writexl, xfun, xtable,
-            xts
+            summarytools, sunburstR, tidyquant, tidyr, tidyverse, timeDate,
+            timetk, treemap, tryCatchLog, utils, validate, visdat, waldo,
+            writexl, xfun, xtable, xts
 logging: TRUE
 logging_level: INFO
 munging: TRUE

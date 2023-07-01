@@ -24,7 +24,7 @@ dt[, upper := (log(110/S0) - (r - sigma^2/2)*T) / (sigma*sqrt(T))]
 dt[, prob := pnorm(upper) - pnorm(lower)]
 dt$prob
 
-Sure! Here's an example of how you can calculate the probability using R code:
+# Sure! Here's an example of how you can calculate the probability using R code:
 
 ```R
 # Load the required libraries

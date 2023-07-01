@@ -348,7 +348,7 @@ dt_gf <-            na.omit(dt_gf[OPTKR == "",])
 dx_condor_strike <- na.omit(dx_condor_strike[OPTKR == "",])
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
@@ -357,7 +357,7 @@ dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
             nomatch=0][
             , id := .I]
 
-dx_condor_strike <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
+dx_condor_strike_disp <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
           dx_condor_strike[dx_condor_strike[[2]]=='P',],
             on = .(TKR, EXPDAY),
             nomatch=0][
@@ -413,12 +413,12 @@ dx_condor_strike <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
 # 34 id               <int>
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
 dx_condor_key <- data.table::setorder(
-  data.table::melt(dx_condor_strike,
+  data.table::melt(dt_gf,
     id = 1:3,                              # TKR, 'C/P' = 'C', STRIKE
     measure = c(21, 9, 27, 15)             # i.lag_1_optkr, lag_0_optkr, i.lead_0_optkr, lead_1_optkr
   ), # bid/ask
@@ -438,7 +438,7 @@ names(dx_condor_key)[c(2:3,5)] <- c("CMPRICE", "OPTKR", "date_run")
 # ------------------------------------------------------------------------------
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -451,7 +451,7 @@ dx_condor_max_profit <<- dx_condor_key[!(id_strike > 1 & id_strike < 4), ][
   dx_blob,
   nomatch = 0
 ][
-  , c(1:4, 21)
+  , c(1:4, 22, 5)
 ][
   , BID := BID * -1
 ]
@@ -463,7 +463,7 @@ dx_condor_max_profit <<- data.table::setorder(
       dx_blob,
       nomatch = 0
     ][
-      , c(1:4, 22)
+      , c(1:4, 23, 5)
     ],
     use.names = FALSE
   )
@@ -475,9 +475,14 @@ dx_condor_max_profit <<- unique(
     , profit := sum(BID),
     by = TKR
   ][
-    , c(1, 6)
+    , c(1, 7, 6)
   ]
 )
+
+#...............................................................................
+# browser()
+#...............................................................................
+
 # ------------------------------------------------------------------------------
 # odd id_strike, i.e., puts
 # ------------------------------------------------------------------------------
@@ -488,7 +493,7 @@ dx_condor_max_loss <<- data.table::setorder(
         dx_blob,
         nomatch = 0
       ][
-        , c(1:4, 16)
+        , c(1:4, 17)
       ][
         , diff := STRIKE - shift(STRIKE),
         by = TKR
@@ -497,7 +502,7 @@ dx_condor_max_loss <<- data.table::setorder(
         dx_blob,
         nomatch = 0
       ][
-        , c(1:4, 16)
+        , c(1:4, 17)
       ][
         , diff := STRIKE - shift(STRIKE),
         by = TKR
@@ -515,6 +520,10 @@ dx_condor_max_loss <<-
       , c(1, 7)
     ]
   )
+#...............................................................................
+# browser()
+#...............................................................................
+
 # ------------------------------------------------------------------------------
 dx_condor_roi <-
   cbind(
@@ -531,9 +540,23 @@ dx_condor_roi <-
     , setnames(.SD, c("V2", "V3"), c("date_run", "date_exp"))
   ][, .(TKR, profit, loss, roi, date_exp, date_run)]
 # ------------------------------------------------------------------------------
+# Probability of Profit
+# TKR Company CMPRICE VOLF date_run EXPDAY diff
+# ------------------------------------------------------------------------------
+setkey(dx_condor_roi, TKR, date_exp)
+setkey(dx_blob, TKR, EXPDAY)
+# ------------------------------------------------------------------------------
+dx_condor_pop <<- 
+  cbind(
+    dx_blob[dx_condor_roi, nomatch = 0][
+            , .SD[1], by = TKR, .SDcols = c(1,8:9,55,15)][
+            dx_date_exp, on = .(EXPDAY), nomatch = 0][
+            ,-c(7:8)][,
+            date_exp_diff_yr := diff/365],
+    int_rate)
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 if (z == TRUE) {
