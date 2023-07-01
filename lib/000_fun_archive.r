@@ -550,11 +550,21 @@ dx_condor_pop <<-
   cbind(
     dx_blob[dx_condor_roi, nomatch = 0][
             , .SD[1], by = TKR, .SDcols = c(1,8:9,55,15)][
-            dx_date_exp, on = .(EXPDAY), nomatch = 0][
+          dx_date_exp, on = .(EXPDAY), nomatch = 0][
             ,-c(7:8)][,
-            date_exp_diff_yr := diff/365],
+            date_exp_diff_yr := diff/365][,
+            sigma :=  (VOLF/100) * sqrt(as.double.difftime(date_exp_diff_yr))][
+          dx_condor_max_profit, nomatch = 0][,-11][,
+            `:=`(breakeven_upper = CMPRICE + profit,
+                 breakeven_lower = CMPRICE - profit)
+#            breakeven_upper :=  CMPRICE + profit
+          ],
+#          dx_condor_strike_disp, nomatch = 0],
     int_rate)
+# ------------------------------------------------------------------------------
+sigma <- vol * sqrt(T)
 
+dt[,`:=`(avg=mean(mpg), med=median(mpg), min=min(mpg)), by=cyl]
 #...............................................................................
 browser()
 #...............................................................................
