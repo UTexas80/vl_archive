@@ -43,7 +43,8 @@ dt_file_table <-
   rbind(
     dt_file_table[stringr::str_ends(name_char, "W") & N == 1, ],
     dt_file_table[stringr::str_ends(name_char, "W") & N == 2, ],
-    dt_file_table[stringr::str_ends(name_char, "S") & N == 3, ]
+    dt_file_table[stringr::str_ends(name_char, "W") & N == 3, ]    
+#    dt_file_table[stringr::str_ends(name_char, "S") & N == 3, ]
   )
 dt_file_table <- data.table::setorder(dt_file_table,name)
 # ------------------------------------------------------------------------------

@@ -12,8 +12,8 @@ fun_0000_archive_main       <- function() {
 
   dt_archive <-                                        # ALLNEW by DATE
 #    dt_file_table[name_char %like% 'W',]          %>% # Find all the ALLNEW.CSV
-#    dt_file_table[name %like% '221101ALLNEw*',]   %>%
-    dt_file_table[name_char %like% 'W',][N == 1,]  %>% # Find all the ALLNEW.CSV
+    dt_file_table[name %like% '230707ALLNEw*',]   %>%
+#    dt_file_table[name_char %like% 'W',][N == 1,]  %>% # Find all the ALLNEW.CSV
     split(., by = c("name_num", "name"))           %>% # name_num -> yymmdd
     map(., fun_0000_archive_processing)                # name -> yymmddAllNEw.zip
 #...............................................................................
@@ -426,15 +426,27 @@ dx_condor_key <- data.table::setorder(
 )[
   , c(1, 3, 5)
 ]
+
+#...............................................................................
+# browser()
+#...............................................................................
+
 # ------------------------------------------------------------------------------
 dx_condor_key[, id_strike:= rleid(value), by = .(TKR, rleid(TKR))]
 # ------------------------------------------------------------------------------
-dx_condor_key[, `:=`(id_strike = rleid(value)),
-#                      date_run  = as.Date(date_run, format = "%y%m%d")),
-                 by = .(TKR, rleid(TKR))]
+
+#...............................................................................
+# browser()
+#...............................................................................
+
+names(dx_condor_key)[c(2:3)] <- c("CMPRICE", "OPTKR")
+dx_condor_key[, strike  := as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000]
+# dx_condor_key[, .(strike    = as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000),
+#                  by = .(TKR)]
 # ------------------------------------------------------------------------------
-dx_condor_key <- cbind(dx_condor_key, dt_date_run[,1])
-names(dx_condor_key)[c(2:3,5)] <- c("CMPRICE", "OPTKR", "date_run")
+
+# ------------------------------------------------------------------------------
+dx_condor_key <<- cbind(dx_condor_key, dt_date_run[,1])
 # ------------------------------------------------------------------------------
 
 #...............................................................................
@@ -447,14 +459,20 @@ names(dx_condor_key)[c(2:3,5)] <- c("CMPRICE", "OPTKR", "date_run")
 setkey(dx_condor_key, OPTKR)
 setkey(dx_blob, OPTKR)
 # ------------------------------------------------------------------------------
-dx_condor_max_profit <<- dx_condor_key[!(id_strike > 1 & id_strike < 4), ][
-  dx_blob,
-  nomatch = 0
+dx_condor_max_profit <<- 
+  dx_condor_key[!(id_strike > 1 & id_strike < 4), ][
+    dx_blob,
+    nomatch = 0
+  ][
+  , c("TKR", "CMPRICE", "OPTKR", "id_strike", "ASK", "strike")
+#  , c("TKR", "CMPRICE", "OPTKR", "id_strike", "ASK", "strike"1:4, 24, 5)
 ][
-  , c(1:4, 22, 5)
-][
-  , BID := BID * -1
+  , ASK := ASK * -1
 ]
+#...............................................................................
+# browser()
+#...............................................................................
+
 # ------------------------------------------------------------------------------
 dx_condor_max_profit <<- data.table::setorder(
   rbind(
@@ -463,22 +481,25 @@ dx_condor_max_profit <<- data.table::setorder(
       dx_blob,
       nomatch = 0
     ][
-      , c(1:4, 23, 5)
+#      , c(1:4, 23, 5)
+      , c("TKR", "CMPRICE", "OPTKR", "id_strike", "BID", "strike")
     ],
     use.names = FALSE
   )
 )
 # ------------------------------------------------------------------------------
-dx_condor_max_profit <<- dx_condor_max_profit[, profit := sum(BID), by = TKR]
-dx_condor_max_profit <<- unique(
+dx_condor_max_profit <<- dx_condor_max_profit[, profit := sum(ASK), by = TKR]
+# ------------------------------------------------------------------------------
+dx_condor_max_profit <<-
   dx_condor_max_profit[
-    , profit := sum(BID),
+    , profit := sum(ASK),
     by = TKR
   ][
-    , c(1, 7, 6)
+    , c(1, 7)
+  ][
+    , .SD[1],
+    by = TKR
   ]
-)
-
 #...............................................................................
 # browser()
 #...............................................................................
@@ -526,19 +547,21 @@ dx_condor_max_loss <<-
 
 # ------------------------------------------------------------------------------
 dx_condor_roi <-
-  cbind(
-    dx_condor_max_profit[
-      dx_condor_max_loss,
-      on = .(TKR)
-    ][
-      , roi := scales::percent(profit / loss)
-    ],
-#    as.Date(date_run, format = "%y%m%d"),
-    date_run,
-    as.Date(mid(dx_condor_key[, 3], 10, 6), format = "%y%m%d")
-  )[
-    , setnames(.SD, c("V2", "V3"), c("date_run", "date_exp"))
-  ][, .(TKR, profit, loss, roi, date_exp, date_run)]
+  unique(
+    cbind(
+      dx_condor_max_profit[
+        dx_condor_max_loss,
+        on = .(TKR)
+      ][
+        , roi := scales::percent(profit / loss)
+      ],
+      #    as.Date(date_run, format = "%y%m%d"),
+      date_run,
+      as.Date(mid(dx_condor_key[, 3], 10, 6), format = "%y%m%d")
+    )[
+      , setnames(.SD, c("V2", "V3"), c("date_run", "date_exp"))
+    ][, .(TKR, profit, loss, roi, date_exp, date_run)]
+  )
 # ------------------------------------------------------------------------------
 # Probability of Profit
 # TKR Company CMPRICE VOLF date_run EXPDAY diff
@@ -546,28 +569,101 @@ dx_condor_roi <-
 setkey(dx_condor_roi, TKR, date_exp)
 setkey(dx_blob, TKR, EXPDAY)
 # ------------------------------------------------------------------------------
-dx_condor_pop <<- 
-  cbind(
-    dx_blob[dx_condor_roi, nomatch = 0][
-            , .SD[1], by = TKR, .SDcols = c(1,8:9,55,15)][
-          dx_date_exp, on = .(EXPDAY), nomatch = 0][
-            ,-c(7:8)][,
-            date_exp_diff_yr := diff/365][,
-            sigma :=  (VOLF/100) * sqrt(as.double.difftime(date_exp_diff_yr))][
-          dx_condor_max_profit, nomatch = 0][,-11][,
-            `:=`(breakeven_upper = CMPRICE + profit,
-                 breakeven_lower = CMPRICE - profit)
-#            breakeven_upper :=  CMPRICE + profit
-          ],
-#          dx_condor_strike_disp, nomatch = 0],
-    int_rate)
+dx_condor_pop <<-
+  unique(
+    cbind(
+      dx_blob[dx_condor_roi, nomatch = 0][
+        , .SD[1],
+        by = TKR, .SDcols = c(1, 8:9, 55, 15)
+      ][
+        dx_date_exp,
+        on = .(EXPDAY), nomatch = 0
+      ][
+        , -c(7:8)
+      ][
+        ,
+        date_exp_diff_yr := diff / 365
+      ][
+        ,
+        sigma := (VOLF / 100) * sqrt(as.double.difftime(date_exp_diff_yr))
+      ][
+        dx_condor_max_profit,
+        nomatch = 0
+      ][, -11][
+        ,
+        `:=`(
+          breakeven_upper = CMPRICE + profit,
+          breakeven_lower = CMPRICE - profit
+        )
+        #            breakeven_upper :=  CMPRICE + profit
+      ],
+      #          dx_condor_strike_disp, nomatch = 0],
+      dx_int
+    )
+  )
 # ------------------------------------------------------------------------------
-sigma <- vol * sqrt(T)
 
-dt[,`:=`(avg=mean(mpg), med=median(mpg), min=min(mpg)), by=cyl]
 #...............................................................................
 browser()
 #...............................................................................
+
+# Define the parameters
+current_stock_price <- 117.9                                                    # dx_condor_key[,2]
+upper_call_strike   <- 125                                                      # dx_condor_key[id_strike == 4, 5]
+lower_call_strike   <- 115                                                      # dx_condor_key[id_strike == 2, 5]
+lower_put_strike    <- 110                                                      # dx_condor_key[id_strike == 1, 5]
+upper_put_strike    <- 120                                                      # dx_condor_key[id_strike == 3, 5]
+net_credit          <- 7.35                                                     # dx_condor_roi[, 2]
+num_simulations     <- 10000
+implied_volatility  <- 0.316                                                    # dx_condor_pop[,4]/100
+risk_free_rate      <- 0.0543                                                   # dx_int[,1]
+days_to_expiration  <- 39
+
+# Calculate time to expiration in years
+time_to_expiration  <- days_to_expiration / 365                                 # dx_condor_pop[1,8]
+
+# Generate random stock price scenarios
+set.seed(123) # For reproducibility
+z <- rnorm(num_simulations)
+simulated_stock_prices <- current_stock_price * exp((risk_free_rate - 0.5 * implied_volatility^2) * time_to_expiration + implied_volatility * sqrt(time_to_expiration) * z)
+
+# Calculate the payoff for each scenario
+payoffs <- numeric(num_simulations)
+for (i in 1:num_simulations) {
+  payoff <- ifelse(
+    simulated_stock_prices[i] < lower_put_strike,
+    net_credit - (lower_put_strike - simulated_stock_prices[i]),
+    ifelse(
+      simulated_stock_prices[i] >= lower_put_strike & simulated_stock_prices[i] <= upper_put_strike,
+      net_credit,
+      ifelse(
+        simulated_stock_prices[i] > upper_put_strike & simulated_stock_prices[i] < lower_call_strike,
+        0,
+        ifelse(
+          simulated_stock_prices[i] >= lower_call_strike & simulated_stock_prices[i] <= upper_call_strike,
+          net_credit,
+          net_credit - (simulated_stock_prices[i] - upper_call_strike)
+        )
+      )
+    )
+  )
+  payoffs[i] <- payoff
+}
+
+# Calculate the probability of profitability
+probability_of_profit <- sum(payoffs > 0) / num_simulations
+
+# Print the result
+cat("Probability of Profitability:", probability_of_profit, "\n")
+
+#...............................................................................
+browser()
+#...............................................................................
+
+sigma <- vol * sqrt(T)
+
+dt[,`:=`(avg=mean(mpg), med=median(mpg), min=min(mpg)), by=cyl]
+
 
 if (z == TRUE) {
   g[["dx_condor_key"]] <<- dx_condor_key

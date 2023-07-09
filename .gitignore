@@ -1,6 +1,6 @@
 # History files see https://raw.githubusercontent.com/github/gitignore/master/R.gitignore
 .Rapp.history
-# .Rhistory 
+# .Rhistory
 # Session Data files
 .RData
 .Ruserdata
@@ -51,3 +51,5 @@ _bookdown_files
 
 # renv
 renv/library/R-3.6/x86_64-apple-darwin15.6.0/
+
+/.luarc.json

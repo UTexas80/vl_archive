@@ -9,6 +9,56 @@ dirCheck <- function(mainDir, subDir) {
     }
 }
 ################################################################################
+# Calculate the payoff for each scenario
+################################################################################
+fun_payoff <<- function(){
+# ------------------------------------------------------------------------------
+# Define the parameters
+# ------------------------------------------------------------------------------  
+  current_stock_price <- 117.9
+  upper_call_strike <- 125
+  lower_call_strike <- 115
+  lower_put_strike <- 110
+  upper_put_strike <- 120
+  net_credit <- 7.35
+  num_simulations <- 10000
+  implied_volatility <- 0.316
+  risk_free_rate <- 0.0543
+  days_to_expiration <- 39
+# ------------------------------------------------------------------------------  
+# Calculate time to expiration in years
+# ------------------------------------------------------------------------------  
+  time_to_expiration <- days_to_expiration / 365
+# ------------------------------------------------------------------------------
+# Generate random stock price scenarios
+# ------------------------------------------------------------------------------  
+  set.seed(123) # For reproducibility
+  z <- rnorm(num_simulations)
+  simulated_stock_prices <- current_stock_price * exp((risk_free_rate - 0.5 * implied_volatility^2) * time_to_expiration + implied_volatility * sqrt(time_to_expiration) * z)
+# ------------------------------------------------------------------------------
+payoffs <- numeric(num_simulations)
+for (i in 1:num_simulations) {
+  payoff <- ifelse(
+    simulated_stock_prices[i] < lower_put_strike,
+    net_credit - (lower_put_strike - simulated_stock_prices[i]),
+    ifelse(
+      simulated_stock_prices[i] >= lower_put_strike & simulated_stock_prices[i] <= upper_put_strike,
+      net_credit,
+      ifelse(
+        simulated_stock_prices[i] > upper_put_strike & simulated_stock_prices[i] < lower_call_strike,
+        0,
+        ifelse(
+          simulated_stock_prices[i] >= lower_call_strike & simulated_stock_prices[i] <= upper_call_strike,
+          net_credit,
+          net_credit - (simulated_stock_prices[i] - upper_call_strike)
+        )
+      )
+    )
+  )
+  payoffs[i] <- payoff
+}  
+}
+################################################################################
 # Mean Reversion                                    https://tinyurl.com/64dpjxh9
 ################################################################################
 mean_reversion <- function(data, ticker){

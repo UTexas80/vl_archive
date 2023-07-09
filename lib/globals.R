@@ -18,7 +18,8 @@ date_curr_yr4     <- as.numeric(format(Sys.Date(), format = "%Y"))
 date_prefix       <- as.character(today(), format = '%Y%m%d')
 # Risk Free Interest Rate
 getSymbols('DGS3MO', src = 'FRED')
-int_rate          <<- tail(na.omit(DGS3MO),1)
+dx_int            <<- tail(na.omit(DGS3MO),1)
+names(dx_int)[1]  <- "rate"
 # ------------------------------------------------------------------------------
 # OneDrive Configuration
 # ------------------------------------------------------------------------------
