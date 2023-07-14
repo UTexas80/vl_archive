@@ -12,7 +12,7 @@ fun_0000_archive_main       <- function() {
 
   dt_archive <-                                        # ALLNEW by DATE
 #    dt_file_table[name_char %like% 'W',]          %>% # Find all the ALLNEW.CSV
-    dt_file_table[name %like% '230707ALLNEw*',]   %>%
+    dt_file_table[name %like% '230712ALLNEw*',]   %>%
 #    dt_file_table[name_char %like% 'W',][N == 1,]  %>% # Find all the ALLNEW.CSV
     split(., by = c("name_num", "name"))           %>% # name_num -> yymmdd
     map(., fun_0000_archive_processing)                # name -> yymmddAllNEw.zip
@@ -419,12 +419,14 @@ dx_condor_strike_disp <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
 # ------------------------------------------------------------------------------
 dx_condor_key <- data.table::setorder(
   data.table::melt(dt_gf,
-    id = 1:3,                              # TKR, 'C/P' = 'C', STRIKE
-    measure = c(21, 9, 27, 15)             # i.lag_1_optkr, lag_0_optkr, i.lead_0_optkr, lead_1_optkr
+    id = 1:3,                      # TKR, 'C/P' = 'C', STRIKE
+    measure = c(21, 9, 27, 15)
+#    measure = c("lag_1_optkr", "lag_0_optkr", "lead_0_optkr", "lead_1_optkr")
   ), # bid/ask
   "TKR"
 )[
   , c(1, 3, 5)
+#  , c("TKR", "STRIKE", "VALUE")
 ]
 
 #...............................................................................
@@ -440,13 +442,26 @@ dx_condor_key[, id_strike:= rleid(value), by = .(TKR, rleid(TKR))]
 #...............................................................................
 
 names(dx_condor_key)[c(2:3)] <- c("CMPRICE", "OPTKR")
-dx_condor_key[, strike  := as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000]
+dx_condor_key[, strike := as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000]
 # dx_condor_key[, .(strike    = as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000),
 #                  by = .(TKR)]
 # ------------------------------------------------------------------------------
+dx_condor_key <- cbind(dx_condor_key, dt_date_run[,1])
+#...............................................................................
+# browser()
+#...............................................................................
 
 # ------------------------------------------------------------------------------
-dx_condor_key <<- cbind(dx_condor_key, dt_date_run[,1])
+# set the key of the data table and add the key dates
+# ------------------------------------------------------------------------------
+data.table::setkey(dx_condor_key, OPTKR)
+data.table::setkey(dx_blob, OPTKR)
+# ------------------------------------------------------------------------------
+# dx_condor_key <-
+#   dx_condor_key[dx_blob, nomatch=0
+#                ][,c("TKR", "CMPRICE", "OPTKR", "id_strike", "strike", "EXPDAY")
+#                ][, date_run := dt_date_run[,1]
+#                ]
 # ------------------------------------------------------------------------------
 
 #...............................................................................
@@ -456,39 +471,80 @@ dx_condor_key <<- cbind(dx_condor_key, dt_date_run[,1])
 # ------------------------------------------------------------------------------
 # Define the cost for the condor
 # ------------------------------------------------------------------------------
-setkey(dx_condor_key, OPTKR)
-setkey(dx_blob, OPTKR)
-# ------------------------------------------------------------------------------
-dx_condor_max_profit <<- 
-  dx_condor_key[!(id_strike > 1 & id_strike < 4), ][
+dx_condor_max_profit <<-
+  dx_condor_key[!(id_strike > 1 & id_strike < 4),
+    ][
     dx_blob,
     nomatch = 0
-  ][
+    ][
+#  , c(1:4, 24, 5)
   , c("TKR", "CMPRICE", "OPTKR", "id_strike", "ASK", "strike")
-#  , c("TKR", "CMPRICE", "OPTKR", "id_strike", "ASK", "strike"1:4, 24, 5)
-][
+    ][
   , ASK := ASK * -1
 ]
+
 #...............................................................................
 # browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
+# Total maximum potential profit =
+#   Net premium from the call spread + Net premium from the put spread 
+# https://tinyurl.com/v4wvb3ke
+# ------------------------------------------------------------------------------
 dx_condor_max_profit <<- data.table::setorder(
   rbind(
     dx_condor_max_profit,
-    dx_condor_key[id_strike > 1 & id_strike < 4, ][
+    dx_condor_key[id_strike > 1 & id_strike < 4,
+    ][
       dx_blob,
       nomatch = 0
     ][
-#      , c(1:4, 23, 5)
+#     , c(1:4, 23, 5)
       , c("TKR", "CMPRICE", "OPTKR", "id_strike", "BID", "strike")
     ],
     use.names = FALSE
   )
 )
+
+#...............................................................................
+browser()
+#...............................................................................
+
 # ------------------------------------------------------------------------------
-dx_condor_max_profit <<- dx_condor_max_profit[, profit := sum(ASK), by = TKR]
+dx_condor_cost <- 
+  data.table::setorder(
+    na.omit(
+      rbind(
+        dx_condor_max_profit[
+          !id_strike %% 2 == 1
+          ][, .(diff   =  strike - shift(strike),
+                profit = sum(ASK),
+                loss   = (strike - shift(strike)) - sum(ASK)
+                ), 
+            by = TKR
+            ],
+        dx_condor_max_profit[
+          id_strike %% 2 == 1
+          ][, .(diff   =  strike - shift(strike),
+                profit = sum(ASK),
+                loss   = (strike - shift(strike)) - sum(ASK)
+                ), 
+            by = TKR
+            ]
+      )
+    ), TKR
+  )
+# ------------------------------------------------------------------------------
+dx_condor_max_loss <- dx_condor_cost[, .(loss = sum(loss)),by = TKR]
+# ------------------------------------------------------------------------------
+
+#...............................................................................
+browser()
+#...............................................................................
+
+# ------------------------------------------------------------------------------
+# dx_condor_max_profit <<- dx_condor_max_profit[, profit := sum(ASK), by = TKR]
 # ------------------------------------------------------------------------------
 dx_condor_max_profit <<-
   dx_condor_max_profit[
@@ -505,25 +561,27 @@ dx_condor_max_profit <<-
 #...............................................................................
 
 # ------------------------------------------------------------------------------
-# odd id_strike, i.e., puts
+# odd id_strike, i.e., puts id_strike = 1,3 / 2,4
 # ------------------------------------------------------------------------------
 dx_condor_max_loss <<- data.table::setorder(
   na.omit(
     rbind(
-      dx_condor_key[id_strike %% 2 == 1, ][
+      dx_condor_key[id_strike %% 2 == 1,
+      ][
         dx_blob,
         nomatch = 0
       ][
-        , c(1:4, 17)
+        , c(1:4, 18)
       ][
         , diff := STRIKE - shift(STRIKE),
         by = TKR
       ],
-      dx_condor_key[id_strike %% 2 != 1, ][
+      dx_condor_key[id_strike %% 2 != 1, 
+      ][
         dx_blob,
         nomatch = 0
       ][
-        , c(1:4, 17)
+        , c(1:4, 18)
       ][
         , diff := STRIKE - shift(STRIKE),
         by = TKR
@@ -537,9 +595,9 @@ dx_condor_max_loss <<-
     dx_condor_max_loss[,
       loss := sum(diff),
       by = TKR
-    ][
+      ][
       , c(1, 7)
-    ]
+      ]
   )
 #...............................................................................
 # browser()
@@ -558,16 +616,22 @@ dx_condor_roi <-
       #    as.Date(date_run, format = "%y%m%d"),
       date_run,
       as.Date(mid(dx_condor_key[, 3], 10, 6), format = "%y%m%d")
-    )[
+      )[
       , setnames(.SD, c("V2", "V3"), c("date_run", "date_exp"))
-    ][, .(TKR, profit, loss, roi, date_exp, date_run)]
+      ][, .(TKR, profit, loss, roi, date_exp, date_run)]
   )
 # ------------------------------------------------------------------------------
 # Probability of Profit
 # TKR Company CMPRICE VOLF date_run EXPDAY diff
 # ------------------------------------------------------------------------------
-setkey(dx_condor_roi, TKR, date_exp)
 setkey(dx_blob, TKR, EXPDAY)
+setkey(dx_condor_key, TKR)
+setkey(dx_condor_roi, TKR, date_exp)
+
+#...............................................................................
+browser()
+#...............................................................................
+
 # ------------------------------------------------------------------------------
 dx_condor_pop <<-
   unique(
@@ -589,13 +653,13 @@ dx_condor_pop <<-
       ][
         dx_condor_max_profit,
         nomatch = 0
-      ][, -11][
+      ][
         ,
         `:=`(
           breakeven_upper = CMPRICE + profit,
           breakeven_lower = CMPRICE - profit
         )
-        #            breakeven_upper :=  CMPRICE + profit
+        #        breakeven_upper :=  CMPRICE + profit
       ],
       #          dx_condor_strike_disp, nomatch = 0],
       dx_int
@@ -607,17 +671,58 @@ dx_condor_pop <<-
 browser()
 #...............................................................................
 
+# ------------------------------------------------------------------------------
+S0  <- 90.49
+vol <- 0.261
+r   <- 0.0549
+T   <- 37/252
+P   <- 7.67
+# ------------------------------------------------------------------------------
+# Create a data table with the inputs
+dt <- data.table(S0 = S0, vol = vol, r = r, T = T)
+
+# Calculate the annualized standard deviation
+dt[, sigma := vol * sqrt(T)]
+
+BE_lower <- 90 - P
+BE_upper <- 95 + P
+
+dt[, prob := 
+stats::pnorm((log(BE_upper/S0) + (r + (sigma ^ 2)/2) * T) / sigma * base::sqrt(T)) -
+stats::pnorm((log(BE_lower/S0) + (r + (sigma ^ 2)/2) * T) / sigma * base::sqrt(T))]
+
+
+#  7:    DIS   90.09 DIS   230818P00085000         1 -1.46     85
+#  5:    DIS   90.09 DIS   230818C00090000         2  3.85     90
+#  8:    DIS   90.09 DIS   230818P00095000         3  6.15     95
+#  6:    DIS   90.09 DIS   230818C00100000         4 -0.87    100
+
+
+# Given the following iron condor option position parameters
+
+# current_stock_price <- 90.49
+# upper_call_strike   <- 100
+# lower_call_strike   <- 90
+# lower_put_strike    <- 85
+# upper_put_strike    <- 95
+# implied_volatility     <- 0.261
+# risk_free_rate            <- 0.0543
+# days_to_expiration  <- 39
+
+# How do I calculate the Maximum Potential Profit, Maximum Potential Loss and ROI using data.table with r code?
+
+
 # Define the parameters
-current_stock_price <- 117.9                                                    # dx_condor_key[,2]
-upper_call_strike   <- 125                                                      # dx_condor_key[id_strike == 4, 5]
-lower_call_strike   <- 115                                                      # dx_condor_key[id_strike == 2, 5]
-lower_put_strike    <- 110                                                      # dx_condor_key[id_strike == 1, 5]
-upper_put_strike    <- 120                                                      # dx_condor_key[id_strike == 3, 5]
+current_stock_price <- 90.49                                                    # dx_condor_key[,2]
+upper_call_strike   <- 100                                                      # dx_condor_key[id_strike == 4, 5]
+lower_call_strike   <- 90                                                       # dx_condor_key[id_strike == 2, 5]
+lower_put_strike    <- 85                                                       # dx_condor_key[id_strike == 1, 5]
+upper_put_strike    <- 95                                                       # dx_condor_key[id_strike == 3, 5]
 net_credit          <- 7.35                                                     # dx_condor_roi[, 2]
 num_simulations     <- 10000
-implied_volatility  <- 0.316                                                    # dx_condor_pop[,4]/100
+implied_volatility  <- 0.216                                                    # dx_condor_pop[,4]/100
 risk_free_rate      <- 0.0543                                                   # dx_int[,1]
-days_to_expiration  <- 39
+days_to_expiration  <- 37
 
 # Calculate time to expiration in years
 time_to_expiration  <- days_to_expiration / 365                                 # dx_condor_pop[1,8]
