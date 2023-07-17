@@ -12,7 +12,7 @@ fun_0000_archive_main       <- function() {
 
   dt_archive <-                                        # ALLNEW by DATE
 #    dt_file_table[name_char %like% 'W',]          %>% # Find all the ALLNEW.CSV
-    dt_file_table[name %like% '230712ALLNEw*',]   %>%
+    dt_file_table[name %like% '230714ALLNEw*',]   %>%
 #    dt_file_table[name_char %like% 'W',][N == 1,]  %>% # Find all the ALLNEW.CSV
     split(., by = c("name_num", "name"))           %>% # name_num -> yymmdd
     map(., fun_0000_archive_processing)                # name -> yymmddAllNEw.zip
@@ -504,7 +504,7 @@ dx_condor_max_profit <<- data.table::setorder(
       , c("TKR", "CMPRICE", "OPTKR", "id_strike", "BID", "strike")
     ],
     use.names = FALSE
-  )
+  ), TKR, id_strike
 )
 
 #...............................................................................
@@ -512,7 +512,7 @@ browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
-dx_condor_cost <- 
+dx_condor_cost <-
   data.table::setorder(
     na.omit(
       rbind(
@@ -521,21 +521,35 @@ dx_condor_cost <-
           ][, .(diff   =  strike - shift(strike),
                 profit = sum(ASK),
                 loss   = (strike - shift(strike)) - sum(ASK)
-                ), 
+                ),
             by = TKR
             ],
         dx_condor_max_profit[
           id_strike %% 2 == 1
-          ][, .(diff   =  strike - shift(strike),
+          ][, .(diff   =  strike - shift(
+            strike),
                 profit = sum(ASK),
                 loss   = (strike - shift(strike)) - sum(ASK)
-                ), 
+                ),
             by = TKR
             ]
       )
     ), TKR
   )
 # ------------------------------------------------------------------------------
+data.table::merge.data.table(
+  dcast(dx_condor_max_profit,
+        TKR + CMPRICE ~ id_strike,
+        value.var = "ASK",
+        sep = "_"),
+  dx_condor_cost[, max(diff), by = .(TKR)]
+)
+# ------------------------------------------------------------------------------
+dcast(dx_condor_max_profit,
+      TKR + CMPRICE ~ id_strike,
+      value.var = "ASK",
+      sep = "_")
+
 dx_condor_max_loss <- dx_condor_cost[, .(loss = sum(loss)),by = TKR]
 # ------------------------------------------------------------------------------
 
@@ -546,7 +560,7 @@ browser()
 # ------------------------------------------------------------------------------
 # dx_condor_max_profit <<- dx_condor_max_profit[, profit := sum(ASK), by = TKR]
 # ------------------------------------------------------------------------------
-dx_condor_max_profit <<-
+dx_condor_max_profit <-
   dx_condor_max_profit[
     , profit := sum(ASK),
     by = TKR
@@ -557,48 +571,48 @@ dx_condor_max_profit <<-
     by = TKR
   ]
 #...............................................................................
-# browser()
+ browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
 # odd id_strike, i.e., puts id_strike = 1,3 / 2,4
 # ------------------------------------------------------------------------------
-dx_condor_max_loss <<- data.table::setorder(
-  na.omit(
-    rbind(
-      dx_condor_key[id_strike %% 2 == 1,
-      ][
-        dx_blob,
-        nomatch = 0
-      ][
-        , c(1:4, 18)
-      ][
-        , diff := STRIKE - shift(STRIKE),
-        by = TKR
-      ],
-      dx_condor_key[id_strike %% 2 != 1, 
-      ][
-        dx_blob,
-        nomatch = 0
-      ][
-        , c(1:4, 18)
-      ][
-        , diff := STRIKE - shift(STRIKE),
-        by = TKR
-      ]
-    )
-  ), TKR, id_strike
-)
+# dx_condor_max_loss <<- data.table::setorder(
+#   na.omit(
+#     rbind(
+#       dx_condor_key[id_strike %% 2 == 1,
+#       ][
+#         dx_blob,
+#         nomatch = 0
+#       ][
+#         , c(1:4, 18)
+#       ][
+#         , diff := STRIKE - shift(STRIKE),
+#         by = TKR
+#       ],
+#       dx_condor_key[id_strike %% 2 != 1,
+#       ][
+#         dx_blob,
+#         nomatch = 0
+#       ][
+#         , c(1:4, 18)
+#       ][
+#         , diff := STRIKE - shift(STRIKE),
+#         by = TKR
+#       ]
+#     )
+#   ), TKR, id_strike
+# )
 # ------------------------------------------------------------------------------
-dx_condor_max_loss <<-
-  unique(
-    dx_condor_max_loss[,
-      loss := sum(diff),
-      by = TKR
-      ][
-      , c(1, 7)
-      ]
-  )
+# dx_condor_max_loss <<-
+#   unique(
+#     dx_condor_max_loss[,
+#       loss := sum(diff),
+#       by = TKR
+#       ][
+#       , c(1, 7)
+#       ]
+#   )
 #...............................................................................
 # browser()
 #...............................................................................
@@ -621,6 +635,22 @@ dx_condor_roi <-
       ][, .(TKR, profit, loss, roi, date_exp, date_run)]
   )
 # ------------------------------------------------------------------------------
+dx_condor_roi <- 
+  merge(dx_condor_roi,
+        dcast(dx_condor_key[id_strike == 2 | id_strike == 3],
+              TKR + CMPRICE + EXPDAY ~ id_strike,
+              value.var = "strike",
+              sep = "_"),
+        by = c("TKR"))[,-8]
+
+# TKR profit  loss    roi   date_exp   date_run CMPRICE     2     3
+# <char>  <num> <num> <char>     <Date>     <char>   <num> <num> <num>
+#   1:    AMD   8.65 11.35  76.2% 2023-08-18 07/14/2023  115.90 115.0   120
+# 2:    DIS   7.49 12.51  59.9% 2023-08-18 07/14/2023   88.62  85.0    90
+# 3:   MSFT  11.45 13.55  84.5% 2023-08-18 07/14/2023  344.75 340.0   350
+# 4:    OXY   3.96  6.04  65.6% 2023-08-18 07/14/2023   59.36  57.5    60
+# 5:   RIVN   4.01  5.99  66.9% 2023-08-18 07/14/2023   24.87  22.5    25
+ # ------------------------------------------------------------------------------
 # Probability of Profit
 # TKR Company CMPRICE VOLF date_run EXPDAY diff
 # ------------------------------------------------------------------------------
@@ -666,6 +696,8 @@ dx_condor_pop <<-
     )
   )
 # ------------------------------------------------------------------------------
+
+
 
 #...............................................................................
 browser()
@@ -873,7 +905,7 @@ new_records <-
 #      )][
 #        TKR=='AA' & OPTKR == "",]
 # ------------------------------------------------------------------------------
-g[[paste0("dt_gf")]] <<- rbind(g[[paste0("dt_gf")]], new_records)
+g[[paste0("dt_gf")]]            <<- rbind(g[[paste0("dt_gf")]], new_records)
 g[[paste0("dx_condor_strike")]] <<- rbind(g[[paste0("dx_condor_strike")]], new_records)
 #...............................................................................
 # browser()
