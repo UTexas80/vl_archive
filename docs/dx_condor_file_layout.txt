@@ -1,0 +1,135 @@
+dx_condor
+    $ TKR                   <chr>
+    $ `C/P`                 <chr>
+    $ STRIKE                <dbl>
+    $ OPTKR                 <chr>
+    $ EXPDAY                <date>
+    $ lag_1_optkr           <chr>
+    $ lag_1_stk             <dbl>
+    $ lag_1_pct_chg         <dbl>
+    $ lag_0_optkr           <chr>
+    $ lag_0_stk             <dbl>
+    $ lag_0_pct_chg         <dbl>
+    $ lead_0_optkr          <chr>
+    $ lead_0_stk            <dbl>
+    $ lead_0_pct_chg        <dbl>
+    $ lead_1_optkr          <chr>
+    $ lead_1_stk            <dbl>
+    $ lead_1_pct_chg        <dbl>
+    
+dx_condor_strike
+    $ TKR                   <chr>
+    $ `C/P`                 <chr>
+    $ STRIKE                <dbl>
+    $ OPTKR                 <chr>
+    $ EXPDAY                <date>
+    $ lag_1_optkr           <chr>
+    $ lag_1_stk             <dbl>
+    $ lag_1_pct_chg         <dbl>
+    $ lag_0_optkr           <chr>
+    $ lag_0_stk             <dbl>
+    $ lag_0_pct_chg         <dbl>
+    $ lead_0_optkr          <chr>
+    $ lead_0_stk            <dbl>
+    $ lead_0_pct_chg        <dbl>
+    $ lead_1_optkr          <chr>
+    $ lead_1_stk            <dbl>
+    $ lead_1_pct_chg        <dbl>
+dx_stk
+    $ TKR                   <chr>
+    $ `C/P`                 <chr>
+    $ STRIKE                <dbl>
+    $ OPTKR                 <chr>
+    $ EXPDAY                <date>
+dx_condor_strike_disp
+    $ TKR                   <chr>
+    $ `C/P`                 <chr>
+    $ STRIKE                <dbl>
+    $ OPTKR                 <chr>
+    $ EXPDAY                <date
+    $ lag_1_optkr           <chr>
+    $ lag_1_stk             <dbl>
+    $ lag_1_pct_chg         <dbl>
+    $ lag_0_optkr           <chr>
+    $ lag_0_stk             <dbl>
+    $ lag_0_pct_chg         <dbl>
+    $ lead_0_optkr          <chr>
+    $ lead_0_stk            <dbl>
+    $ lead_0_pct_chg        <dbl>
+    $ lead_1_optkr          <chr>
+    $ lead_1_stk            <dbl>
+    $ lead_1_pct_chg        <dbl>
+    $ `i.C/P`               <chr>
+    $ i.STRIKE              <dbl>
+    $ i.OPTKR               <chr>
+    $ i.lag_1_optkr         <chr>
+    $ i.lag_1_stk           <dbl>
+    $ i.lag_1_pct_chg       <dbl>
+    $ i.lag_0_optkr         <chr>
+    $ i.lag_0_stk           <dbl>
+    $ i.lag_0_pct_chg       <dbl>
+    $ i.lead_0_optkr        <chr>
+    $ i.lead_0_stk          <dbl>
+    $ i.lead_0_pct_chg      <dbl>
+    $ i.lead_1_optkr        <chr>
+    $ i.lead_1_stk          <dbl>
+    $ i.lead_1_pct_chg      <dbl>
+    $ lead_0_stk_cmp_diff   <dbl>
+    $ cmp                   <dbl>
+    $ mid                   <dbl>
+    $ diff                  <dbl>
+    $ pct_diff              <dbl>
+    $ id                    <int>
+dx_condor_key
+    $ TKR                   <chr>
+    $ CMPRICE               <dbl>
+    $ OPTKR                 <chr>
+    $ id_strike             <int>
+    $ strike                <dbl>
+    $ EXPDAY                <date>
+dx_condor_max_profit
+    $ TKR                   <chr>
+    $ profit                <dbl>
+dx_condor_max_loss
+    $ TKR                   <chr>
+    $ loss                  <dbl>
+dx_condor_cost
+    $ TKR                   <chr>
+    $ diff                  <dbl>
+    $ profit                <dbl>
+    $ loss                  <dbl>
+dx_condor_roi
+    $ TKR                   <chr>
+    $ profit                <dbl>
+    $ loss                  <dbl>
+    $ roi                   <chr>
+    $ date_exp              <date
+    $ date_run              <chr>
+    $ CMPRICE               <dbl>
+    $ `2`                   <dbl>
+    $ `3`                   <dbl>
+dx_condor_pop
+    $ TKR                   <chr>
+    $ Company               <chr>
+    $ CMPRICE               <dbl>
+    $ VOLF                  <dbl>
+    $ date_run              <date>
+    $ EXPDAY                <date>
+    $ diff                  <drtn>
+    $ date_exp_diff_yr      <drtn>
+    $ sigma                 <dbl>
+    $ profit                <dbl>
+    $ breakeven_upper       <dbl>
+    $ breakeven_lower       <dbl>
+    $ rate                  <dbl>
+
+operator
+number_of_sites
+number_of_EVSEs
+number_of_chargingsessions
+total_number_of_sites
+total_number_of_EVSEs
+total_number_of_chargingsessions
+market_share_sites
+market_share_EVSEs
+market_share_chargingsessions

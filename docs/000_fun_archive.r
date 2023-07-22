@@ -301,7 +301,7 @@ fun_3000_strike_main        <- function(){
 
 # ------------------------------------------------------------------------------
 # g <<- dx_blob[.0,0]                               # stub template dataframe---
-g[[paste0("dx_condor")]]        <<- dx_blob[.0,0]
+g[[paste0("dt_gf")]] <<- dx_blob[.0,0]
 g[[paste0("dx_condor_strike")]] <<- dx_blob[.0,0]
 # ------------------------------------------------------------------------------
 
@@ -314,6 +314,7 @@ g[[paste0("dx_condor_strike")]] <<- dx_blob[.0,0]
 # OPTKR  <chr>
 # EXPDAY <dat
 # ------------------------------------------------------------------------------
+
 dx_stk  <- data.table::setorder(
   rbind(
     rbind(dx_ticker[dx_tkr_stk, on = .(TKR), roll = Inf, nomatch = 0][
@@ -328,7 +329,7 @@ dx_stk  <- data.table::setorder(
 # browser()
 #...............................................................................
 
-# -----------------------------------------------------------------------------230526
+# ------------------------------------------------------------------------------230526
 dx_stk <- dx_stk[dt_date_exp_mth[data.table::between(diff_today, 27,63),][1,1], on = .(EXPDAY)]
 # ------------------------------------------------------------------------------
 dx_stk  %>%
@@ -339,29 +340,23 @@ dx_stk  %>%
 # browser()
 #...............................................................................
 
-dx_condor[LEN(OPTKR)>0 & LEN(lag_1_optkr)>0 & LEN(lag_0_optkr)>0 & LEN(lead_0_optkr)>0 & LEN(lead_1_optkr)>0,]
+dt_gf[LEN(OPTKR)>0 & LEN(lag_1_optkr)>0 & LEN(lag_0_optkr)>0 & LEN(lead_0_optkr)>0 & LEN(lead_1_optkr)>0,]
 dx_condor_strike[LEN(OPTKR)>0 & LEN(lag_1_optkr)>0 & LEN(lag_0_optkr)>0 & LEN(lead_0_optkr)>0 & LEN(lead_1_optkr)>0,]
 
 # ------------------------------------------------------------------------------
-dx_condor        <- na.omit(dx_condor[OPTKR == "",])
+dt_gf <-            na.omit(dt_gf[OPTKR == "",])
 dx_condor_strike <- na.omit(dx_condor_strike[OPTKR == "",])
-# ------------------------------------------------------------------------------
 
 #...............................................................................
 # browser()
 #...............................................................................
 
-# ------------------------------------------------------------------------------
-dx_condor <- 
-  dx_condor[dx_condor[[2]] == "C",
-  ][
-  dx_condor[dx_condor[[2]] == "P", ],
-  on = .(TKR, EXPDAY),
-  nomatch = 0
-  ][
-  , id := .I
-  ]
-# ------------------------------------------------------------------------------
+dt_gf <-  dt_gf[dt_gf[[2]]=='C',][
+          dt_gf[dt_gf[[2]]=='P',],
+            on = .(TKR, EXPDAY),
+            nomatch=0][
+            , id := .I]
+
 dx_condor_strike_disp <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
           dx_condor_strike[dx_condor_strike[[2]]=='P',],
             on = .(TKR, EXPDAY),
@@ -372,7 +367,6 @@ dx_condor_strike_disp <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
             , diff     := (STRIKE -(lag_0_stk + ((i.lead_0_stk - lag_0_stk))/2))][
             , pct_diff := (STRIKE -(lag_0_stk + ((i.lead_0_stk - lag_0_stk))/2))/STRIKE][
             , id := .I]
-# ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
 # dt_condor_strike
@@ -424,7 +418,7 @@ dx_condor_strike_disp <-  dx_condor_strike[dx_condor_strike[[2]]=='C',][
 
 # ------------------------------------------------------------------------------
 dx_condor_key <- data.table::setorder(
-  data.table::melt(dx_condor,
+  data.table::melt(dt_gf,
     id = 1:3,                      # TKR, 'C/P' = 'C', STRIKE
     measure = c(21, 9, 27, 15)
 #    measure = c("lag_1_optkr", "lag_0_optkr", "lead_0_optkr", "lead_1_optkr")
@@ -446,15 +440,13 @@ dx_condor_key[, id_strike:= rleid(value), by = .(TKR, rleid(TKR))]
 #...............................................................................
 # browser()
 #...............................................................................
-names(dt_date_run)[1]  <- "date_run"
+
 names(dx_condor_key)[c(2:3)] <- c("CMPRICE", "OPTKR")
 dx_condor_key[, strike := as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000]
 # dx_condor_key[, .(strike    = as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000),
 #                  by = .(TKR)]
 # ------------------------------------------------------------------------------
 dx_condor_key <- cbind(dx_condor_key, dt_date_run[,1])
-# ------------------------------------------------------------------------------
-
 #...............................................................................
 # browser()
 #...............................................................................
@@ -526,8 +518,7 @@ dx_condor_cost <-
       rbind(
         dx_condor_max_profit[
           !id_strike %% 2 == 1
-          ][, .(c_p    = 'c',
-                diff   =  strike - shift(strike),
+          ][, .(diff   =  strike - shift(strike),
                 profit = sum(ASK),
                 loss   = (strike - shift(strike)) - sum(ASK)
                 ),
@@ -535,8 +526,8 @@ dx_condor_cost <-
             ],
         dx_condor_max_profit[
           id_strike %% 2 == 1
-          ][, .(c_p    = 'p',
-                diff   =  strike - shift(strike),
+          ][, .(diff   =  strike - shift(
+            strike),
                 profit = sum(ASK),
                 loss   = (strike - shift(strike)) - sum(ASK)
                 ),
@@ -554,59 +545,16 @@ data.table::merge.data.table(
   dx_condor_cost[, max(diff), by = .(TKR)]
 )
 # ------------------------------------------------------------------------------
-dx_condor_strike_diff <-
-  as.data.table(
-    dcast(dx_condor_key,
-      TKR + CMPRICE ~ id_strike,
-      value.var = "strike",
-      sep = "_"
-    )
-  )
-# ------------------------------------------------------------------------------
-colnames(dx_condor_strike_diff) <- c("TKR", "CMPRICE", "strike_1", "strike_2", "strike_3", "strike_4")
-# ------------------------------------------------------------------------------
-dx_condor_strike_diff$strike_diff_inner <-
-  dx_condor_strike_diff$strike_3 - dx_condor_strike_diff$strike_2
-dx_condor_strike_diff$strike_diff_c     <-
-  dx_condor_strike_diff$strike_4 - dx_condor_strike_diff$strike_2
-dx_condor_strike_diff$strike_diff_p     <-
-  dx_condor_strike_diff$strike_3 - dx_condor_strike_diff$strike_1
-# ------------------------------------------------------------------------------
 dcast(dx_condor_max_profit,
       TKR + CMPRICE ~ id_strike,
       value.var = "ASK",
       sep = "_")
-# ------------------------------------------------------------------------------
-dx_condor_strike_cost <-
-  as.data.table(
-    dcast(
-      dx_condor_max_profit,
-      TKR + CMPRICE ~ id_strike,
-      value.var = "ASK",
-      sep = "_"
-    )
-  )[, tot_cost   := rowSums(.SD), .SDcols = c(3:6)
-  ][dx_condor_strike_diff, on = .(TKR)
-  ][, .(max_risk = strike_diff_c - tot_cost,
-        max_ret  = tot_cost - strike_diff_inner,
-        be_lower = strike_2 - (tot_cost -strike_diff_inner),
-        be_upper = strike_3 + (tot_cost -strike_diff_inner)), 
-    by = TKR
-  ][dx_condor_strike_cost, on = .(TKR)
-  ][,c(1,6:11,2:5)
-  ][, max_ret_on_risk := percent(max_ret / max_risk, accuracy = 0.1)]
-# ------------------------------------------------------------------------------
 
-#...............................................................................
-browser()
-#...............................................................................
-
-# ------------------------------------------------------------------------------
 dx_condor_max_loss <- dx_condor_cost[, .(loss = sum(loss)),by = TKR]
 # ------------------------------------------------------------------------------
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -623,7 +571,7 @@ dx_condor_max_profit <-
     by = TKR
   ]
 #...............................................................................
-# browser()
+ browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -665,10 +613,8 @@ dx_condor_max_profit <-
 #       , c(1, 7)
 #       ]
 #   )
-# ------------------------------------------------------------------------------
-
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -689,24 +635,22 @@ dx_condor_roi <-
       ][, .(TKR, profit, loss, roi, date_exp, date_run)]
   )
 # ------------------------------------------------------------------------------
-# dx_condor_roi <-
-#   merge(dx_condor_roi,
-#         dcast(dx_condor_key[id_strike == 2 | id_strike == 3],
-#               TKR + CMPRICE + date_run ~ id_strike,
-#               value.var = "strike",
-#               sep = "_"),
-#         by = c("TKR"))[,-8]
-# ------------------------------------------------------------------------------
-#  TKR    profit  loss  roi     date_exp   date_run CMPRICE  2     3
+dx_condor_roi <- 
+  merge(dx_condor_roi,
+        dcast(dx_condor_key[id_strike == 2 | id_strike == 3],
+              TKR + CMPRICE + EXPDAY ~ id_strike,
+              value.var = "strike",
+              sep = "_"),
+        by = c("TKR"))[,-8]
+
+# TKR profit  loss    roi   date_exp   date_run CMPRICE     2     3
 # <char>  <num> <num> <char>     <Date>     <char>   <num> <num> <num>
-# 1:    AMD   8.65 11.35  76.2% 2023-08-18 07/14/2023  115.90 115.0   120
+#   1:    AMD   8.65 11.35  76.2% 2023-08-18 07/14/2023  115.90 115.0   120
 # 2:    DIS   7.49 12.51  59.9% 2023-08-18 07/14/2023   88.62  85.0    90
 # 3:   MSFT  11.45 13.55  84.5% 2023-08-18 07/14/2023  344.75 340.0   350
 # 4:    OXY   3.96  6.04  65.6% 2023-08-18 07/14/2023   59.36  57.5    60
 # 5:   RIVN   4.01  5.99  66.9% 2023-08-18 07/14/2023   24.87  22.5    25
-# ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
+ # ------------------------------------------------------------------------------
 # Probability of Profit
 # TKR Company CMPRICE VOLF date_run EXPDAY diff
 # ------------------------------------------------------------------------------
@@ -715,11 +659,11 @@ setkey(dx_condor_key, TKR)
 setkey(dx_condor_roi, TKR, date_exp)
 
 #...............................................................................
-# browser()
+browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
-dx_condor_pop <-
+dx_condor_pop <<-
   unique(
     cbind(
       dx_blob[dx_condor_roi, nomatch = 0][
@@ -752,6 +696,8 @@ dx_condor_pop <-
     )
   )
 # ------------------------------------------------------------------------------
+
+
 
 #...............................................................................
 browser()
@@ -878,18 +824,18 @@ if (z == TRUE) {
 #...............................................................................
 
 # ------------------------------------------------------------------------------
-# dx_condor[, cost_x :=
-#   dx_condor[dx_blob, on = .(lag_1_optkr = OPTKR), nomatch = 0 ][
+# dt_gf[, cost_x :=
+#   dt_gf[dx_blob, on = .(lag_1_optkr = OPTKR), nomatch = 0 ][
 #   ,'ASK'] -
-#   dx_condor[dx_blob, on = .(lag_0_optkr = OPTKR), nomatch = 0 ][
+#   dt_gf[dx_blob, on = .(lag_0_optkr = OPTKR), nomatch = 0 ][
 #   ,'BID']
 #   ]
 
-# dx_condor[, c(
+# dt_gf[, c(
 # ------------------------------------------------------------------------------common rank
   # "cmrk") :=
 # ------------------------------------------------------------------------------common rank
- # .(unique(dx_condor[dx_blob, on = .(lag_1_optkr = OPTKR), nomatch = 0 ][,'CMRK']))
+ # .(unique(dt_gf[dx_blob, on = .(lag_1_optkr = OPTKR), nomatch = 0 ][,'CMRK']))
 # ------------------------------------------------------------------------------
  # ]
 # ------------------------------------------------------------------------------
@@ -959,15 +905,13 @@ new_records <-
 #      )][
 #        TKR=='AA' & OPTKR == "",]
 # ------------------------------------------------------------------------------
-g[[paste0("dx_condor")]]            <<- rbind(g[[paste0("dx_condor")]], new_records)
+g[[paste0("dt_gf")]]            <<- rbind(g[[paste0("dt_gf")]], new_records)
 g[[paste0("dx_condor_strike")]] <<- rbind(g[[paste0("dx_condor_strike")]], new_records)
-# ------------------------------------------------------------------------------
-
 #...............................................................................
 # browser()
 #...............................................................................
 
-dx_condor[complete.cases(dx_condor), ][
+dt_gf[complete.cases(dt_gf), ][
   (OPTKR        == "" &
      !lag_0_optkr  == "" &
      !lag_1_optkr  == "" &
@@ -986,6 +930,31 @@ dx_condor_strike[complete.cases(dx_condor_strike), ][
 #...............................................................................
 # browser()
 #...............................................................................
+
+# ------------------------------------------------------------------------------230516
+# chat_gpt: filter data.table all columns contain a value using r code
+# check this out - add the rep function and .N to recycle rows
+# ------------------------------------------------------------------------------
+
+# na.omit(dt_gf[rep(sapply(dt_gf, function(x) all(is.character(x) | is.numeric(x))), length = .N)])
+# dt_gf[rep(!mapply(function(x) any(is.na(x)), dt_gf),length = .N)]
+
+# ------------------------------------------------------------------------------
+
+# dt_gf[complete.cases(dt_gf), ]
+
+# ------------------------------------------------------------------------------
+# Remove rows with blank values in one particular column
+
+# df[!(is.na(df$start_pc) | df$start_pc==""), ]
+
+# Remove rows with blank values in multiple columns
+
+# df[!(is.na(df$start_pc) | df$start_pc=="" | is.na(df$end_pc) | df$end_pc==""), ]
+
+# Remove rows with blank values in all columns
+
+# df[complete.cases(df), ]
 
 #...............................................................................
 }
