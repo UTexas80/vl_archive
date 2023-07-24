@@ -108,18 +108,25 @@ fun_2000_archive_mungle     <- function(){
 # dx_blob                 <- ALLNEW[11,] %>%  row_to_names(row_number = 1)
 # data.table::setnames(dx_blob, 1:49,  names(Top200CallsBuy)[1:49])
 # data.table::setnames(dx_blob,50:54,  as.character(ALLNEW[11,50:54]))
-# dx_blob$date_run        <- ALLNEW[4,2] 
+# dx_blob$date_run        <- ALLNEW[4,2]
 # dx_blob$date_run        <- as.Date(dx_blob$date_run, format('%m/%d/%Y'))
 
+  
+  
+#...............................................................................
+# browser()
+#...............................................................................
 
 # ------------------------------------------------------------------------------
 # Step 2000.01.a create a template to rbind the dataframes
 # ------------------------------------------------------------------------------
-  date_run <<- ALLNEW[4,2]
+  date_run                <<- ALLNEW[4,2]
 # ------------------------------------------------------------------------------
-  dx_blob  <- ALLNEW[12,]      %>%  row_to_names(row_number = 1)
-  ALLNEW   <- tail(ALLNEW,-11) %>%  row_to_names(row_number = 1)
-  dx_blob  <- rbind(dx_blob, ALLNEW)
+
+# ------------------------------------------------------------------------------
+  dx_blob                 <- ALLNEW[12,]      %>%  row_to_names(row_number = 1)
+  ALLNEW                  <- tail(ALLNEW,-11) %>%  row_to_names(row_number = 1)
+  dx_blob                 <- rbind(dx_blob, ALLNEW)
 # ------------------------------------------------------------------------------
   dx_blob$date_run        <- as.Date(date_run$V2, format('%m/%d/%Y'))
 # ------------------------------------------------------------------------------
@@ -144,7 +151,7 @@ dx_blob <<- setorder(
     , Record.Number := .I][
       ,c(1:13,55,14:54)]
 # ------------------------------------------------------------------------------
-  dx_blob$EXPDAY        <- as.Date(dx_blob$EXPDAY, format('%m/%d/%Y'))
+  dx_blob$EXPDAY        <-  as.Date(dx_blob$EXPDAY, format('%m/%d/%Y'))
   dx_blob               <<- setorder(dx_blob, OPTKR)
 # ------------------------------------------------------------------------------
 
@@ -452,7 +459,13 @@ dx_condor_key[, strike := as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR
 # dx_condor_key[, .(strike    = as.numeric(substr(OPTKR, nchar(OPTKR) - 7, nchar(OPTKR))) / 1000),
 #                  by = .(TKR)]
 # ------------------------------------------------------------------------------
-dx_condor_key <- cbind(dx_condor_key, dt_date_run[,1])
+dx_condor_key  <- cbind(dx_condor_key, dt_date_run[,1])
+# ------------------------------------------------------------------------------
+dx_condor_date <-
+  data.table(run = unique(dt_date_run$date_run),
+             exp = unique(dx_stk$EXPDAY))         %>%
+    .[, diff    := exp - run]                     %>%
+    .[, diff_yr := diff / 365]
 # ------------------------------------------------------------------------------
 
 #...............................................................................
@@ -516,7 +529,7 @@ dx_condor_max_profit <<- data.table::setorder(
 )
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -576,25 +589,49 @@ dcast(dx_condor_max_profit,
       TKR + CMPRICE ~ id_strike,
       value.var = "ASK",
       sep = "_")
+
+#...............................................................................
+browser()
+#...............................................................................
+
+# ------------------------------------------------------------------------------
+# dx_condor_strike_cost <-
+#   as.data.table(
+#     dcast(
+#       dx_condor_max_profit,
+#       TKR + CMPRICE ~ id_strike,
+#       value.var = "ASK",
+#       sep = "_"
+#     )
+#   )[, tot_cost   := rowSums(.SD), .SDcols = c(3:6)
+#   ][dx_condor_strike_diff, on = .(TKR)
+#   ][, .(max_risk = strike_diff_c - tot_cost,
+#         max_ret  = tot_cost - strike_diff_inner,
+#         be_lower = strike_2 - (tot_cost -strike_diff_inner),
+#         be_upper = strike_3 + (tot_cost -strike_diff_inner)), 
+#     by = TKR
+#   ][dx_condor_strike_cost, on = .(TKR)
+#   ][,c(1,6:11,2:5)
+#   ][, max_ret_on_risk := percent(max_ret / max_risk, accuracy = 0.1)]
 # ------------------------------------------------------------------------------
 dx_condor_strike_cost <-
-  as.data.table(
+  data.table::merge.data.table(as.data.table(
     dcast(
       dx_condor_max_profit,
       TKR + CMPRICE ~ id_strike,
       value.var = "ASK",
       sep = "_"
     )
-  )[, tot_cost   := rowSums(.SD), .SDcols = c(3:6)
-  ][dx_condor_strike_diff, on = .(TKR)
-  ][, .(max_risk = strike_diff_c - tot_cost,
-        max_ret  = tot_cost - strike_diff_inner,
-        be_lower = strike_2 - (tot_cost -strike_diff_inner),
-        be_upper = strike_3 + (tot_cost -strike_diff_inner)), 
-    by = TKR
-  ][dx_condor_strike_cost, on = .(TKR)
-  ][,c(1,6:11,2:5)
-  ][, max_ret_on_risk := percent(max_ret / max_risk, accuracy = 0.1)]
+  )[, tot_cost := rowSums(.SD), .SDcols = c(3:6)], dx_condor_strike_diff) %>%
+  .[, `:=`(
+    max_risk = strike_diff_c - tot_cost,
+    max_ret  = tot_cost - strike_diff_inner,
+    be_lower = strike_2 - (tot_cost - strike_diff_inner),
+    be_upper = strike_3 + (tot_cost - strike_diff_inner)
+  ),
+  by = "TKR"
+  ] %>%
+  .[, max_ret_on_risk := percent(max_ret / max_risk, accuracy = 0.1)]
 # ------------------------------------------------------------------------------
 
 #...............................................................................
