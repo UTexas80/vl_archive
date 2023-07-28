@@ -12,7 +12,7 @@ fun_0000_archive_main       <- function() {
 
   dt_archive <-                                        # ALLNEW by DATE
 #    dt_file_table[name_char %like% 'W',]          %>% # Find all the ALLNEW.CSV
-    dt_file_table[name %like% '230714ALLNEw*',]   %>%
+    dt_file_table[name %like% '230727ALLNEw*',]   %>%
 #    dt_file_table[name_char %like% 'W',][N == 1,]  %>% # Find all the ALLNEW.CSV
     split(., by = c("name_num", "name"))           %>% # name_num -> yymmdd
     map(., fun_0000_archive_processing)                # name -> yymmddAllNEw.zip
@@ -1477,6 +1477,20 @@ call_price_short    <- 5.75
 put_price_long      <- 0.74
 put_price_short     <- 3.95
 
+# Given parameters
+current_stock_price <- 47.85
+upper_call_strike   <- 52.5
+lower_call_strike   <- 47.5
+upper_put_strike    <- 50
+lower_put_strike    <- 45
+implied_volatility  <- 0.296
+risk_free_rate      <- 0.0543
+days_to_expiration  <- 50
+days_to_expiry      <- 50
+put_price_long      <- 0.61
+call_price_short    <- 1.58
+put_price_short     <- 2.92
+call_price_long     <- 0.22
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##  ~ # Function to calculate option value using Black-Scholes formula ---------
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1527,9 +1541,15 @@ dx_condor_profit_loss$PnL <- mapply(
 )
 
 # Print the data.table
-print(dx_condor_profit_loss )
+print(dx_condor_profit_loss)
 
-dx_condor_pnl <<- dcast(dx_condor_profit_loss ,
+dx_condor_pnl <<- data.table::dcast(dx_condor_profit_loss,
        Stock_Price ~ Date,
        value.var = "PnL",
        sep = "_")
+
+
+dx_condor_pnl <<- data.table::dcast(dx_condor_profit_loss, 
+                  ... ~ Date,
+                  fun.aggregate = sum,
+                  value.var     ="PnL")
