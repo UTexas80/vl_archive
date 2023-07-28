@@ -1509,7 +1509,7 @@ dx_condor_profit_loss <- data.table(
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##  ~ Calculate P&L using mapply for each stock price and date combination -----
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dx_condor_profit_loss $PnL <- mapply(
+dx_condor_profit_loss$PnL <- mapply(
   function(stock_price, date) {
 #...............................................................................
 # browser()
