@@ -619,7 +619,7 @@ dx_condor_strike_cost <-
       value.var = "ASK",
       sep = "_"
     )
-  )[, tot_cost := rowSums(.SD), .SDcols = c(3:6)], dx_condor_strike_diff) %>%
+  )[, tot_cost := rowSums(.SD), .SDcols = c(3:6)], dx_condor_strike_diff)   %>%
   .[, `:=`(
     max_risk = strike_diff_c - tot_cost,
     max_ret  = tot_cost - strike_diff_inner,
@@ -627,13 +627,13 @@ dx_condor_strike_cost <-
     be_upper = strike_3 + (tot_cost - strike_diff_inner)
   ),
   by = "TKR"
-  ] %>%
-  .[, max_ret_on_risk     := percent(max_ret / max_risk, accuracy = 0.1)] %>%
+  ]                                                                         %>%
+  .[, max_ret_on_risk     := percent(max_ret / max_risk, accuracy = 0.1)]   %>%
   .[, max_ret_on_risk_ann := scales::percent(
                                 (1/as.double(dx_condor_date[,4])) * 
                                 (max_ret/max_risk),
-                              accuracy = 2, big.mark = ",")] %>%
-  data.table::setnames(3:6, c("s1_cost", "s2_cost", "s3_cost", "s4_cost")) %>%
+                              accuracy = 2, big.mark = ",")]                %>%
+  data.table::setnames(3:6, c("s1_cost", "s2_cost", "s3_cost", "s4_cost"))  %>%
   .[, max_loss :=
       (strike_diff_c -  (s2_cost + s4_cost)) +
       (strike_diff_p -  (s3_cost + s1_cost))
@@ -834,9 +834,9 @@ stats::pnorm((log(BE_lower/S0) + (r + (sigma ^ 2)/2) * T) / sigma * base::sqrt(T
 # lower_call_strike   <- 90
 # lower_put_strike    <- 85
 # upper_put_strike    <- 95
-# implied_volatility     <- 0.261
-# risk_free_rate            <- 0.0543
-# days_to_expiration  <- 39
+# implied_volatility  <- 0.261
+# risk_free_rate      <- 0.0543
+# days_to_expiration  <- 30
 
 # How do I calculate the Maximum Potential Profit, Maximum Potential Loss and ROI using data.table with r code?
 
@@ -1458,3 +1458,78 @@ sum(
 # 130 P - write / short
 # 135 C - buy   / long
 
+
+# Load the required library
+library(data.table)
+
+# Given parameters
+current_stock_price <- 88.62
+upper_call_strike   <- 95
+lower_call_strike   <- 85
+upper_put_strike    <- 90
+lower_put_strike    <- 80
+implied_volatility  <- 0.259
+risk_free_rate      <- 0.0543
+days_to_expiration  <- 22
+days_to_expiry      <- 22
+call_price_long     <- 1.47
+call_price_short    <- 5.75
+put_price_long      <- 0.74
+put_price_short     <- 3.95
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##  ~ # Function to calculate option value using Black-Scholes formula ---------
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+option_value <- function(S, K, r, T, sigma, option_type) {
+  
+#...............................................................................
+# browser()
+#...............................................................................  
+  
+  d1 <- (log(S / K) + (r + 0.5 * sigma^2) * T) / (sigma * sqrt(T))
+  d2 <- d1 - sigma * sqrt(T)
+  
+  if (option_type == "call") {
+    option_price <- S * pnorm(d1) - K * exp(-r * T) * pnorm(d2)
+  } else if (option_type == "put") {
+    option_price <- K * exp(-r * T) * pnorm(-d2) - S * pnorm(-d1)
+  } else {
+    stop("Invalid option type")
+  }
+  return(option_price)
+}
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#............Create a data.table to store the results...........................
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dx_condor_profit_loss <- data.table(
+  Stock_Price = rep(seq(lower_put_strike, upper_call_strike, by = 0.50), days_to_expiration + 1),
+  Date        = rep(seq(Sys.Date(), Sys.Date() + days_to_expiration, by = "days"), each = 31),
+  PnL         = NA
+)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##  ~ Calculate P&L using mapply for each stock price and date combination -----
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dx_condor_profit_loss $PnL <- mapply(
+  function(stock_price, date) {
+#...............................................................................
+# browser()
+#...............................................................................
+
+    days_to_expiry   <- as.numeric(date - Sys.Date())
+    call_long_value  <- option_value(stock_price, upper_call_strike, risk_free_rate, days_to_expiry / 365, implied_volatility, "call") * -1
+    call_short_value <- option_value(stock_price, lower_call_strike, risk_free_rate, days_to_expiry / 365, implied_volatility, "call")
+    put_long_value   <- option_value(stock_price, upper_put_strike,  risk_free_rate, days_to_expiry / 365, implied_volatility, "put") * -1
+    put_short_value  <- option_value(stock_price, lower_put_strike,  risk_free_rate, days_to_expiry / 365, implied_volatility, "put")
+    pnl              <- call_long_value + call_short_value + put_long_value + put_short_value
+    return(pnl)
+  },
+  dx_condor_profit_loss$Stock_Price, dx_condor_profit_loss$Date
+)
+
+# Print the data.table
+print(dx_condor_profit_loss )
+
+dx_condor_pnl <<- dcast(dx_condor_profit_loss ,
+       Stock_Price ~ Date,
+       value.var = "PnL",
+       sep = "_")
