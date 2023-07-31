@@ -356,7 +356,7 @@ dx_condor_strike <- na.omit(dx_condor_strike[OPTKR == "",])
 #...............................................................................
 
 # ------------------------------------------------------------------------------
-dx_condor <- 
+dx_condor <-
   dx_condor[dx_condor[[2]] == "C",
   ][
   dx_condor[dx_condor[[2]] == "P", ],
@@ -1491,18 +1491,35 @@ put_price_long      <- 0.61
 call_price_short    <- 1.58
 put_price_short     <- 2.92
 call_price_long     <- 0.22
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Given parameters
+# current_stock_price <- dx_condor_key / dx_condor_pop    / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# upper_call_strike   <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# lower_call_strike   <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# upper_put_strike    <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# lower_put_strike    <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# implied_volatility  <- dx_condor_pop
+# risk_free_rate      <- dx_condor_pop
+# days_to_expiration  <- dx_condor_date / dx_condor_pop / dx_condor_roi
+# days_to_expiry      <- dx_condor_date / dx_condor_pop / dx_condor_roi
+# put_price_long      <- dx_condor_strike_cost / dx_condor_strike_diff
+# call_price_short    <- dx_condor_strike_cost / dx_condor_strike_diff
+# put_price_short     <- dx_condor_strike_cost / dx_condor_strike_diff
+# call_price_long     <- dx_condor_strike_cost / dx_condor_strike_diff
+
+
+# ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##  ~ # Function to calculate option value using Black-Scholes formula ---------
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 option_value <- function(S, K, r, T, sigma, option_type) {
-  
+
 #...............................................................................
 # browser()
-#...............................................................................  
-  
+#...............................................................................
+
   d1 <- (log(S / K) + (r + 0.5 * sigma^2) * T) / (sigma * sqrt(T))
   d2 <- d1 - sigma * sqrt(T)
-  
+
   if (option_type == "call") {
     option_price <- S * pnorm(d1) - K * exp(-r * T) * pnorm(d2)
   } else if (option_type == "put") {
