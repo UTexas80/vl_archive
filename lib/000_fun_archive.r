@@ -302,18 +302,45 @@ dx_stk  <- data.table::setorder(
 # browser()
 #...............................................................................
 
-# -----------------------------------------------------------------------------230526
-dx_stk <- dx_stk[dt_date_exp_mth[data.table::between(diff_today, 27,63),][1,1], on = .(EXPDAY)]
 # ------------------------------------------------------------------------------
-dx_stk  %>%
-  split(., by = c("TKR", "EXPDAY", 'C/P')) %>%
+dx_stk <- dx_stk[
+  dt_date_exp_mth[data.table::between(diff_today, 27,63),
+  ][1,1], on = .(EXPDAY)]
+# ------------------------------------------------------------------------------
+
+#...............................................................................
+# browser()
+#...............................................................................
+
+# ------------------------------------------------------------------------------
+dx_stk                                        %>%
+  split(., by = c("TKR", "EXPDAY", 'C/P'))    %>%
   map(., fun_3010_strike_processing)
+# map(., fun_3010_strike_processing)          %>%
+# map(., fun_3020_spread_processing)          %>%
+# map(., fun_3030_pnl_processing)
+# ------------------------------------------------------------------------------
+
+#
+# ------------------------------------------------------------------------------
+# dx_stk  %>%
+#   split(., by = c("TKR", "EXPDAY", 'C/P'))    %>%
+#   map(., fun_3010_strike_processing)          %>%
+#   map(., fun_3020_spread_processing)          %>%
+#   map(., fun_3030_pnl_processing)
+# ------------------------------------------------------------------------------
 
 #...............................................................................
 # browser()
 #...............................................................................
 
 fun_3020_spread_processing(dx_stk)
+
+#...............................................................................
+browser()
+#...............................................................................
+
+mapply(fun_3030_pnl_processing(), g[["dx_condor_strike_cost"]])
 
 #...............................................................................
 browser()
@@ -679,13 +706,23 @@ dx_condor_cost <-
     ), TKR
   )
 # ------------------------------------------------------------------------------
-data.table::merge.data.table(
-  dcast(dx_condor_max_profit,
+dx_condor_strike_price <-
+  data.table::merge.data.table(
+    dcast(dx_condor_max_profit,
         TKR + CMPRICE ~ id_strike,
         value.var = "ASK",
         sep = "_"),
-  dx_condor_cost[, max(diff), by = .(TKR)]
-)
+    dx_condor_cost[, max(diff), by = .(TKR)]
+)[, -7]
+# ------------------------------------------------------------------------------
+colnames(dx_condor_strike_price) <- c("TKR",
+                                     "CMPRICE",
+                                     "strike_1",
+                                     "strike_2",
+                                     "strike_3",
+                                     "strike_4"
+                                     )
+# ------------------------------------------------------------------------------
 
 #...............................................................................
 # browser()
@@ -733,7 +770,7 @@ dcast(dx_condor_max_profit,
       sep = "_")
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 # ------------------------------------------------------------------------------
@@ -862,7 +899,7 @@ dx_condor_pop <-
 # ------------------------------------------------------------------------------
 
 #...............................................................................
-browser()
+# browser()
 #...............................................................................
 
 if (z == TRUE) {
@@ -877,6 +914,11 @@ if (z == TRUE) {
   g[["dx_condor_strike_disp"]]  <<- dx_condor_strike_disp
 # ------------------------------------------------------------------------------
   z <<- FALSE
+  
+# ...............................................................................
+# browser()
+# ...............................................................................
+  
 # ------------------------------------------------------------------------------
 } else {
 
@@ -892,9 +934,107 @@ if (z == TRUE) {
   g[["dx_condor_strike"]]       <<- rbind(dx_condor_strike,      g[["dx_condor_strike"]])
   g[["dx_condor_strike_cost"]]  <<- rbind(dx_condor_strike_cost, g[["dx_condor_strike_cost"]])
   g[["dx_condor_strike_diff"]]  <<- rbind(dx_condor_strike_diff, g[["dx_condor_strike_diff"]])
-  g[["dx_condor_strike_disp"]]  <<- rbind(dx_condor_strike_disp, g[["dx_condor_strike_disp"]])  
+  g[["dx_condor_strike_disp"]]  <<- rbind(dx_condor_strike_disp, g[["dx_condor_strike_disp"]])
 
 }
+
+#...............................................................................
+}
+#...............................................................................
+
+#...............................................................................
+fun_3030_pnl_processing     <- function() {
+
+#...............................................................................
+browser()
+#...............................................................................
+  
+# ------------------------------------------------------------------------------ 
+# Given parameters
+# ------------------------------------------------------------------------------
+current_stock_price <- 47.85
+upper_call_strike   <- 52.5
+lower_call_strike   <- 47.5
+upper_put_strike    <- 50
+lower_put_strike    <- 45
+implied_volatility  <- 0.296
+risk_free_rate      <- 0.0543
+days_to_expiration  <- 50
+days_to_expiry      <- 50
+put_price_long      <- 0.61
+call_price_short    <- 1.58
+put_price_short     <- 2.92
+call_price_long     <- 0.22
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##  ~ # Function to calculate option value using Black-Scholes formula ---------
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+option_value <- function(S, K, r, T, sigma, option_type) {
+  
+#...............................................................................
+# browser()
+#...............................................................................
+  
+# ------------------------------------------------------------------------------
+  d1 <- (log(S / K) + (r + 0.5 * sigma^2) * T) / (sigma * sqrt(T))
+  d2 <- d1 - sigma * sqrt(T)
+  
+  if (option_type == "call") {
+    option_price <- S * pnorm(d1) - K * exp(-r * T) * pnorm(d2)
+  } else if (option_type == "put") {
+    option_price <- K * exp(-r * T) * pnorm(-d2) - S * pnorm(-d1)
+  } else {
+    stop("Invalid option type")
+  }
+  return(option_price)
+}
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#............Create a data.table to store the results...........................
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dx_condor_profit_loss <- data.table(
+  Stock_Price = rep(seq(lower_put_strike, upper_call_strike, by = 0.50), days_to_expiration + 1),
+  Date        = rep(seq(Sys.Date(), Sys.Date() + days_to_expiration, by = "days"), each = 31),
+  PnL         = NA
+)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##  ~ Calculate P&L using mapply for each stock price and date combination -----
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dx_condor_profit_loss$PnL <- mapply(
+  function(stock_price, date) {
+
+#...............................................................................
+# browser()
+#...............................................................................
+    
+    days_to_expiry   <- as.numeric(date - Sys.Date())
+    call_long_value  <- option_value(stock_price, upper_call_strike, risk_free_rate, days_to_expiry / 365, implied_volatility, "call") * -1
+    call_short_value <- option_value(stock_price, lower_call_strike, risk_free_rate, days_to_expiry / 365, implied_volatility, "call")
+    put_long_value   <- option_value(stock_price, upper_put_strike,  risk_free_rate, days_to_expiry / 365, implied_volatility, "put") * -1
+    put_short_value  <- option_value(stock_price, lower_put_strike,  risk_free_rate, days_to_expiry / 365, implied_volatility, "put")
+    pnl              <- call_long_value + call_short_value + put_long_value + put_short_value
+    return(pnl)
+  },
+  dx_condor_profit_loss$Stock_Price, dx_condor_profit_loss$Date
+)
+
+# ------------------------------------------------------------------------------
+# Print the data.table
+# ------------------------------------------------------------------------------
+print(dx_condor_profit_loss)
+# ------------------------------------------------------------------------------
+dx_condor_pnl <<- data.table::dcast(dx_condor_profit_loss,
+                                    Stock_Price ~ Date,
+                                    value.var = "PnL",
+                                    sep = "_")
+# ------------------------------------------------------------------------------
+dx_condor_pnl <<- data.table::dcast(dx_condor_profit_loss,
+                                    ... ~ Date,
+                                    fun.aggregate = sum,
+                                    value.var     ="PnL")
+# ------------------------------------------------------------------------------
+
+#...............................................................................
+browser()
+#...............................................................................
 
 #...............................................................................
 }
@@ -1216,23 +1356,7 @@ call_price_short    <- 1.58
 put_price_short     <- 2.92
 call_price_long     <- 0.22
 
-# Given parameters
-# current_stock_price <- dx_condor_key / dx_condor_pop    / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
-# upper_call_strike   <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
-# lower_call_strike   <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
-# upper_put_strike    <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
-# lower_put_strike    <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
-# implied_volatility  <- dx_condor_pop
-# risk_free_rate      <- dx_condor_pop
-# days_to_expiration  <- dx_condor_date / dx_condor_pop / dx_condor_roi
-# days_to_expiry      <- dx_condor_date / dx_condor_pop / dx_condor_roi
-# put_price_long      <- dx_condor_strike_cost / dx_condor_strike_diff
-# call_price_short    <- dx_condor_strike_cost / dx_condor_strike_diff
-# put_price_short     <- dx_condor_strike_cost / dx_condor_strike_diff
-# call_price_long     <- dx_condor_strike_cost / dx_condor_strike_diff
-
-
-# ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##  ~ # Function to calculate option value using Black-Scholes formula ---------
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 option_value <- function(S, K, r, T, sigma, option_type) {

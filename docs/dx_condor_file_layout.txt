@@ -16,120 +16,226 @@ dx_condor
     $ lead_1_optkr          <chr>
     $ lead_1_stk            <dbl>
     $ lead_1_pct_chg        <dbl>
-    
-dx_condor_strike
-    $ TKR                   <chr>
-    $ `C/P`                 <chr>
-    $ STRIKE                <dbl>
-    $ OPTKR                 <chr>
-    $ EXPDAY                <date>
-    $ lag_1_optkr           <chr>
-    $ lag_1_stk             <dbl>
-    $ lag_1_pct_chg         <dbl>
-    $ lag_0_optkr           <chr>
-    $ lag_0_stk             <dbl>
-    $ lag_0_pct_chg         <dbl>
-    $ lead_0_optkr          <chr>
-    $ lead_0_stk            <dbl>
-    $ lead_0_pct_chg        <dbl>
-    $ lead_1_optkr          <chr>
-    $ lead_1_stk            <dbl>
-    $ lead_1_pct_chg        <dbl>
-dx_stk
-    $ TKR                   <chr>
-    $ `C/P`                 <chr>
-    $ STRIKE                <dbl>
-    $ OPTKR                 <chr>
-    $ EXPDAY                <date>
-dx_condor_strike_disp
-    $ TKR                   <chr>
-    $ `C/P`                 <chr>
-    $ STRIKE                <dbl>
-    $ OPTKR                 <chr>
-    $ EXPDAY                <date
-    $ lag_1_optkr           <chr>
-    $ lag_1_stk             <dbl>
-    $ lag_1_pct_chg         <dbl>
-    $ lag_0_optkr           <chr>
-    $ lag_0_stk             <dbl>
-    $ lag_0_pct_chg         <dbl>
-    $ lead_0_optkr          <chr>
-    $ lead_0_stk            <dbl>
-    $ lead_0_pct_chg        <dbl>
-    $ lead_1_optkr          <chr>
-    $ lead_1_stk            <dbl>
-    $ lead_1_pct_chg        <dbl>
-    $ `i.C/P`               <chr>
-    $ i.STRIKE              <dbl>
-    $ i.OPTKR               <chr>
-    $ i.lag_1_optkr         <chr>
-    $ i.lag_1_stk           <dbl>
-    $ i.lag_1_pct_chg       <dbl>
-    $ i.lag_0_optkr         <chr>
-    $ i.lag_0_stk           <dbl>
-    $ i.lag_0_pct_chg       <dbl>
-    $ i.lead_0_optkr        <chr>
-    $ i.lead_0_stk          <dbl>
-    $ i.lead_0_pct_chg      <dbl>
-    $ i.lead_1_optkr        <chr>
-    $ i.lead_1_stk          <dbl>
-    $ i.lead_1_pct_chg      <dbl>
-    $ lead_0_stk_cmp_diff   <dbl>
-    $ cmp                   <dbl>
-    $ mid                   <dbl>
-    $ diff                  <dbl>
-    $ pct_diff              <dbl>
-    $ id                    <int>
-dx_condor_key
-    $ TKR                   <chr>
-    $ CMPRICE               <dbl>
-    $ OPTKR                 <chr>
-    $ id_strike             <int>
-    $ strike                <dbl>
-    $ EXPDAY                <date>
-dx_condor_max_profit
-    $ TKR                   <chr>
-    $ profit                <dbl>
-dx_condor_max_loss
-    $ TKR                   <chr>
-    $ loss                  <dbl>
 dx_condor_cost
-    $ TKR                   <chr>
-    $ diff                  <dbl>
-    $ profit                <dbl>
-    $ loss                  <dbl>
-dx_condor_roi
-    $ TKR                   <chr>
-    $ profit                <dbl>
-    $ loss                  <dbl>
-    $ roi                   <chr>
-    $ date_exp              <date
-    $ date_run              <chr>
-    $ CMPRICE               <dbl>
-    $ `2`                   <dbl>
-    $ `3`                   <dbl>
+    $ TKR                   <chr> "AMD"
+    $ c_p                   <chr> "c"
+    $ diff                  <dbl> 10.0
+    $ profit                <dbl> 3.85
+    $ loss                  <dbl> 6.15
+dx_condor_date
+    $ run                   <date> 2023-07-27
+    $ exp                   <date> 2023-09-15
+    $ diff                  <drtn> 50 days
+    $ diff_yr               <drtn> 0.1369863 days
+dx_condor_key
+    $ TKR                   <chr> "AMD"
+    $ CMPRICE               <dbl> 111.13
+    $ OPTKR                 <chr> "AMD   230915C00110000"
+    $ id_strike             <int> 2
+    $ strike                <dbl> 110.0
+    $ date_run              <date> 2023-07-27
+dx_condor_max_loss
+    $ TKR                   <chr> "AMD"
+    $ loss                  <dbl> 11.25
+dx_condor_max_profit
+    $ TKR                   <chr> "AMD"
+    $ CMPRICE               <dbl> 111.13
+    $ OPTKR                 <chr> "AMD   230915P00105000"
+    $ id_strike             <int> 1
+    $ ASK                   <dbl> -4.75
+    $ strike                <dbl> 105
 dx_condor_pop
-    $ TKR                   <chr>
-    $ Company               <chr>
-    $ CMPRICE               <dbl>
-    $ VOLF                  <dbl>
-    $ date_run              <date>
-    $ EXPDAY                <date>
-    $ diff                  <drtn>
-    $ date_exp_diff_yr      <drtn>
-    $ sigma                 <dbl>
-    $ profit                <dbl>
-    $ breakeven_upper       <dbl>
-    $ breakeven_lower       <dbl>
-    $ rate                  <dbl>
+    $ TKR                   <chr> "AMD"
+    $ Company               <chr> "Advanced Micro Devices Inc"
+    $ CMPRICE               <dbl> 128.02
+    $ VOLF                  <dbl> 55.6
+    $ date_run              <date> 2023-07-27
+    $ EXPDAY                <date> 2023-09-15
+    $ diff                  <drtn> 50 days
+    $ date_exp_diff_yr      <drtn> 0.1369863 days
+    $ sigma                 <dbl> 0.20578483
+    $ profit                <dbl> 8.75
+    $ breakeven_upper       <dbl> 119.88
+    $ breakeven_lower       <dbl> 102.38
+    $ rate                  <dbl> 5.54
+dx_condor_profit_
+    $ Stock_Price           <dbl> 45.0
+    $ Date                  <date> 2023-08-12
+    $ PnL                   <dbl> -4.5000000
+dx_condor_roi
+    $ TKR                   <chr> "AMD"
+    $ profit                <dbl> 8.75
+    $ loss                  <dbl> 11.25
+    $ roi                   <chr> "77.78%"
+    $ date_exp              <date> 2023-09-15
+    $ date_run              <chr> "07/27/2023"
+dx_condor_strike
+    $ TKR                   <chr> "AAPL"
+    $ `C/P`                 <chr> "C"
+    $ STRIKE                <dbl> 193.20
+    $ OPTKR                 <chr> ""
+    $ EXPDAY                <date> 2023-09-15, 2023-09-15,
+    $ lag_1_optkr           <chr> "AAPL  230915C00185000",
+    $ lag_1_stk             <dbl> 185.0
+    $ lag_1_pct_chg         <dbl> 4.432432
+    $ lag_0_optkr           <chr> "AAPL  230915C00190000"
+    $ lag_0_stk             <dbl> 190.0
+    $ lag_0_pct_chg         <dbl> 1.68421053
+    $ lead_0_optkr          <chr> "AAPL  230915C00195000"
+    $ lead_0_stk            <dbl> 195.0
+    $ lead_0_pct_chg        <dbl> -0.92307692, -3.36521739
+    $ lead_1_optkr          <chr> "AAPL  230915C00200000",
+    $ lead_1_stk            <dbl> 200.0, 120.0, 120.0, 132
+    $ lead_1_pct_chg        <dbl> -3.400000
+dx_condor_strike_cost
+    $ TKR                   <chr> "AMD"
+    $ CMPRICE               <dbl> 111.13
+    $ s1_cost               <dbl> -4.75
+    $ s2_cost               <dbl> 8.80
+    $ s3_cost               <dbl> 9.65
+    $ s4_cost               <dbl> -4.95
+    $ tot_cost              <dbl> 8.75
+    $ strike_1              <dbl> 105.0
+    $ strike_2              <dbl> 110.0
+    $ strike_3              <dbl> 115.0
+    $ strike_4              <dbl> 120.0
+    $ strike_diff_inner     <dbl> 5.0
+    $ strike_diff_c         <dbl> 10
+    $ strike_diff_p         <dbl> 10.0
+    $ max_risk              <dbl> 1.25
+    $ max_ret               <dbl> 3.75
+    $ be_lower              <dbl> 106.25
+    $ be_upper              <dbl> 118.75
+    $ max_ret_on_risk       <chr> "300.0%"
+    $ max_ret_on_risk_ann   <chr> "2,190%"
+    $ max_loss              <dbl> 11.25
+dx_condor_strike_diff
+    $ TKR                   <chr> "AMD"
+    $ CMPRICE               <dbl> 111.13
+    $ strike_1              <dbl> 105.0
+    $ strike_2              <dbl> 110.0
+    $ strike_3              <dbl> 115.0
+    $ strike_4              <dbl> 120.0
+    $ strike_diff_inner     <dbl> 5.0
+    $ strike_diff_c         <dbl> 10
+    $ strike_diff_p         <dbl> 10.0
+dx_condor_strike_disp
+    $ TKR                   <chr> "AMD"
+    $ `C/P`                 <chr> "C"
+    $ STRIKE                <dbl> 128.02
+    $ OPTKR                 <chr> ""
+    $ EXPDAY                <date> 2023-09-15
+    $ lag_1_optkr           <chr> "AMD   230915C00105000"
+    $ lag_1_stk             <dbl> 105.0
+    $ lag_1_pct_chg         <dbl> 5.838095
+    $ lag_0_optkr           <chr> "AMD   230915C00110000"
+    $ lag_0_stk             <dbl> 110.0
+    $ lag_0_pct_chg         <dbl> 1.02727273
+    $ lead_0_optkr          <chr> "AMD   230915C00115000"
+    $ lead_0_stk            <dbl> 115.0
+    $ lead_0_pct_chg        <dbl> -3.3652174
+    $ lead_1_optkr          <chr> "AMD   230915C00120000"
+    $ lead_1_stk            <dbl> 120.0
+    $ lead_1_pct_chg        <dbl> -7.391667
+    $ `i.C/P`               <chr> "P"
+    $ i.STRIKE              <dbl> 128.02
+    $ i.OPTKR               <chr> ""
+    $ i.lag_1_optkr         <chr> "AMD   230915P00105000"
+    $ i.lag_1_stk           <dbl> 105.0
+    $ i.lag_1_pct_chg       <dbl> 5.838095
+    $ i.lag_0_optkr         <chr> "AMD   230915P00110000"
+    $ i.lag_0_stk           <dbl> 110.0
+    $ i.lag_0_pct_chg       <dbl> 1.02727273
+    $ i.lead_0_optkr        <chr> "AMD   230915P00115000"
+    $ i.lead_0_stk          <dbl> 115.0
+    $ i.lead_0_pct_chg      <dbl> -3.3652174
+    $ i.lead_1_optkr        <chr> "AMD   230915P00120000"
+    $ i.lead_1_stk          <dbl> 120.0
+    $ i.lead_1_pct_chg      <dbl> -7.391667
+    $ lead_0_stk_cmp_diff   <dbl> 3.87
+    $ cmp                   <dbl> 128.02
+    $ mid                   <dbl> 112.50
+    $ diff                  <dbl> -1.37
+    $ pct_diff              <dbl> -0.0123279043
+    $ id                    <int> 1
+dx_condor_strike_price
+    $ TKR                   <chr> "AMD"
+    $ CMPRICE               <dbl> 128.02
+    $ strike_1              <dbl> -4.75
+    $ strike_2              <dbl> 8.80
+    $ strike_3              <dbl> 9.65
+    $ strike_4              <dbl> -4.95
+dx_stk
+    $ TKR                   <chr> "AA"
+    $ `C/P`                 <chr> "C"
+    $ STRIKE                <dbl> 33.95
+    $ OPTKR                 <chr> "AA    230915C00035000"
+    $ EXPDAY                <date> 2023-09-15
 
-operator
-number_of_sites
-number_of_EVSEs
-number_of_chargingsessions
-total_number_of_sites
-total_number_of_EVSEs
-total_number_of_chargingsessions
-market_share_sites
-market_share_EVSEs
-market_share_chargingsessions
+
+#...............................................................................
+#                                                                              .
+# Given parameters                                                             .
+#                                                                              .
+#...............................................................................
+# Given parameters
+# current_stock_price <- dx_condor_key / dx_condor_pop    / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# upper_call_strike   <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# lower_call_strike   <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# upper_put_strike    <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# lower_put_strike    <- dx_condor_key / dx_condor_strike / dx_condor_strike_cost / dx_condor_strike_diff / dx_condor_strike_disp
+# implied_volatility  <- dx_condor_pop
+# risk_free_rate      <- dx_condor_pop
+# days_to_expiration  <- dx_condor_date / dx_condor_pop / dx_condor_roi
+# days_to_expiry      <- dx_condor_date / dx_condor_pop / dx_condor_roi
+# put_price_long      <- dx_condor_strike_cost / dx_condor_strike_diff
+# call_price_short    <- dx_condor_strike_cost / dx_condor_strike_diff
+# put_price_short     <- dx_condor_strike_cost / dx_condor_strike_diff
+# call_price_long     <- dx_condor_strike_cost / dx_condor_strike_diff
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dx_condor_date
+    $ diff                  <drtn> 50 days
+    $ diff_yr               <drtn> 0.1369863 days
+dx_condor_pop
+    $ CMPRICE               <dbl> 128.02
+    $ VOLF                  <dbl> 55.6
+    $ diff                  <drtn> 50 days
+    $ date_exp_diff_yr      <drtn> 0.1369863 days
+    $ sigma                 <dbl> 0.20578483
+    $ profit                <dbl> 8.75
+    $ breakeven_upper       <dbl> 119.88
+    $ breakeven_lower       <dbl> 102.38
+    $ rate                  <dbl> 5.54
+dx_condor_strike_cost
+    $ TKR                   <chr> "AMD"
+    $ CMPRICE               <dbl> 111.13
+    $ s1_cost               <dbl> -4.75
+    $ s2_cost               <dbl> 8.80
+    $ s3_cost               <dbl> 9.65
+    $ s4_cost               <dbl> -4.95
+    $ tot_cost              <dbl> 8.75
+    $ strike_1              <dbl> 105.0
+    $ strike_2              <dbl> 110.0
+    $ strike_3              <dbl> 115.0
+    $ strike_4              <dbl> 120.0
+    $ strike_diff_inner     <dbl> 5.0
+    $ strike_diff_c         <dbl> 10
+    $ strike_diff_p         <dbl> 10.0
+    $ max_risk              <dbl> 1.25
+    $ max_ret               <dbl> 3.75
+    $ be_lower              <dbl> 106.25
+    $ be_upper              <dbl> 118.75
+    $ max_ret_on_risk       <chr> "300.0%"
+    $ max_ret_on_risk_ann   <chr> "2,190%"
+    $ max_loss              <dbl> 11.25
+dx_condor_strike_diff
+    $ strike_1              <dbl> 105.0
+    $ strike_2              <dbl> 110.0
+    $ strike_3              <dbl> 115.0
+    $ strike_4              <dbl> 120.0
+dx_condor_strike_price
+    $ strike_1              <dbl> -4.75
+    $ strike_2              <dbl> 8.80
+    $ strike_3              <dbl> 9.65
+    $ strike_4              <dbl> -4.95
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,7 +3,10 @@ helper.function <- function()
   return(1)
 }
 
-dirCheck <- function(mainDir, subDir) {
+################################################################################
+# Check the directory
+################################################################################
+dirCheck       <- function(mainDir, subDir) {
     if (!dir.exists(file.path(mainDir, subDir))) {
         dir.create(file.path(mainDir, subDir))
     }
@@ -11,7 +14,7 @@ dirCheck <- function(mainDir, subDir) {
 ################################################################################
 # Calculate the payoff for each scenario
 ################################################################################
-fun_payoff <<- function(){
+fun_payoff     <<- function(){
 # ------------------------------------------------------------------------------
 # Define the parameters
 # ------------------------------------------------------------------------------  
@@ -128,7 +131,8 @@ clean_col_names <- function(dt_name) {
   }  
 }
 ################################################################################
-## Tricks to manage the available memory in an R session                     ### https://tinyurl.com/yxcttpsa
+## Tricks to manage the available memory in an R session                     ### 
+## https://tinyurl.com/yxcttpsa
 ################################################################################
 # improved list of objects -----------------------------------------------------
 .ls.objects <- function (pos = 1, pattern, order.by,

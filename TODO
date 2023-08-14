@@ -1,11 +1,16 @@
 - dt_bfly:
+    -  [ ] probability setup:
+    -  [ ] rule of 16
+    -  [ ] Option Volatility and Earnings:
+        - https://tinyurl.com/bdh556bc
+        - add together the price of the at-the-money put option and the at-the-money call option
     - comment fields:
         - [x] s_minus_1
         - [x] s_minus_0
         - [x} s_plus_0
         - [x] s_plus_1
         - [x] id_minus_0_stk_diff
-        - [x] id_plus_0_stk_diff 
+        - [x] id_plus_0_stk_diff
 - [ ] stock specific join fields to the dx_bfly:
     - [] CMRK
     - [] TechRank
