@@ -49,8 +49,9 @@ zip_file_path <- paste0(here::here("zip//"))
 # create global environment to dynamically name data frames
 # https://tinyurl.com/y3adrqwa ###
 # ------------------------------------------------------------------------------
-g                 <- globalenv()             # https://tinyurl.com/r3yrspv   ###
-z                 <- TRUE                    # template switch create dx_blob
+g                 <- globalenv()          # https://tinyurl.com/r3yrspv   ###
+first_rec         <- TRUE                 # template switch create dx_condor_pnl
+z                 <- TRUE                 # template switch create dx_blob
 ################################################################################
 # Hmisc package
 ################################################################################
